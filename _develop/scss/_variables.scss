@@ -1,0 +1,55 @@
+/*================================
+=            Variable            =
+================================*/
+
+$border_1: 1px solid $primary;
+$border_2: 2px solid $primary;
+$border_3: 3px solid $primary;
+
+$base-duration: 0.2s;
+$base-timing: 0.2s;
+
+// Layout
+$containerWidth: 57rem;
+$containerInsideWidth: 72%;
+$containerIncrease: 5;
+
+$containerPadding: 3rem;
+
+$frameWidth: 46%;
+$frameHeight: 64vh;
+$frameLeft: 25%;
+$frameRight: 75%;
+
+$frameBackWidth: 85.5%;
+$frameBackLeftTop: 47%;
+$frameBackRightTop: 50%;
+
+// Intro
+$introLetterHeight: 70%;
+$introTextHeight: 25%;
+$introButtonHeight: 30%;
+
+//Intro Mobile
+$introLetterHeightMobile: 35%;
+$introTextHeightMobile: 7%;
+$introButtonHeightMobile: 25%;
+
+//About
+$containerAboutWidth: 22rem;
+
+/*=====  End of Variable  ======*/
+
+/*==============================
+=            Layout            =
+==============================*/
+body {
+    @extend %px;
+    margin: 0;
+    //background-color: #000;
+}
+
+svg {
+    transition: all 0.3s;
+}
+/*=====  End of Layout  ======*/
