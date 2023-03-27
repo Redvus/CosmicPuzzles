@@ -1,0 +1,96 @@
+#introSun {
+    width: auto;
+    height: 100%;
+    display: block;
+    position: relative;
+    margin-top: -9%;
+
+    img {
+        @extend %imgCenter;
+    }
+}
+
+#introPlanet {
+    width: auto;
+    height: 100%;
+    display: block;
+    position: relative;
+
+    img {
+        @extend %imgCenter;
+    }
+}
+
+#introCosmicK {
+    z-index: 0;
+}
+
+#introCosmicO {
+    margin-left: -2.2vw;
+    z-index: 1;
+}
+
+#introCosmicS {
+    margin-left: -2.1vw;
+    z-index: 2;
+}
+
+#introCosmicM {
+    margin-left: -2.2vw;
+    z-index: 3;
+}
+
+#introCosmicI {
+    margin-left: -2.6vw;
+    z-index: 4;
+}
+
+#introCosmicCH {
+    margin-left: -2.2vw;
+    z-index: 5;
+}
+
+#introCosmicE {
+    margin-left: -2.7vw;
+    z-index: 6;
+}
+
+#introCosmicS2 {
+    margin-left: -2.8vw;
+    z-index: 7;
+}
+
+#introCosmicK2 {
+    margin-left: -2.2vw;
+    z-index: 8;
+}
+
+#introCosmicI2 {
+    margin-left: -2.1vw;
+    z-index: 9;
+}
+
+#introCosmicE2 {
+    margin-left: -2.1vw;
+    z-index: 10;
+}
+
+#introPazzlesA {
+    margin-left: -2.2vw;
+    z-index: 10;
+}
+
+#introPazzlesZ {
+    margin-left: -2.2vw;
+    z-index: 10;
+}
+
+#introPazzlesL {
+    margin-left: -2.6vw;
+    z-index: 10;
+}
+
+#introPazzlesY {
+    margin-left: -2.6vw;
+    z-index: 10;
+}

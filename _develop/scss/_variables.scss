@@ -11,6 +11,7 @@ $base-timing: 0.2s;
 
 // Layout
 $containerWidth: 57rem;
+$containerHeight: 70.5vh;
 $containerInsideWidth: 72%;
 $containerIncrease: 5;
 
@@ -26,9 +27,12 @@ $frameBackLeftTop: 47%;
 $frameBackRightTop: 50%;
 
 // Intro
-$introLetterHeight: 70%;
-$introTextHeight: 25%;
-$introButtonHeight: 30%;
+$introTopBlockHeight: 40vh;
+$introTopBlockWidth: 70vw;
+$introTitleBlockHeight: 40vh;
+$introTitleBlockWidth: 76vw;
+$introTitleSymbolWidth: calc(#{$containerWidth} / 11);
+$introTitleSymbolLeft: calc((-#{$containerWidth} / 11) / 5.8);
 
 //Intro Mobile
 $introLetterHeightMobile: 35%;
@@ -51,5 +55,13 @@ body {
 
 svg {
     transition: all 0.3s;
+}
+
+%imgCenter {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-position: center;
+    object-fit: cover;
 }
 /*=====  End of Layout  ======*/

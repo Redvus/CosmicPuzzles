@@ -126,10 +126,24 @@ const soundsLoad = new Sounds();
 //     soundsLoad.rightAnswer('assets/games/slavicmyths/sounds/rightAnswer.ogg');
 // }
 
+/* Develop */
+function introDev() {
+    const introDevLoad = new Intro();
+    introDevLoad.introStart();
+}
+
+function categoryDev() {
+    const categoryLoad = new Category();
+    categoryLoad.categoryChoice();
+}
+
 function init() {
     // introLoad();
     // aboutStart();
     // questTest();
+
+    introDev();
+    // categoryDev();
 }
 
 init();

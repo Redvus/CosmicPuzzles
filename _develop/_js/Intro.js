@@ -1,26 +1,82 @@
 class Intro {
 
     introStart() {
-        let introBlock = document.createElement('div');
-        introBlock.className = 'container__wrapper';
-        introBlock.innerHTML = `
-            <picture id="introS">
-                <img src="assets/games/slavicmyths/images/startS.png" alt="Заглавная буква С">
+        // Солнце и планеты
+        const introBlockTop = document.createElement('div');
+        introBlockTop.className = 'wrapper__top';
+        introBlockTop.innerHTML = `
+            <picture id="introSun">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginSun.png" alt="Заставка. Солнце">
             </picture>
-            <picture id="introSlavic">
-                <img src="assets/games/slavicmyths/images/startSlavic.png" alt="Славянские">
-            </picture>
-            <picture id="introM">
-                <img src="assets/games/slavicmyths/images/startM.png" alt="Заглавная буква М">
-            </picture>
-            <picture id="introMyths">
-                <img src="assets/games/slavicmyths/images/startMyths.png" alt="Мифы">
-            </picture>
-            <picture id="introButton">
-                <img src="assets/games/slavicmyths/images/startButton.png" alt="Запустить игру">
+            <picture id="introPlanet">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginPlanet.png" alt="Заставка. Планеты">
             </picture>
         `;
-        container.appendChild(introBlock);
+        wrapper.removeChild(container);
+        wrapper.appendChild(introBlockTop);
+
+        // Название игры
+        const introBlockTitle = document.createElement('div');
+        introBlockTitle.className = 'wrapper__title';
+        const introBlockTitleTop = document.createElement('div');
+        introBlockTitleTop.className = 'wrapper__title_top';
+        introBlockTitle.appendChild(introBlockTitleTop);
+        introBlockTitleTop.innerHTML = `
+            <picture id="introCosmicK" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_K.png" alt="Космические пазлы. К">
+            </picture>
+            <picture id="introCosmicO" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_O.png" alt="Космические пазлы. О">
+            </picture>
+            <picture id="introCosmicS" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_S.png" alt="Космические пазлы. С">
+            </picture>
+            <picture id="introCosmicM" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_M.png" alt="Космические пазлы. М">
+            </picture>
+            <picture id="introCosmicI" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_I.png" alt="Космические пазлы. И">
+            </picture>
+            <picture id="introCosmicCH" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_CH.png" alt="Космические пазлы. Ч">
+            </picture>
+            <picture id="introCosmicE" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_E.png" alt="Космические пазлы. Е">
+            </picture>
+            <picture id="introCosmicS2" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_S.png" alt="Космические пазлы. С">
+            </picture>
+            <picture id="introCosmicK2" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_K2.png" alt="Космические пазлы. К">
+            </picture>
+            <picture id="introCosmicI2" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_I.png" alt="Космические пазлы. И">
+            </picture>
+            <picture id="introCosmicE2" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginCosmic_E.png" alt="Космические пазлы. Е">
+            </picture>
+        `;
+        const introBlockTitleBottom = document.createElement('div');
+        introBlockTitleBottom.className = 'wrapper__title_bottom';
+        introBlockTitle.appendChild(introBlockTitleBottom);
+        introBlockTitleBottom.innerHTML = `
+            <picture id="introPazzlesP" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginPazzles_P.png" alt="Космические пазлы. П">
+            </picture>
+            <picture id="introPazzlesA" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginPazzles_A.png" alt="Космические пазлы. А">
+            </picture>
+            <picture id="introPazzlesZ" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginPazzles_Z.png" alt="Космические пазлы. З">
+            </picture>
+            <picture id="introPazzlesL" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginPazzles_L.png" alt="Космические пазлы. Л">
+            </picture>
+            <picture id="introPazzlesY" class="wrapper__title_symbol">
+                <img src="assets/games/cosmicpuzzles/images/cp_beginPazzles_Y.png" alt="Космические пазлы. Ы">
+            </picture>
+        `;
+        wrapper.appendChild(introBlockTitle);
 
         let
             introS = document.getElementById('introS'),
@@ -76,7 +132,7 @@ class Intro {
                 })
             ;
         }
-        introAnim();
+        // introAnim();
 
         // function introButtonLoadNext() {
         //     introButton.addEventListener('click', function () {
