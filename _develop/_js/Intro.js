@@ -1,6 +1,7 @@
 class Intro {
 
     introStart() {
+        wrapper.className += ' wrapper__intro';
         // Солнце и планеты
         const introBlockTop = document.createElement('div');
         introBlockTop.className = 'wrapper__top';
@@ -77,6 +78,18 @@ class Intro {
             </picture>
         `;
         wrapper.appendChild(introBlockTitle);
+
+        // Кнопки
+        const introBlockButtons = document.createElement('div');
+        introBlockButtons.className = 'wrapper__bottom';
+        introBlockButtons.innerHTML = `
+            <ul class="wrapper__bottom_menu">
+                <li><a href="javascript:void(0);" id="clickAboutLibrary">О библиотеке</a></li>
+                <li><a href="javascript:void(0);" id="clickAboutAuthors">Авторы</a></li>
+                <li><a href="javascript:void(0);" id="clickLoadGame">Начать игру</a></li>
+            </ul>
+        `;
+        wrapper.appendChild(introBlockButtons);
 
         let
             introS = document.getElementById('introS'),

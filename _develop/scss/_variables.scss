@@ -35,6 +35,7 @@ $introTitleSymbolWidth: calc(#{$containerWidth} / 11);
 $introTitleSymbolLeft: calc((-#{$containerWidth} / 11) / 5.8);
 
 //Intro Mobile
+$introTopBlockWidthMobile: 95vw;
 $introLetterHeightMobile: 35%;
 $introTextHeightMobile: 7%;
 $introButtonHeightMobile: 25%;
@@ -50,7 +51,7 @@ $containerAboutWidth: 22rem;
 body {
     @extend %px;
     margin: 0;
-    //background-color: #000;
+    background-color: $third;
 }
 
 svg {

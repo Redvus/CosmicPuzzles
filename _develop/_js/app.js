@@ -142,8 +142,8 @@ function init() {
     // aboutStart();
     // questTest();
 
-    introDev();
-    // categoryDev();
+    // introDev();
+    categoryDev();
 }
 
 init();
