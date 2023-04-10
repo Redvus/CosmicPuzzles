@@ -97,7 +97,7 @@ class Intro {
             introSlavic = document.getElementById('introSlavic'),
             introMyth = document.getElementById('introMyths'),
             introButton = document.getElementById('introButton'),
-            choiceCat = new Choice()
+            choiceCat = new ChoiceCategory()
         ;
 
         function introAnim() {

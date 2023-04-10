@@ -10,7 +10,7 @@ const soundsLoad = new Sounds();
 //     introL.introStart();
 //     let introButton = document.getElementById('introButton'),
 //         introBlock = document.querySelector('.container__wrapper'),
-//         choiceCat = new Choice();
+//         choiceCat = new ChoiceCategory();
 //
 //     function introButtonLoadNext() {
 //         introButton.addEventListener('click', function () {
@@ -83,7 +83,7 @@ const soundsLoad = new Sounds();
 // }
 
 // function choiceLoad() {
-//     const choiceLoad = new Choice();
+//     const choiceLoad = new ChoiceCategory();
 //     choiceLoad.choiceCategory();
 //     clickCategory();
 // }
@@ -134,7 +134,12 @@ function introDev() {
 
 function categoryDev() {
     const categoryLoad = new Category();
-    categoryLoad.categoryChoice();
+    categoryLoad.categoryMain();
+}
+
+function choiceCategoryDev() {
+    const choiceCatLoad = new ChoiceCategory();
+    choiceCatLoad.choiceCategory('Подготовка');
 }
 
 function init() {
@@ -143,7 +148,8 @@ function init() {
     // questTest();
 
     // introDev();
-    categoryDev();
+    // categoryDev();
+    choiceCategoryDev();
 }
 
 init();
