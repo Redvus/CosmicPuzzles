@@ -1,4 +1,4 @@
-let container = document.querySelector('.container'),
+const container = document.querySelector('.container'),
     wrapper = document.querySelector('.wrapper')
 ;
 
@@ -130,16 +130,62 @@ const soundsLoad = new Sounds();
 function introDev() {
     const introDevLoad = new Intro();
     introDevLoad.introStart();
+
+    const clickLoadGame = document.getElementById('clickLoadGame'),
+          wrapperTop = document.querySelector('.wrapper__top'),
+          wrapperTitle = document.querySelector('.wrapper__title'),
+          wrapperBottom = document.querySelector('.wrapper__bottom'),
+          choiceCatLoad = new ChoiceCategory()
+    ;
+    clickLoadGame.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.className = 'wrapper';
+                wrapper.removeChild(wrapperTop);
+                wrapper.removeChild(wrapperTitle);
+                wrapper.removeChild(wrapperBottom);
+                wrapper.appendChild(container);
+                categoryDev();
+            }
+        });
+        tl
+            .to(wrapperTop, {
+                duration: 0.7,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to(wrapperTitle, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0,
+                y: '5%'
+            })
+            .to(wrapperBottom, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0,
+                y: '5%'
+            })
+        ;
+    });
 }
 
 function categoryDev() {
     const categoryLoad = new Category();
     categoryLoad.categoryMain();
+    categoryLoad.categoryProgress('progressChoiceValue', 'progressChoiceAll');
+    categoryLoad.categoryProgress('progressPrepareValue', 'progressPrepareAll');
+    categoryLoad.categoryProgress('progressFlightValue', 'progressFlightAll');
 }
 
 function choiceCategoryDev() {
     const choiceCatLoad = new ChoiceCategory();
     choiceCatLoad.choiceCategory('Подготовка');
+}
+
+function questionBlockDev() {
+    const question = new Question();
+    question.questionBlock();
 }
 
 function init() {
@@ -149,7 +195,8 @@ function init() {
 
     // introDev();
     // categoryDev();
-    choiceCategoryDev();
+    // choiceCategoryDev();
+    questionBlockDev();
 }
 
 init();

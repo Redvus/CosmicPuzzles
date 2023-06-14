@@ -57,7 +57,7 @@ gulp.task('app-js', function(){
         path.src.js + 'Intro.js',
         path.src.js + 'ChoiceCategory.js',
         path.src.js + 'Category.js',
-        // path.src.js + 'Question.js',
+        path.src.js + 'Question.js',
         // path.src.js + 'Quest.js',
         // path.src.js + 'questionGods.js',
         // path.src.js + 'questionAnimals.js',
