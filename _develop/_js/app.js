@@ -193,10 +193,10 @@ function init() {
     // aboutStart();
     // questTest();
 
-    // introDev();
+    introDev();
     // categoryDev();
     // choiceCategoryDev();
-    questionBlockDev();
+    // questionBlockDev();
 }
 
 init();
