@@ -176,6 +176,31 @@ function categoryDev() {
     categoryLoad.categoryProgress('progressChoiceValue', 'progressChoiceAll');
     categoryLoad.categoryProgress('progressPrepareValue', 'progressPrepareAll');
     categoryLoad.categoryProgress('progressFlightValue', 'progressFlightAll');
+
+    const clickLoadChoice = document.getElementById('categoryChoice'),
+        containerCategory = document.querySelector('.container__category'),
+        categoryChoice = document.getElementById('categoryChoice'),
+        categoryPrepare = document.getElementById('categoryPrepare'),
+        categoryFlight = document.getElementById('categoryFlight')
+    ;
+
+    clickLoadChoice.addEventListener('click', () => {
+       let tl = gsap.timeline({
+           onComplete: () => {
+               container.removeChild(containerCategory),
+               choiceCategoryDev();
+           }
+       });
+       tl
+           .to([categoryChoice, categoryPrepare, categoryFlight], {
+               autoAlpha: 0,
+               duration: "0.6",
+               delay: "-0.3",
+               y: "0.5rem",
+               stagger: 0.2
+           })
+       ;
+    });
 }
 
 function choiceCategoryDev() {

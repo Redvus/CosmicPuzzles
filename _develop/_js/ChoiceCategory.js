@@ -1,7 +1,7 @@
 class ChoiceCategory {
 
     choiceCategory(choiceCategoryName) {
-        wrapper.className += ' wrapper__game';
+        // wrapper.className += ' wrapper__game';
         const containerWrapper = document.createElement('div'),
               choiceCategoryTitle = document.createElement('div')
         ;
@@ -183,6 +183,36 @@ class ChoiceCategory {
 
         container.appendChild(containerWrapper);
         containerWrapper.appendChild(choiceCategoryTitle);
+
+        function choiceCategoryAnimation() {
+            let tl = gsap.timeline();
+
+            const categorySub_1 = document.getElementById('categorySub_1'),
+                categorySub_2 = document.getElementById('categorySub_2'),
+                categorySub_3 = document.getElementById('categorySub_3'),
+                categorySub_4 = document.getElementById('categorySub_4'),
+                categorySub_5 = document.getElementById('categorySub_5'),
+                categorySub_6 = document.getElementById('categorySub_6'),
+                categorySub_7 = document.getElementById('categorySub_7'),
+                categorySub_8 = document.getElementById('categorySub_8'),
+                containerWrapper = document.querySelector('.container__wrapper')
+            ;
+
+            tl
+                .from(containerWrapper, {
+                    autoAlpha: 0,
+                    duration: "0.6",
+                })
+                .from([categorySub_1, categorySub_2, categorySub_3, categorySub_4, categorySub_5, categorySub_6, categorySub_7, categorySub_8], {
+                    autoAlpha: 0,
+                    duration: "0.3",
+                    delay: "-0.6",
+                    stagger: 0.2
+                })
+            ;
+        }
+
+        choiceCategoryAnimation();
     }
 
     choiceCategoryElement() {
