@@ -2,6 +2,7 @@ class Category {
 
     categoryMain() {
         wrapper.className += ' wrapper__game';
+        const wrapperGame = document.querySelector('.wrapper__game')
         const categoryBlock = document.createElement('div');
         categoryBlock.className = 'container__category';
         categoryBlock.innerHTML = `
@@ -59,17 +60,16 @@ class Category {
         container.appendChild(categoryBlock);
 
         function categoryAnimation() {
-            let tl = new gsap.timeline();
-            const wrapperGame = document.querySelector('.wrapper__game'),
-                categoryChoice = document.getElementById('categoryChoice'),
+            let tl = gsap.timeline();
+            const categoryChoice = document.getElementById('categoryChoice'),
                 categoryPrepare = document.getElementById('categoryPrepare'),
                 categoryFlight = document.getElementById('categoryFlight')
             ;
             tl
-                .from(wrapperGame, {
-                    autoAlpha: 0,
-                    duration: "1"
-                })
+                // .from(wrapperGame, {
+                //     autoAlpha: 0,
+                //     duration: "1"
+                // })
                 .from([categoryChoice, categoryPrepare, categoryFlight], {
                     autoAlpha: 0,
                     duration: "0.6",

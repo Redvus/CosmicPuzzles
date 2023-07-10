@@ -106,42 +106,8 @@ class Intro {
             });
 
             tl
-                .fromTo(introS, {
-                    autoAlpha: 0,
-                    x: '-10%'
-                }, {
-                    duration: 1,
-                    delay: 0.3,
-                    autoAlpha: 1,
-                    x: 0,
-                })
-                .fromTo(introSlavic, {
-                    autoAlpha: 0,
-                    x: '5%'
-                }, {
-                    duration: 1,
-                    delay: '-0.7',
-                    autoAlpha: 1,
-                    x: 0,
-                })
-                .fromTo([introM, introMyth], {
-                    autoAlpha: 0,
-                    x: '5%'
-                }, {
-                    duration: 1,
-                    delay: '-0.7',
-                    autoAlpha: 1,
-                    x: 0,
-                    stagger: 0.45,
-                })
-                .fromTo(introButton, {
-                    autoAlpha: 0,
-                    y: '10%'
-                }, {
-                    duration: 1,
-                    delay: '-0.8',
-                    autoAlpha: 1,
-                    y: 0,
+                .set(wrapper, {
+                    className: "wrapper"
                 })
             ;
         }

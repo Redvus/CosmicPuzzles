@@ -49,7 +49,9 @@ function introDev() {
 }
 
 function categoryDev() {
-    const categoryLoad = new Category();
+    const categoryLoad = new Category(),
+        arrowBackLoad = new ArrowBack();
+    ;
     categoryLoad.categoryMain();
     categoryLoad.categoryProgress('progressChoiceValue', 'progressChoiceAll');
     categoryLoad.categoryProgress('progressPrepareValue', 'progressPrepareAll');
@@ -62,10 +64,25 @@ function categoryDev() {
         categoryFlight = document.getElementById('categoryFlight')
     ;
 
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerCategory);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+    });
+
     clickLoadChoice.addEventListener('click', () => {
        let tl = gsap.timeline({
            onComplete: () => {
-               container.removeChild(containerCategory),
+               container.removeChild(arrowBackClick);
+               container.removeChild(containerCategory);
                choiceCategoryDev();
            }
        });
@@ -82,7 +99,8 @@ function categoryDev() {
 }
 
 function choiceCategoryDev() {
-    const choiceCatLoad = new ChoiceCategory();
+    const choiceCatLoad = new ChoiceCategory(),
+        arrowBackLoad = new ArrowBack();
     choiceCatLoad.choiceCategory('Подготовка');
 
     const containerWrapper = document.querySelector('.container__wrapper'),
@@ -90,9 +108,24 @@ function choiceCategoryDev() {
 
     ;
 
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerWrapper, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapper);
+                wrapper.className = 'wrapper';
+                categoryDev();
+            }
+        });
+    });
+
     categorySub_1.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
+                container.removeChild(arrowBackClick);
                 container.removeChild(containerWrapper);
                 questionChoiceCat_1();
             }
