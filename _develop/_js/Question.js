@@ -1,7 +1,12 @@
 class Question {
 
-    questionBlock() {
-        wrapper.className += ' wrapper__game';
+    questionBlock(
+        questionTitle,
+        questionQuest,
+        questionVariant1,
+        questionVariant2,
+        questionVariant3) {
+        // wrapper.className += ' wrapper__game';
         const containerWrapper = document.createElement('div'),
             questionCategoryTitle = document.createElement('div')
         ;
@@ -11,16 +16,16 @@ class Question {
         containerWrapper.innerHTML = `
             <div class="question__block">
                 <div class="question__block_imageblock">
-                    <h3>Белка, стрелка и ...</h3>
+                    <h3>${questionTitle}</h3>
                     <div class="question__block_image">
-                        <p>Кто из животных побывал первым в космосе?</p>
-                        <img src="assets/games/cosmicpuzzles/images/cp_questImageBack_1.png" alt="">
+                        <p>${questionQuest}</p>
+                        <img src="assets/games/cosmicpuzzles/images/cp_questImageBack_1.png" alt="Изображение по вопросом">
                     </div>
                 </div>
                 <ul class="question__block_list">
-                    <li><a href="javascript:void(0);" id="quest_1">Дезик и Цыган</a></li>
-                    <li><a href="javascript:void(0);" id="quest_2">Белка и Стрелка</a></li>
-                    <li><a href="javascript:void(0);" id="quest_3">Лайка</a></li>
+                    <li><a href="javascript:void(0);" id="answerVar_1">${questionVariant1}</a></li>
+                    <li><a href="javascript:void(0);" id="answerVar_2">${questionVariant2}</a></li>
+                    <li><a href="javascript:void(0);" id="answerVar_3">${questionVariant3}</a></li>
                 </ul>
             </div>
         `;
