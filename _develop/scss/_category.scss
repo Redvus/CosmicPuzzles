@@ -59,12 +59,12 @@
                 width: 3vmin;
                 height: 3vmin;
                 margin-right: 0.5rem;
-                background-image: url("../assets/games/cosmicpuzzles/images/cp_stars_empty.png");
+                background-image: url("../images/cp_stars_empty.png");
                 background-position: 0 0;
                 background-size: auto 100%;
 
                 &.fill {
-                    background-image: url("../assets/games/cosmicpuzzles/images/cp_stars_fill.png");
+                    background-image: url("../images/cp_stars_fill.png");
                 }
 
                 picture {

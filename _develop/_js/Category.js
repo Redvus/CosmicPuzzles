@@ -1,7 +1,7 @@
 class Category {
 
     categoryMain() {
-        wrapper.className += ' wrapper__game';
+        // wrapper.className += ' wrapper__game';
         const wrapperGame = document.querySelector('.wrapper__game')
         const categoryBlock = document.createElement('div');
         categoryBlock.className = 'container__category';
@@ -59,21 +59,27 @@ class Category {
         `;
         container.appendChild(categoryBlock);
 
+        const introBlockBack = document.createElement('div');
+        introBlockBack.className = 'wrapper__game';
+        wrapper.appendChild(introBlockBack);
+
         function categoryAnimation() {
             let tl = gsap.timeline();
             const categoryChoice = document.getElementById('categoryChoice'),
                 categoryPrepare = document.getElementById('categoryPrepare'),
-                categoryFlight = document.getElementById('categoryFlight')
+                categoryFlight = document.getElementById('categoryFlight'),
+                wrapperGame = document.querySelector('.wrapper__game')
             ;
             tl
-                // .from(wrapperGame, {
-                //     autoAlpha: 0,
-                //     duration: "1"
-                // })
+                .from(wrapperGame, {
+                    autoAlpha: 0,
+                    duration: 1,
+                    delay: -0.4
+                })
                 .from([categoryChoice, categoryPrepare, categoryFlight], {
                     autoAlpha: 0,
-                    duration: "0.6",
-                    delay: "-0.3",
+                    duration: 0.6,
+                    delay: -0.3,
                     y: "-0.5rem",
                     stagger: 0.2
                 })
@@ -91,7 +97,6 @@ class Category {
         if (localStorage.getItem(progressNameValue) === null) {
             localStorage.setItem(progressNameValue, JSON.stringify(progressBasic));
         } else {
-            localStorage.setItem(progressNameValue, JSON.stringify(progressBasic));
             progressValue.textContent = JSON.parse(localStorage.getItem(progressNameValue));
         }
     }

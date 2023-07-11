@@ -9,4 +9,14 @@ class ArrowBack {
         `;
         container.appendChild(containerArrowBack);
     }
+
+    clearStorage() {
+        const containerClear = document.createElement('a');
+        containerClear.className = 'wrapper__game_clear';
+        containerClear.id = 'clearStorageClick';
+        containerClear.innerHTML = `
+            <img src="assets/games/cosmicpuzzles/images/cp_clearButton.png" alt="Стереть память">
+        `;
+        container.appendChild(containerClear);
+    }
 }

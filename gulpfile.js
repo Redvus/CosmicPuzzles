@@ -60,7 +60,7 @@ gulp.task('app-js', function(){
         path.src.js + 'Question.js',
         path.src.js + 'ArrowBack.js',
         path.src.js + 'questPrepareCategory.js',
-        path.src.js + 'questFlightCategory.js',
+        path.src.js + 'questChoiceCategory.js',
         path.src.js + 'questFlightCategory.js',
         path.src.js + 'app.js'
     ])

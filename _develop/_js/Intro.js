@@ -1,7 +1,7 @@
 class Intro {
 
     introStart() {
-        wrapper.className += ' wrapper__intro';
+        // wrapper.className += ' wrapper__intro';
         // Солнце и планеты
         const introBlockTop = document.createElement('div');
         introBlockTop.className = 'wrapper__top';
@@ -79,6 +79,10 @@ class Intro {
         `;
         wrapper.appendChild(introBlockTitle);
 
+        const introBlockBack = document.createElement('div');
+        introBlockBack.className = 'wrapper__intro';
+        wrapper.appendChild(introBlockBack);
+
         // Кнопки
         const introBlockButtons = document.createElement('div');
         introBlockButtons.className = 'wrapper__bottom';
@@ -91,40 +95,36 @@ class Intro {
         `;
         wrapper.appendChild(introBlockButtons);
 
-        let
-            introS = document.getElementById('introS'),
-            introM = document.getElementById('introM'),
-            introSlavic = document.getElementById('introSlavic'),
-            introMyth = document.getElementById('introMyths'),
-            introButton = document.getElementById('introButton'),
-            choiceCat = new ChoiceCategory()
+        const wrapperTop = document.querySelector('.wrapper__top'),
+            wrapperTitle = document.querySelector('.wrapper__title'),
+            wrapperBottom = document.querySelector('.wrapper__bottom'),
+            wrapperBack = document.querySelector('.wrapper__intro')
         ;
 
         function introAnim() {
-            let tl = gsap.timeline({
-                // onComplete: introButtonLoadNext
-            });
-
+            let tl = gsap.timeline();
             tl
-                .set(wrapper, {
-                    className: "wrapper"
+                .to(wrapperBack, {
+                    duration: 0.7,
+                    delay: -0.5,
+                    autoAlpha: 1
+                })
+                .to(wrapperTop, {
+                    duration: 0.7,
+                    autoAlpha: 1
+                })
+                .to(wrapperTitle, {
+                    duration: 0.7,
+                    delay: -0.5,
+                    autoAlpha: 1
+                })
+                .to(wrapperBottom, {
+                    duration: 0.7,
+                    delay: -0.5,
+                    autoAlpha: 1
                 })
             ;
         }
-        // introAnim();
-
-        // function introButtonLoadNext() {
-        //     introButton.addEventListener('click', function () {
-        //         gsap.to(introBlock, {
-        //             duration: 1,
-        //             autoAlpha: 0,
-        //             x: '-3%',
-        //             onComplete: () => {
-        //                 container.removeChild(introBlock);
-        //                 choiceCat.choiceCategory();
-        //             }
-        //         });
-        //     })
-        // }
+        introAnim();
     }
 }

@@ -1,6 +1,7 @@
 class Question {
 
     questionBlock(
+        questionTitleCategory,
         questionTitle,
         questionQuest,
         questionVariant1,
@@ -12,7 +13,7 @@ class Question {
         ;
         containerWrapper.className = 'container__wrapper container__wrapper_category';
         questionCategoryTitle.className = 'container__title container__title_category';
-        questionCategoryTitle.innerHTML = `<h1>Подготовка</h1>`;
+        questionCategoryTitle.innerHTML = `<h1>${questionTitleCategory}</h1>`;
         containerWrapper.innerHTML = `
             <div class="question__block">
                 <div class="question__block_imageblock">

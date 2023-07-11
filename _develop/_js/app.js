@@ -10,10 +10,11 @@ function introDev() {
     introDevLoad.introStart();
 
     const clickLoadGame = document.getElementById('clickLoadGame'),
-          wrapperTop = document.querySelector('.wrapper__top'),
-          wrapperTitle = document.querySelector('.wrapper__title'),
-          wrapperBottom = document.querySelector('.wrapper__bottom'),
-          choiceCatLoad = new ChoiceCategory()
+        wrapperTop = document.querySelector('.wrapper__top'),
+        wrapperTitle = document.querySelector('.wrapper__title'),
+        wrapperBottom = document.querySelector('.wrapper__bottom'),
+        wrapperBack = document.querySelector('.wrapper__intro'),
+        choiceCatLoad = new ChoiceCategory()
     ;
     clickLoadGame.addEventListener('click', () => {
         let tl = gsap.timeline({
@@ -22,6 +23,7 @@ function introDev() {
                 wrapper.removeChild(wrapperTop);
                 wrapper.removeChild(wrapperTitle);
                 wrapper.removeChild(wrapperBottom);
+                wrapper.removeChild(wrapperBack);
                 wrapper.appendChild(container);
                 categoryDev();
             }
@@ -44,6 +46,11 @@ function introDev() {
                 autoAlpha: 0,
                 y: '5%'
             })
+            .to(wrapperBack, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0
+            })
         ;
     });
 }
@@ -57,8 +64,7 @@ function categoryDev() {
     categoryLoad.categoryProgress('progressPrepareValue', 'progressPrepareAll');
     categoryLoad.categoryProgress('progressFlightValue', 'progressFlightAll');
 
-    const clickLoadChoice = document.getElementById('categoryChoice'),
-        containerCategory = document.querySelector('.container__category'),
+    const containerCategory = document.querySelector('.container__category'),
         categoryChoice = document.getElementById('categoryChoice'),
         categoryPrepare = document.getElementById('categoryPrepare'),
         categoryFlight = document.getElementById('categoryFlight')
@@ -77,35 +83,172 @@ function categoryDev() {
             }
         });
     });
+    arrowBackLoad.clearStorage();
+    const clearButton = document.getElementById('clearStorageClick'),
+        setProgressChoice = document.getElementById('progressChoiceValue'),
+        setProgressPrepare = document.getElementById('progressPrepareValue'),
+        setProgressFlight = document.getElementById('progressFlightValue')
+    ;
+    clearButton.addEventListener('click', () => {
+        localStorage.clear();
+        localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(0));
+        localStorage.setItem('progressChoiceQuest_1', JSON.stringify(0));
+        localStorage.setItem('progressChoiceAll', JSON.stringify(0));
+        localStorage.setItem('progressPrepareAll', JSON.stringify(0));
+        localStorage.setItem('progressFlightAll', JSON.stringify(0));
+        setProgressChoice.textContent = JSON.parse(localStorage.getItem('progressChoiceAll'));
+        setProgressPrepare.textContent = JSON.parse(localStorage.getItem('progressPrepareAll'));
+        setProgressFlight.textContent = JSON.parse(localStorage.getItem('progressFlightAll'));
+    });
 
-    clickLoadChoice.addEventListener('click', () => {
-       let tl = gsap.timeline({
-           onComplete: () => {
-               container.removeChild(arrowBackClick);
-               container.removeChild(containerCategory);
-               choiceCategoryDev();
-           }
-       });
-       tl
-           .to([categoryChoice, categoryPrepare, categoryFlight], {
-               autoAlpha: 0,
-               duration: "0.6",
-               delay: "-0.3",
-               y: "0.5rem",
-               stagger: 0.2
-           })
-       ;
+    categoryChoice.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(clearButton);
+                container.removeChild(containerCategory);
+                choiceCategoryDev();
+            }
+        });
+        tl
+            .to([categoryChoice, categoryPrepare, categoryFlight], {
+                autoAlpha: 0,
+                duration: "0.6",
+                delay: "-0.3",
+                y: "0.5rem",
+                stagger: 0.2
+            })
+        ;
+    });
+
+    categoryPrepare.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(clearButton);
+                container.removeChild(containerCategory);
+                prepareCategoryDev();
+            }
+        });
+        tl
+            .to([categoryChoice, categoryPrepare, categoryFlight], {
+                autoAlpha: 0,
+                duration: "0.6",
+                delay: "-0.3",
+                y: "0.5rem",
+                stagger: 0.2
+            })
+        ;
+    });
+
+    categoryFlight.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(clearButton);
+                container.removeChild(containerCategory);
+                flightCategoryDev();
+            }
+        });
+        tl
+            .to([categoryChoice, categoryPrepare, categoryFlight], {
+                autoAlpha: 0,
+                duration: "0.6",
+                delay: "-0.3",
+                y: "0.5rem",
+                stagger: 0.2
+            })
+        ;
     });
 }
 
 function choiceCategoryDev() {
     const choiceCatLoad = new ChoiceCategory(),
         arrowBackLoad = new ArrowBack();
-    choiceCatLoad.choiceCategory('Подготовка');
+    choiceCatLoad.choiceCategory('Отбор', 'Choice');
 
     const containerWrapper = document.querySelector('.container__wrapper'),
-        categorySub_1 = document.getElementById('categorySub_1')
+        categorySubChoice_1 = document.getElementById('categorySubChoice_1')
+    ;
 
+    //Local Storage. Progress
+    let progressChoiceQuest1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1'));
+    let progressChoiceQuest2 = JSON.parse(localStorage.getItem('progressChoiceQuest_2'));
+    let progressChoiceQuest3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3'));
+    let progressChoiceQuest4 = JSON.parse(localStorage.getItem('progressChoiceQuest_4'));
+    let progressChoiceQuest5 = JSON.parse(localStorage.getItem('progressChoiceQuest_5'));
+    let progressChoiceQuest6 = JSON.parse(localStorage.getItem('progressChoiceQuest_6'));
+    let progressChoiceQuest7 = JSON.parse(localStorage.getItem('progressChoiceQuest_7'));
+    let progressChoiceQuest8 = JSON.parse(localStorage.getItem('progressChoiceQuest_8'));
+    let progressChoiceQuestAll = progressChoiceQuest1 + progressChoiceQuest2 + progressChoiceQuest3 + progressChoiceQuest4 + progressChoiceQuest5 + progressChoiceQuest6 + progressChoiceQuest7 + progressChoiceQuest8;
+    localStorage.setItem('progressChoiceAll', JSON.stringify(progressChoiceQuestAll));
+
+    let categorySubStars_1 = document.querySelector('.category__element_stars'),
+        categorySubQuest_2 = document.getElementById('categorySubChoice_2')
+    ;
+
+    if (progressChoiceQuest1 == 1) {
+        categorySubStars_1.innerHTML = `
+            <li class="fill"></li>
+            <li></li>
+            <li></li>
+        `;
+    } else if (progressChoiceQuest1 == 2) {
+        categorySubStars_1.innerHTML = `
+            <li class="fill"></li>
+            <li class="fill"></li>
+            <li></li>
+        `;
+    } else if (progressChoiceQuest1 == 3) {
+        categorySubStars_1.innerHTML = `
+            <li class="fill"></li>
+            <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+    }
+
+    if (progressChoiceQuest1 >= 1) {
+        categorySubQuest_2.className = 'category__element category__element_2';
+    }
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerWrapper, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapper);
+                wrapper.className = 'wrapper';
+                categoryDev();
+            }
+        });
+    });
+
+    categorySubChoice_1.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapper);
+                questionChoiceCat_1_1();
+            }
+        });
+
+        tl
+            .to(containerWrapper, {
+                autoAlpha: 0,
+            })
+        ;
+    });
+}
+
+function prepareCategoryDev() {
+    const choiceCatLoad = new ChoiceCategory(),
+        arrowBackLoad = new ArrowBack();
+    choiceCatLoad.choiceCategory('Подготовка', 'Prepare');
+
+    const containerWrapper = document.querySelector('.container__wrapper'),
+        categorySubPrepare_1 = document.getElementById('categorySubPrepare_1')
     ;
 
     arrowBackLoad.arrowBack();
@@ -122,12 +265,52 @@ function choiceCategoryDev() {
         });
     });
 
-    categorySub_1.addEventListener('click', () => {
+    categorySubPrepare_1.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
                 container.removeChild(containerWrapper);
-                questionChoiceCat_1();
+                questionPrepareCat_1();
+            }
+        });
+
+        tl
+            .to(containerWrapper, {
+                autoAlpha: 0,
+            })
+        ;
+    });
+}
+
+function flightCategoryDev() {
+    const choiceCatLoad = new ChoiceCategory(),
+        arrowBackLoad = new ArrowBack();
+    choiceCatLoad.choiceCategory('Полет', 'Flight');
+
+    const containerWrapper = document.querySelector('.container__wrapper'),
+        categorySubFlight_1 = document.getElementById('categorySubFlight_1')
+    ;
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerWrapper, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapper);
+                wrapper.className = 'wrapper';
+                categoryDev();
+            }
+        });
+    });
+
+    categorySubFlight_1.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapper);
+                questionFlightCat_1();
             }
         });
 
