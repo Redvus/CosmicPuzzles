@@ -139,5 +139,11 @@
             user-select: none;
             pointer-events: none;
         }
+
+        &--lock {
+            cursor: default;
+            user-select: none;
+            pointer-events: none;
+        }
     }
 }

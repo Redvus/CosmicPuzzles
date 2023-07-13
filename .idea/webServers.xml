@@ -10,7 +10,7 @@
         </fileTransfer>
       </webServer>
       <webServer id="8cc8c44f-e4bd-443b-a9e6-8b9f8bece417" name="RedvusVoos" url="https://smibs.redvus.ru/games/cosmicpuzzles">
-        <fileTransfer rootFolder="/var/www/smibs.redvus.ru/root/assets/games/cosmicpuzzles" accessType="SFTP" host="176.57.215.214" port="22" sshConfigId="7a48a1d2-af8e-46bf-87ba-7e5882b22641" sshConfig="redvus@176.57.215.214:22 password">
+        <fileTransfer rootFolder="/mnt/disk2/site_dev/smibs.redvus.ru/root/assets/games/cosmicpuzzles" accessType="SFTP" host="176.57.215.214" port="22" sshConfigId="7a48a1d2-af8e-46bf-87ba-7e5882b22641" sshConfig="redvus@176.57.215.214:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
