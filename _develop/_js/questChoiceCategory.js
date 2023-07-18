@@ -12,9 +12,10 @@ if (localStorage.getItem('progressChoiceQuest_1') === null) {
 
 function questionChoiceCat_1_1() {
     let questChoiceCatLoad = new Question();
-    let questArrowBack = new ArrowBack();
+    let questArrowBack = new ArrowsAll();
     let progressChoiceQuest_1_1Key = 'progressChoiceQuest_1_1';
     let progressChoiceQuest_1_1Value = progressChoiceQuest_1_1;
+    let answerWrightNum = 1;
 
     if (localStorage.getItem(progressChoiceQuest_1_1Key) === null) {
         localStorage.setItem(progressChoiceQuest_1_1Key, JSON.stringify(progressChoiceQuest_1_1Value));
@@ -29,7 +30,7 @@ function questionChoiceCat_1_1() {
     ;
 
     for (let i = 0; i < answerVarRight.length; i++) {
-        if (answerVarRight[i] == answerVarRight[1]) {
+        if (answerVarRight[i] == answerVarRight[answerWrightNum]) {
             answerVarRight[i].addEventListener('click', () => {
                 let progressChoiceQuest_1_1 = JSON.parse(localStorage.getItem(progressChoiceQuest_1_1Key));
                 let progressChoiceQuestSum_1_1 = progressChoiceQuest_1_1 + 1;
@@ -61,13 +62,31 @@ function questionChoiceCat_1_1() {
             }
         });
     });
+
+    questChoiceCatLoad.answerBlock(answerWrightNum, 'Конечно же стрелка, потому как это только и это есть правильный ответ, а не другой');
+
+    questArrowBack.arrowNext();
+    const arrowNextClick = document.getElementById('answerNext');
+    arrowNextClick.addEventListener('click', () => {
+        gsap.to(containerWrapperCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(arrowNextClick);
+                container.removeChild(containerWrapperCategory);
+                wrapper.className = 'wrapper';
+                questionChoiceCat_1_2();
+            }
+        });
+    });
 }
 
 function questionChoiceCat_1_2() {
     let questChoiceCatLoad = new Question();
-    let questArrowBack = new ArrowBack();
+    let questArrowBack = new ArrowsAll();
     let progressChoiceQuest_1_2Key = 'progressChoiceQuest_1_2';
     let progressChoiceQuest_1_2Value = progressChoiceQuest_1_2;
+    let answerWrightNum = 0;
 
     if (localStorage.getItem(progressChoiceQuest_1_2Key) === null) {
         localStorage.setItem(progressChoiceQuest_1_2Key, JSON.stringify(progressChoiceQuest_1_2Value));
@@ -82,7 +101,7 @@ function questionChoiceCat_1_2() {
     ;
 
     for (let i = 0; i < answerVarRight.length; i++) {
-        if (answerVarRight[i] == answerVarRight[0]) {
+        if (answerVarRight[i] == answerVarRight[answerWrightNum]) {
             answerVarRight[i].addEventListener('click', () => {
                 let progressChoiceQuest_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1'));
                 let progressChoiceQuestSum_1_2 = progressChoiceQuest_1_2Value + 1;
@@ -109,13 +128,30 @@ function questionChoiceCat_1_2() {
             }
         });
     });
+
+    questChoiceCatLoad.answerBlock(answerWrightNum, 'Конечно же стрелка, потому как это только');
+    questArrowBack.arrowNext();
+    const arrowNextClick = document.getElementById('answerNext');
+    arrowNextClick.addEventListener('click', () => {
+        gsap.to(containerWrapperCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(arrowNextClick);
+                container.removeChild(containerWrapperCategory);
+                wrapper.className = 'wrapper';
+                questionChoiceCat_1_3();
+            }
+        });
+    });
 }
 
 function questionChoiceCat_1_3() {
     let questChoiceCatLoad = new Question();
-    let questArrowBack = new ArrowBack();
+    let questArrowBack = new ArrowsAll();
     let progressChoiceQuest_1_3Key = 'progressChoiceQuest_1_3';
     let progressChoiceQuest_1_3Value = progressChoiceQuest_1_3;
+    let answerWrightNum = 0;
 
     if (localStorage.getItem(progressChoiceQuest_1_3Key) === null) {
         localStorage.setItem(progressChoiceQuest_1_3Key, JSON.stringify(progressChoiceQuest_1_3Value));
@@ -130,7 +166,7 @@ function questionChoiceCat_1_3() {
     ;
 
     for (let i = 0; i < answerVarRight.length; i++) {
-        if (answerVarRight[i] == answerVarRight[0]) {
+        if (answerVarRight[i] == answerVarRight[answerWrightNum]) {
             answerVarRight[i].addEventListener('click', () => {
                 let progressChoiceQuest_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1'));
                 let progressChoiceQuestSum_1_3 = progressChoiceQuest_1_3Value + 1;
@@ -150,6 +186,23 @@ function questionChoiceCat_1_3() {
             autoAlpha: 0,
             onComplete: () => {
                 container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapperCategory);
+                wrapper.className = 'wrapper';
+                choiceCategoryDev();
+                lockSubQuestChoice();
+            }
+        });
+    });
+
+    questChoiceCatLoad.answerBlock(answerWrightNum, 'Конечно же стрелка, потому как это только');
+    questArrowBack.arrowNext();
+    const arrowNextClick = document.getElementById('answerNext');
+    arrowNextClick.addEventListener('click', () => {
+        gsap.to(containerWrapperCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
                 choiceCategoryDev();

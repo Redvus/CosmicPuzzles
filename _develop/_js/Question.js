@@ -7,7 +7,10 @@ class Question {
         questionVariant1,
         questionVariant2,
         questionVariant3) {
-        // wrapper.className += ' wrapper__game';
+
+        // Development
+        wrapper.className += ' wrapper__game';
+
         const containerWrapper = document.createElement('div'),
             questionCategoryTitle = document.createElement('div')
         ;
@@ -24,13 +27,95 @@ class Question {
                     </div>
                 </div>
                 <ul class="question__block_list">
-                    <li><a href="javascript:void(0);" id="answerVar_1">${questionVariant1}</a></li>
-                    <li><a href="javascript:void(0);" id="answerVar_2">${questionVariant2}</a></li>
-                    <li><a href="javascript:void(0);" id="answerVar_3">${questionVariant3}</a></li>
+                    <li id="answerVar_1"><a href="javascript:void(0);">${questionVariant1}</a></li>
+                    <li id="answerVar_2"><a href="javascript:void(0);">${questionVariant2}</a></li>
+                    <li id="answerVar_3"><a href="javascript:void(0);">${questionVariant3}</a></li>
                 </ul>
             </div>
         `;
         container.appendChild(containerWrapper);
         containerWrapper.appendChild(questionCategoryTitle);
+    }
+
+    answerBlock(answerVarNum, answerTextRight) {
+        const questionBlock = document.querySelector('.question__block_list'),
+            questionBlockText = document.createElement('div'),
+            questionBlockWrongText = document.createElement('div')
+        ;
+
+        questionBlockText.innerHTML = `
+            <div class="question__block_text-inside"><p>${answerTextRight}</p></div>
+<!--            <a href="javascript:void(0);" class="question__block_next">Следующий вопрос</a>-->
+        `;
+        questionBlockWrongText.innerHTML = `
+            <div class="question__block_text-inside"><p>Неправильно</p></div>
+<!--            <a href="javascript:void(0);" class="question__block_next">Следующий вопрос</a>-->
+        `;
+
+        let answerVar_1 = document.getElementById('answerVar_1'),
+            answerVar_2 = document.getElementById('answerVar_2'),
+            answerVar_3 = document.getElementById('answerVar_3'),
+            answerVarArray = [answerVar_1, answerVar_2, answerVar_3],
+            answerLi = document.querySelectorAll('ul.question__block_list > li'),
+            answerLiRight = document.querySelectorAll('ul.question__block_list > li > a'),
+            answerBlockTextInside = document.querySelector('.question__block_text-inside'),
+            answerTextInside = document.querySelectorAll('.question__block_text-inside > p')
+        ;
+
+        for (let i = 0; i < answerVarArray.length; i++) {
+            if (answerVarArray[i] === answerVarArray[answerVarNum]) {
+                answerVarArray[i].addEventListener('click', () => {
+                    answerLi.forEach((el, idx) => {
+                        if (idx !== answerVarNum) {
+                            el.remove();
+                            questionBlock.appendChild(questionBlockText);
+                            questionBlockText.className = 'question__block_text';
+                        }
+                        if (idx === answerVarNum) {
+                            answerLiRight[i].className += 'question__block_list--right';
+                        }
+                    });
+                });
+            } else if (answerVarArray[i] === answerVarArray[0]) {
+                answerVarArray[i].addEventListener('click', (target) => {
+                    answerLi.forEach((el, idx) => {
+                        if (idx !== 0) {
+                            el.remove();
+                            questionBlock.appendChild(questionBlockWrongText);
+                            questionBlockWrongText.className = 'question__block_text';
+                        }
+                        if (idx === 0) {
+                            answerLiRight[i].className += 'question__block_list--wrong';
+                        }
+                    });
+                });
+            } else if (answerVarArray[i] === answerVarArray[1]) {
+                answerVarArray[i].addEventListener('click', (target) => {
+                    answerLi.forEach((el, idx) => {
+                        if (idx !== 1) {
+                            el.remove();
+                            questionBlock.appendChild(questionBlockWrongText);
+                            questionBlockWrongText.className = 'question__block_text';
+                        }
+                        if (idx === 1) {
+                            answerLiRight[i].className += 'question__block_list--wrong';
+                        }
+                    });
+                });
+            } else if (answerVarArray[i] === answerVarArray[2]) {
+                answerVarArray[i].addEventListener('click', (target) => {
+                    answerLi.forEach((el, idx) => {
+                        if (idx !== 2) {
+                            el.remove();
+                            questionBlock.appendChild(questionBlockWrongText);
+                            questionBlockWrongText.className = 'question__block_text';
+                        }
+                        if (idx === 2) {
+                            answerLiRight[i].className += 'question__block_list--wrong';
+                        }
+                    });
+                });
+            }
+        }
     }
 }

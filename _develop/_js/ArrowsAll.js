@@ -1,4 +1,4 @@
-class ArrowBack {
+class ArrowsAll {
 
     arrowBack() {
         const containerArrowBack = document.createElement('a');
@@ -16,6 +16,16 @@ class ArrowBack {
         containerClear.id = 'clearStorageClick';
         containerClear.innerHTML = `
             <img src="assets/games/cosmicpuzzles/images/cp_clearButton.png" alt="Стереть память">
+        `;
+        container.appendChild(containerClear);
+    }
+
+    arrowNext() {
+        const containerClear = document.createElement('a');
+        containerClear.className = 'wrapper__game_next';
+        containerClear.id = 'answerNext';
+        containerClear.innerHTML = `
+            <img src="assets/games/cosmicpuzzles/images/cp_arrowNext.png" alt="Следующий вопрос">
         `;
         container.appendChild(containerClear);
     }

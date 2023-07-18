@@ -58,7 +58,7 @@ gulp.task('app-js', function(){
         path.src.js + 'ChoiceCategory.js',
         path.src.js + 'Category.js',
         path.src.js + 'Question.js',
-        path.src.js + 'ArrowBack.js',
+        path.src.js + 'ArrowsAll.js',
         path.src.js + 'questPrepareCategory.js',
         path.src.js + 'questChoiceCategory.js',
         path.src.js + 'questFlightCategory.js',
@@ -94,7 +94,7 @@ gulp.task('vendor-js', function(){
 gulp.task('watch', function() {
     gulp.watch(path.watch.scss + '*.scss', gulp.series('main-scss'));
     gulp.watch(path.watch.js + 'vendor.js', gulp.series('vendor-js'));
-    gulp.watch([path.watch.js + 'app.js', path.watch.js + 'Sounds.js', path.watch.js + 'Intro.js', path.watch.js + 'Category.js', path.watch.js + 'ChoiceCategory.js', path.watch.js + 'Question.js', path.watch.js + 'Quest.js', path.watch.js + 'ArrowBack.js', path.watch.js + 'questChoiceCategory.js', path.watch.js + 'questPrepareCategory.js', path.watch.js + 'questFlightCategory.js', path.watch.js + 'About.js'], gulp.series('app-js'));
+    gulp.watch([path.watch.js + 'app.js', path.watch.js + 'Sounds.js', path.watch.js + 'Intro.js', path.watch.js + 'Category.js', path.watch.js + 'ChoiceCategory.js', path.watch.js + 'Question.js', path.watch.js + 'Quest.js', path.watch.js + 'ArrowsAll.js', path.watch.js + 'questChoiceCategory.js', path.watch.js + 'questPrepareCategory.js', path.watch.js + 'questFlightCategory.js', path.watch.js + 'About.js'], gulp.series('app-js'));
     // gulp.watch(path.watch.js + 'jgrowl.js', gulp.series('jgrowl-js'));
 
     // gulp.watch(path.dest.css + '/js/**/*.js', browserSync.reload);

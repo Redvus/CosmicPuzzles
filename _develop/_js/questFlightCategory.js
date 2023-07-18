@@ -1,6 +1,6 @@
 function questionFlightCat_1() {
     let questFlightCatLoad = new Question();
-    let questArrowBack = new ArrowBack();
+    let questArrowBack = new ArrowsAll();
 
     questFlightCatLoad.questionBlock('Полет', 'Белка, Стрелка и ...', 'Кто первым из животных побывал в космосе?', 'Белка', 'Стрелка', 'Тузик');
 

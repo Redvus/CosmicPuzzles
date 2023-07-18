@@ -2,7 +2,7 @@
 
 function questionPrepareCat_1() {
     let questPrepareBlock = new Question();
-    let questArrowBack = new ArrowBack();
+    let questArrowBack = new ArrowsAll();
 
     questPrepareBlock.questionBlock('Подготовка', 'Белка, Стрелка и ...', 'Кто первым из животных побывал в космосе?', 'Белка', 'Стрелка', 'Тузик');
 

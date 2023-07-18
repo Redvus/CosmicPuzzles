@@ -58,7 +58,7 @@ function introDev() {
 /* Запускаем категории */
 function categoryDev() {
     const categoryLoad = new Category(),
-        arrowBackLoad = new ArrowBack();
+        arrowBackLoad = new ArrowsAll();
     ;
     categoryLoad.categoryMain();
     categoryLoad.categoryProgress('progressChoiceValue', 'progressChoiceAll');
@@ -166,7 +166,7 @@ function categoryDev() {
 /* Запускаем вопросы в квтегории Отбор */
 function choiceCategoryDev() {
     const choiceCatLoad = new ChoiceCategory(),
-        arrowBackLoad = new ArrowBack();
+        arrowBackLoad = new ArrowsAll();
     choiceCatLoad.choiceCategory('Отбор', 'Choice');
 
     const containerWrapper = document.querySelector('.container__wrapper'),
@@ -253,7 +253,7 @@ function choiceCategoryDev() {
 /* Запускаем вопросы в квтегории Подготовка */
 function prepareCategoryDev() {
     const choiceCatLoad = new ChoiceCategory(),
-        arrowBackLoad = new ArrowBack();
+        arrowBackLoad = new ArrowsAll();
     choiceCatLoad.choiceCategory('Подготовка', 'Prepare');
 
     const containerWrapper = document.querySelector('.container__wrapper'),
@@ -294,7 +294,7 @@ function prepareCategoryDev() {
 /* Запускаем вопросы в квтегории Полет */
 function flightCategoryDev() {
     const choiceCatLoad = new ChoiceCategory(),
-        arrowBackLoad = new ArrowBack();
+        arrowBackLoad = new ArrowsAll();
     choiceCatLoad.choiceCategory('Полет', 'Flight');
 
     const containerWrapper = document.querySelector('.container__wrapper'),
@@ -364,7 +364,11 @@ function lockSubQuestChoice() {
 
 function questionBlockDev() {
     const question = new Question();
-    question.questionBlock();
+
+    question.questionBlock('Отбор', 'Белка, Стрелка и ...', 'Кто первым из животных побывал в космосе?', 'Белка', 'Стрелка', 'Тузик');
+
+    question.answerBlock(1, 'Конечно же стрелка, потому как это только и это есть правильный ответ, а не другой');
+
 }
 
 function aboutStart() {
