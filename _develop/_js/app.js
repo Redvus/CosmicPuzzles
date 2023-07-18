@@ -407,8 +407,8 @@ function init() {
     // aboutStart();
     // questTest();
 
-    introDev();
-    // categoryDev();
+    // introDev();
+    categoryDev();
     // choiceCategoryDev();
     // questionBlockDev();
 }

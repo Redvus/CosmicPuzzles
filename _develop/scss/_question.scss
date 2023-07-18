@@ -132,4 +132,55 @@
             font-family: $heading-font;
         }
     }
+
+    @include grid-media($Small) {
+
+        &__block {
+            flex-direction: column;
+            align-items: center;
+
+            &_imageblock {
+                width: 100%;
+                height: 50%;
+
+                h3 {
+                    height: 2rem;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    margin-bottom: 0;
+                    margin-top: 2rem;
+                }
+            }
+
+            &_image {
+                height: calc(100% - 4rem);
+                display: flex;
+                align-items: center;
+
+                img {
+                    display: none;
+                    visibility: hidden;
+                }
+
+                p {
+                    height: calc(100% - 4rem);
+                    color: $body-font-color;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &:after {
+                    display: none;
+                    visibility: hidden;
+                }
+            }
+
+            &_list {
+                width: 100%;
+                height: 50%;
+                padding-left: 0;
+            }
+        }
+    }
 }

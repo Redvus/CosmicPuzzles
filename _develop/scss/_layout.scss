@@ -224,6 +224,22 @@
 				}
 			}
 		}
+
+		&__game {
+
+			&_arrow {
+				width: 10vmin;
+				left: 1rem;
+				bottom: 2.5vh;
+			}
+
+			&_clear,
+			&_next {
+				width: 10vmin;
+				right: 1rem;
+				bottom: 2.5vh;
+			}
+		}
 	}
 }
 
@@ -1292,97 +1308,37 @@
 	//	height: calc(#{$containerWidth} / 1.57);
 	//}
 
-	//@include grid-media($Small) {
-	//	width: calc(100% - 2rem);
-	//	height: inherit;
-	//	min-height: 100vh;
-	//	padding: 0 1rem;
-	//	position: relative;
-	//	top: 0;
-	//	left: 0;
-	//	transform: translate(0, 0);
-	//
-	//	&__wrapper {
-	//		height: inherit;
-	//		min-height: 100vh;
-	//		overflow: scroll;
-	//		top: 2.5rem;
-	//
-	//		&_padding {
-	//			width: 100%;
-	//			padding: 40% 0 0;
-	//		}
-	//	}
-	//
-	//	&__back {
-	//		display: none;
-	//		visibility: hidden;
-	//	}
-	//
-	//	&__inside {
-	//		width: 100%;
-	//		height: inherit;
-	//		min-height: 100vh;
-	//		left: 0;
-	//		top: 0;
-	//		padding-bottom: 8rem;
-	//		transform: translate(0, 0);
-	//
-	//		&_back {
-	//			display: none;
-	//			visibility: hidden;
-	//		}
-	//	}
-	//
-	//	&__frame {
-	//		width: 100%;
-	//		height: calc(100vw * 1.3);
-	//		top: initial;
-	//		position: relative;
-	//		transform: translate(0, 0);
-	//
-	//		&_left, &_right {
-	//			left: 0;
-	//		}
-	//
-	//		.frame {
-	//
-	//			&__left {
-	//
-	//				&_change {
-	//					width: 100%;
-	//					//height: 100%;
-	//					//display: block;
-	//					//position: relative;
-	//				}
-	//
-	//				&_quest {
-	//
-	//					span {
-	//						font-size: $font-size-base;
-	//					}
-	//				}
-	//
-	//				&_title {
-	//					margin-top: -57%;
-	//				}
-	//			}
-	//		}
-	//	}
-	//
-	//	&__arrow {
-	//
-	//		&_back {
-	//			bottom: 6rem;
-	//			left: 0;
-	//		}
-	//
-	//		&_next {
-	//			bottom: 6rem;
-	//			right: 0;
-	//		}
-	//	}
-	//}
+	@include grid-media($Small) {
+		width: calc(100% - 2rem);
+		height: 100vh;
+		min-height: 100vh;
+		padding: 0 1rem;
+		position: relative;
+		top: 0;
+		left: 0;
+		transform: translate(0, 0);
+
+		&__wrapper {
+			height: inherit;
+			min-height: 100vh;
+			overflow: scroll;
+			top: 2.5rem;
+
+			&_category {
+				justify-content: flex-end;
+			}
+		}
+
+		&__back {
+			display: none;
+			visibility: hidden;
+		}
+
+		&__category {
+			//flex-direction: column;
+			//align-items: center;
+		}
+	}
 
 }
 /* @end  */

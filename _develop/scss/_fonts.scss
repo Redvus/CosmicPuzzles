@@ -167,6 +167,10 @@ h2 {
 h3 {
     @extend %hx;
     font-size: $font-size-h3;
+
+    @include grid-media($Small) {
+        font-size: calc(1rem + 2vmin);
+    }
 }
 
 h4 {

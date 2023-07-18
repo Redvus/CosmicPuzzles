@@ -146,4 +146,31 @@
             pointer-events: none;
         }
     }
+
+    @include grid-media($Small) {
+
+        &__main {
+            width: calc((100% / 3) - 1rem);
+            //height: calc(100vh / 3);
+            margin: 0 0.5rem;
+
+            &_stars {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &_value {
+                margin-left: 0;
+            }
+
+            &_image {
+                width: 100%;
+                //height: calc(100% - 4rem);
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

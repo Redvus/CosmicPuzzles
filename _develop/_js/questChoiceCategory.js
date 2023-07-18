@@ -47,22 +47,6 @@ function questionChoiceCat_1_1() {
         }
     }
 
-    questArrowBack.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack'),
-        containerWrapperCategory = document.querySelector('.container__wrapper_category');
-    arrowBackClick.addEventListener('click', () => {
-        gsap.to(containerWrapperCategory, {
-            autoAlpha: 0,
-            onComplete: () => {
-                container.removeChild(arrowBackClick);
-                container.removeChild(containerWrapperCategory);
-                wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
-            }
-        });
-    });
-
     questChoiceCatLoad.answerBlock(answerWrightNum, 'Конечно же стрелка, потому как это только и это есть правильный ответ, а не другой');
 
     questArrowBack.arrowNext();
@@ -76,6 +60,23 @@ function questionChoiceCat_1_1() {
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
                 questionChoiceCat_1_2();
+            }
+        });
+    });
+
+    questArrowBack.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack'),
+        containerWrapperCategory = document.querySelector('.container__wrapper_category');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerWrapperCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(arrowNextClick);
+                container.removeChild(containerWrapperCategory);
+                wrapper.className = 'wrapper';
+                choiceCategoryDev();
+                lockSubQuestChoice();
             }
         });
     });
@@ -113,22 +114,6 @@ function questionChoiceCat_1_2() {
         }
     }
 
-    questArrowBack.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack'),
-        containerWrapperCategory = document.querySelector('.container__wrapper_category');
-    arrowBackClick.addEventListener('click', () => {
-        gsap.to(containerWrapperCategory, {
-            autoAlpha: 0,
-            onComplete: () => {
-                container.removeChild(arrowBackClick);
-                container.removeChild(containerWrapperCategory);
-                wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
-            }
-        });
-    });
-
     questChoiceCatLoad.answerBlock(answerWrightNum, 'Конечно же стрелка, потому как это только');
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext');
@@ -141,6 +126,23 @@ function questionChoiceCat_1_2() {
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
                 questionChoiceCat_1_3();
+            }
+        });
+    });
+
+    questArrowBack.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack'),
+        containerWrapperCategory = document.querySelector('.container__wrapper_category');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerWrapperCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(arrowNextClick);
+                container.removeChild(containerWrapperCategory);
+                wrapper.className = 'wrapper';
+                choiceCategoryDev();
+                lockSubQuestChoice();
             }
         });
     });
@@ -178,14 +180,15 @@ function questionChoiceCat_1_3() {
         }
     }
 
-    questArrowBack.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack'),
-        containerWrapperCategory = document.querySelector('.container__wrapper_category');
-    arrowBackClick.addEventListener('click', () => {
+    questChoiceCatLoad.answerBlock(answerWrightNum, 'Конечно же стрелка, потому как это только');
+    questArrowBack.arrowNext();
+    const arrowNextClick = document.getElementById('answerNext');
+    arrowNextClick.addEventListener('click', () => {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
                 container.removeChild(arrowBackClick);
+                container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
                 choiceCategoryDev();
@@ -194,10 +197,10 @@ function questionChoiceCat_1_3() {
         });
     });
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, 'Конечно же стрелка, потому как это только');
-    questArrowBack.arrowNext();
-    const arrowNextClick = document.getElementById('answerNext');
-    arrowNextClick.addEventListener('click', () => {
+    questArrowBack.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack'),
+        containerWrapperCategory = document.querySelector('.container__wrapper_category');
+    arrowBackClick.addEventListener('click', () => {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
