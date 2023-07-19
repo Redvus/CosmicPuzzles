@@ -91,7 +91,7 @@
         }
 
         &_2 {
-            transform: translate(18vmin, -17vmin);
+            transform: translate(20vmin, -17vmin);
         }
 
         &_3 {
@@ -99,7 +99,7 @@
         }
 
         &_4 {
-            transform: translate(18vmin, 19vmin);
+            transform: translate(20vmin, 19vmin);
         }
 
         &_5 {
@@ -107,7 +107,7 @@
         }
 
         &_6 {
-            transform: translate(-18vmin, 19vmin);
+            transform: translate(-20vmin, 19vmin);
         }
 
         &_7 {
@@ -115,7 +115,7 @@
         }
 
         &_8 {
-            transform: translate(-18vmin, -17vmin);
+            transform: translate(-20vmin, -17vmin);
         }
 
         &_image {
@@ -170,6 +170,45 @@
                 img {
                     width: 100%;
                 }
+            }
+        }
+
+        &__element {
+
+            &_image {
+                height: 30vmin;
+            }
+
+            &_1 {
+                transform: translateY(-30vmin);
+            }
+
+            &_2 {
+                transform: translate(23vmin, -20vmin);
+            }
+
+            &_3 {
+                transform: translate(35vmin, 1vmin);
+            }
+
+            &_4 {
+                transform: translate(23vmin, 22vmin);
+            }
+
+            &_5 {
+                transform: translateY(32vmin);
+            }
+
+            &_6 {
+                transform: translate(-23vmin, 22vmin);
+            }
+
+            &_7 {
+                transform: translate(-35vmin, 1vmin);
+            }
+
+            &_8 {
+                transform: translate(-23vmin, -20vmin);
             }
         }
     }

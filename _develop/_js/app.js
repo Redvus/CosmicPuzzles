@@ -173,8 +173,12 @@ function choiceCategoryDev() {
         categorySubChoice_1 = document.getElementById('categorySubChoice_1')
     ;
 
-    if (localStorage.getItem('progressChoiceQuest_1_1') === null) {
+    if (localStorage.getItem('progressChoiceQuest_1_1') === null ||
+        localStorage.getItem('progressChoiceQuest_1_2') === null ||
+        localStorage.getItem('progressChoiceQuest_1_3') === null) {
         localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(0));
+        localStorage.setItem('progressChoiceQuest_1_2', JSON.stringify(0));
+        localStorage.setItem('progressChoiceQuest_1_3', JSON.stringify(0));
     } else if (localStorage.getItem('progressChoiceQuest_1_1') == 1) {
         localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(1));
     }
@@ -408,8 +412,8 @@ function init() {
     // questTest();
 
     // introDev();
-    categoryDev();
-    // choiceCategoryDev();
+    // categoryDev();
+    choiceCategoryDev();
     // questionBlockDev();
 }
 
