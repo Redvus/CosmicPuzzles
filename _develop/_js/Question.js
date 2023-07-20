@@ -35,6 +35,18 @@ class Question {
         `;
         container.appendChild(containerWrapper);
         containerWrapper.appendChild(questionCategoryTitle);
+
+        const questButtonLi_1 = document.getElementById('answerVar_1'),
+            questButtonLi_2 = document.getElementById('answerVar_2'),
+            questButtonLi_3 = document.getElementById('answerVar_3'),
+            questButtonList = [questButtonLi_1, questButtonLi_2, questButtonLi_3],
+            questButtonLiPosition = ['0', '33%', '66%'],
+            positionLiTop = questButtonLiPosition.sort(() => Math.floor(Math.random() * questButtonLiPosition.length))
+        ;
+
+        questButtonList.forEach((el, idx) => {
+            el.style.top = positionLiTop[idx];
+        });
     }
 
     answerBlock(answerVarNum, answerTextRight) {

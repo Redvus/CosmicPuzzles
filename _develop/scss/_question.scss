@@ -5,6 +5,7 @@
         height: 80%;
         display: flex;
         flex-direction: row;
+        position: relative;
 
         &_imageblock {
             width: 40%;
@@ -54,16 +55,18 @@
 
         &_list {
             width: calc(60% - (#{$containerPadding} * 2));
-            display: flex;
-            flex-direction: column;
-            margin-left: 0;
-            padding-left: calc(#{$containerPadding} * 2);
+            //display: flex;
+            //flex-direction: column;
+            display: block;
+            //margin-left: 0;
+            margin-left: calc(#{$containerPadding} * 2);
             position: relative;
 
             li {
                 width: 100%;
                 height: calc(100% / 3);
                 list-style: none;
+                position: absolute;
 
                 a {
                     width: 100%;

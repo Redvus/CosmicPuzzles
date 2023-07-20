@@ -413,8 +413,8 @@ function init() {
 
     // introDev();
     // categoryDev();
-    choiceCategoryDev();
-    // questionBlockDev();
+    // choiceCategoryDev();
+    questionBlockDev();
 }
 
 init();
