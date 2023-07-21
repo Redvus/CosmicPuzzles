@@ -24,7 +24,8 @@ function questionChoiceCat_1_1() {
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
         answerVar_3 = document.getElementById('answerVar_3'),
-        answerVarRight = [answerVar_1, answerVar_2, answerVar_3]
+        answerVarRight = [answerVar_1, answerVar_2, answerVar_3],
+        questionStars = document.querySelector('.wrapper__stars')
     ;
 
     for (let i = 0; i < answerVarRight.length; i++) {
@@ -42,6 +43,13 @@ function questionChoiceCat_1_1() {
                 localStorage.setItem('progressChoiceQuest_1', JSON.stringify(progressChoiceQuestSum_1));
                 localStorage.setItem('progressChoiceAll', JSON.stringify(progressChoiceQuestSum_1));
                 localStorage.setItem('progressChoiceQuestLeft_1_1', JSON.stringify(progressChoiceQuestLeftWrong_1_1));
+                if (progressChoiceQuestSum_1_1 === 1) {
+                    questionStars.innerHTML = `
+                        <li class="fill"></li>
+                        <li></li>
+                        <li></li>
+                    `;
+                }
             });
         }
     }
@@ -57,6 +65,7 @@ function questionChoiceCat_1_1() {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
+                wrapper.removeChild(questionStars);
                 container.removeChild(arrowBackClick);
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
@@ -80,6 +89,7 @@ function questionChoiceCat_1_1() {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
+                wrapper.removeChild(questionStars);
                 container.removeChild(arrowBackClick);
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
@@ -105,7 +115,8 @@ function questionChoiceCat_1_2() {
     let answerVar_1 = document.getElementById('answerVar_1'),
         answerVar_2 = document.getElementById('answerVar_2'),
         answerVar_3 = document.getElementById('answerVar_3'),
-        answerVarRight = [answerVar_1, answerVar_2, answerVar_3]
+        answerVarRight = [answerVar_1, answerVar_2, answerVar_3],
+        questionStars = document.querySelector('.wrapper__stars')
     ;
 
     for (let i = 0; i < answerVarRight.length; i++) {
@@ -117,6 +128,13 @@ function questionChoiceCat_1_2() {
                 localStorage.setItem('progressChoiceQuest_1_2', JSON.stringify(progressChoiceQuestSum_1_2));
                 localStorage.setItem('progressChoiceQuest_1', JSON.stringify(progressChoiceQuestSum_1));
                 localStorage.setItem('progressChoiceAll', JSON.stringify(progressChoiceQuestSum_1));
+                if (progressChoiceQuestSum_1 === 2) {
+                    questionStars.innerHTML = `
+                        <li class="fill"></li>
+                        <li class="fill"></li>
+                        <li></li>
+                    `;
+                }
             });
         }
     }
@@ -131,6 +149,7 @@ function questionChoiceCat_1_2() {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
+                wrapper.removeChild(questionStars);
                 container.removeChild(arrowBackClick);
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
@@ -153,6 +172,7 @@ function questionChoiceCat_1_2() {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
+                wrapper.removeChild(questionStars);
                 container.removeChild(arrowBackClick);
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
