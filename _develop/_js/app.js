@@ -143,26 +143,13 @@ function categoryDev() {
     categoryLoad.categoryProgress('progressPrepareValue', 'progressPrepareAll');
     categoryLoad.categoryProgress('progressFlightValue', 'progressFlightAll');
 
-
     const containerCategory = document.querySelector('.container__category'),
+        introAboutBack = document.querySelector('.wrapper__game'),
         categoryChoice = document.getElementById('categoryChoice'),
         categoryPrepare = document.getElementById('categoryPrepare'),
         categoryFlight = document.getElementById('categoryFlight')
     ;
 
-    arrowBackLoad.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack');
-    arrowBackClick.addEventListener('click', () => {
-        gsap.to(containerCategory, {
-            autoAlpha: 0,
-            onComplete: () => {
-                container.removeChild(arrowBackClick);
-                container.removeChild(containerCategory);
-                wrapper.className = 'wrapper';
-                introDev();
-            }
-        });
-    });
     arrowBackLoad.clearStorage();
     const clearButton = document.getElementById('clearStorageClick'),
         setProgressChoice = document.getElementById('progressChoiceValue'),
@@ -177,6 +164,22 @@ function categoryDev() {
         setProgressChoice.textContent = JSON.parse(localStorage.getItem('progressChoiceAll'));
         setProgressPrepare.textContent = JSON.parse(localStorage.getItem('progressPrepareAll'));
         setProgressFlight.textContent = JSON.parse(localStorage.getItem('progressFlightAll'));
+    });
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(clearButton);
+                container.removeChild(containerCategory);
+                wrapper.removeChild(introAboutBack);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
     });
 
     categoryChoice.addEventListener('click', () => {
@@ -248,6 +251,7 @@ function choiceCategoryDev() {
     choiceCatLoad.choiceCategory('Отбор', 'Choice');
 
     const containerWrapper = document.querySelector('.container__wrapper'),
+        introAboutBack = document.querySelector('.wrapper__game'),
         categorySubChoice_1 = document.getElementById('categorySubChoice_1')
     ;
 
@@ -352,6 +356,7 @@ function choiceCategoryDev() {
             onComplete: () => {
                 container.removeChild(arrowBackClick);
                 container.removeChild(containerWrapper);
+                wrapper.removeChild(introAboutBack);
                 wrapper.className = 'wrapper';
                 categoryDev();
             }
