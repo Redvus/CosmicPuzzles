@@ -37,7 +37,7 @@ class Question {
         `;
         container.appendChild(containerWrapper);
         containerWrapper.appendChild(questionCategoryTitle);
-        wrapper.appendChild(questionCategoryStars);
+        // wrapper.appendChild(questionCategoryStars);
 
         const questButtonLi_1 = document.getElementById('answerVar_1'),
             questButtonLi_2 = document.getElementById('answerVar_2'),
@@ -54,15 +54,15 @@ class Question {
         function questionBlockAnimation() {
             let tl = gsap.timeline();
             tl
-                .from('.container__title_category', {
-                    autoAlpha: 0,
-                    duration: 0.2,
-                    delay: 0.3
-                })
+                // .from('.container__title_category', {
+                //     autoAlpha: 0,
+                //     duration: 0.2,
+                //     delay: 0.3
+                // })
                 .from('.question__block_imageblock', {
                     autoAlpha: 0,
                     duration: 0.4,
-                    delay: 0.3
+                    delay: 0.2
                 })
                 .from(questButtonList, {
                     autoAlpha: 0,
@@ -84,11 +84,11 @@ class Question {
         ;
 
         questionBlockText.innerHTML = `
-            <div class="question__block_text-inside"><p>${answerTextRight}</p></div>
+            <div class="question__block_text-inside" id="answerWright"><p>${answerTextRight}</p></div>
 <!--            <a href="javascript:void(0);" class="question__block_next">Следующий вопрос</a>-->
         `;
         questionBlockWrongText.innerHTML = `
-            <div class="question__block_text-inside"><p>${answerWrongVarView}</p></div>
+            <div class="question__block_text-inside" id="answerWrong"><p>${answerWrongVarView}</p></div>
 <!--            <a href="javascript:void(0);" class="question__block_next">Следующий вопрос</a>-->
         `;
 
@@ -97,10 +97,7 @@ class Question {
             answerVar_3 = document.getElementById('answerVar_3'),
             answerVarArray = [answerVar_1, answerVar_2, answerVar_3],
             answerLi = document.querySelectorAll('ul.question__block_list > li'),
-            answerLiRight = document.querySelectorAll('ul.question__block_list > li > a'),
-            answerBlockTextInside = document.querySelector('.question__block_text-inside'),
-            answerTextInside = document.querySelectorAll('.question__block_text-inside > p'),
-            tl = gsap.timeline()
+            answerLiRight = document.querySelectorAll('ul.question__block_list > li > a')
         ;
 
         for (let i = 0; i < answerVarArray.length; i++) {
@@ -111,8 +108,10 @@ class Question {
                             el.remove();
                             questionBlock.appendChild(questionBlockText);
                             questionBlockText.className = 'question__block_text';
-                        }
-                        if (idx === answerVarNum) {
+
+                        } else {
+                            let tl = gsap.timeline();
+                            let answerBlockText = document.getElementById('answerWright');
                             answerLiRight[i].className += 'question__block_list--right';
                             tl
                                 .to(el, {
@@ -121,7 +120,7 @@ class Question {
                                     delay: 0.1,
                                     ease: 'back'
                                 })
-                                .from('.question__block_text', {
+                                .from(answerBlockText, {
                                     autoAlpha: 0,
                                     duration: 0.2
                                 })
@@ -136,8 +135,9 @@ class Question {
                             el.remove();
                             questionBlock.appendChild(questionBlockWrongText);
                             questionBlockWrongText.className = 'question__block_text';
-                        }
-                        if (idx === 0) {
+                        } else {
+                            let tl = gsap.timeline();
+                            let answerBlockWrongText = document.getElementById('answerWrong');
                             answerLiRight[i].className += 'question__block_list--wrong';
                             tl
                                 .to(el, {
@@ -146,7 +146,7 @@ class Question {
                                     delay: 0.1,
                                     ease: 'back'
                                 })
-                                .from('.question__block_text', {
+                                .from(answerBlockWrongText, {
                                     autoAlpha: 0,
                                     duration: 0.2
                                 })
@@ -161,8 +161,9 @@ class Question {
                             el.remove();
                             questionBlock.appendChild(questionBlockWrongText);
                             questionBlockWrongText.className = 'question__block_text';
-                        }
-                        if (idx === 1) {
+                        } else {
+                            let tl = gsap.timeline();
+                            let answerBlockWrongText = document.getElementById('answerWrong');
                             answerLiRight[i].className += 'question__block_list--wrong';
                             tl
                                 .to(el, {
@@ -171,7 +172,7 @@ class Question {
                                     delay: 0.1,
                                     ease: 'back'
                                 })
-                                .from('.question__block_text', {
+                                .from(answerBlockWrongText, {
                                     autoAlpha: 0,
                                     duration: 0.2
                                 })
@@ -186,8 +187,9 @@ class Question {
                             el.remove();
                             questionBlock.appendChild(questionBlockWrongText);
                             questionBlockWrongText.className = 'question__block_text';
-                        }
-                        if (idx === 2) {
+                        } else {
+                            let tl = gsap.timeline();
+                            let answerBlockWrongText = document.getElementById('answerWrong');
                             answerLiRight[i].className += 'question__block_list--wrong';
                             tl
                                 .to(el, {
@@ -196,7 +198,7 @@ class Question {
                                     delay: 0.1,
                                     ease: 'back'
                                 })
-                                .from('.question__block_text', {
+                                .from(answerBlockWrongText, {
                                     autoAlpha: 0,
                                     duration: 0.2
                                 })

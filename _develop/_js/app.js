@@ -179,7 +179,7 @@ function choiceCategoryDev() {
         localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(0));
         localStorage.setItem('progressChoiceQuest_1_2', JSON.stringify(0));
         localStorage.setItem('progressChoiceQuest_1_3', JSON.stringify(0));
-    } else if (localStorage.getItem('progressChoiceQuest_1_1') == 1) {
+    } else if (localStorage.getItem('progressChoiceQuest_1_1') === 1) {
         localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(1));
     }
 
@@ -195,26 +195,69 @@ function choiceCategoryDev() {
     let progressChoiceQuestAll = progressChoiceQuest1 + progressChoiceQuest2 + progressChoiceQuest3 + progressChoiceQuest4 + progressChoiceQuest5 + progressChoiceQuest6 + progressChoiceQuest7 + progressChoiceQuest8;
     localStorage.setItem('progressChoiceAll', JSON.stringify(progressChoiceQuestAll));
 
+    let progressChoiceQuest1_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_1')),
+        progressChoiceQuest1_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_2')),
+        progressChoiceQuest1_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_3'))
+    ;
+
     let categorySubStars_1 = document.querySelector('.category__element_stars'),
         categorySubQuest_2 = document.getElementById('categorySubChoice_2')
     ;
 
-    if (progressChoiceQuest1 == 1) {
+    if (progressChoiceQuest1_1 === 1 &&
+        progressChoiceQuest1_2 === 0 &&
+        progressChoiceQuest1_3 === 0) {
         categorySubStars_1.innerHTML = `
             <li class="fill"></li>
             <li></li>
             <li></li>
         `;
-    } else if (progressChoiceQuest1 == 2) {
+    } else if (progressChoiceQuest1_1 === 1 &&
+        progressChoiceQuest1_2 === 1 &&
+        progressChoiceQuest1_3 === 0) {
         categorySubStars_1.innerHTML = `
             <li class="fill"></li>
             <li class="fill"></li>
             <li></li>
         `;
-    } else if (progressChoiceQuest1 == 3) {
+    } else if (progressChoiceQuest1_1 === 1 &&
+        progressChoiceQuest1_2 === 1 &&
+        progressChoiceQuest1_3 === 1) {
         categorySubStars_1.innerHTML = `
             <li class="fill"></li>
             <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+    } else if (progressChoiceQuest1_1 === 0 &&
+        progressChoiceQuest1_2 === 1 &&
+        progressChoiceQuest1_3 === 0) {
+        categorySubStars_1.innerHTML = `
+            <li></li>
+            <li class="fill"></li>
+            <li></li>
+        `;
+    } else if (progressChoiceQuest1_1 === 0 &&
+        progressChoiceQuest1_2 === 0 &&
+        progressChoiceQuest1_3 === 1) {
+        categorySubStars_1.innerHTML = `
+            <li></li>
+            <li></li>
+            <li class="fill"></li>
+        `;
+    } else if (progressChoiceQuest1_1 === 0 &&
+        progressChoiceQuest1_2 === 1 &&
+        progressChoiceQuest1_3 === 1) {
+        categorySubStars_1.innerHTML = `
+            <li></li>
+            <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+    } else if (progressChoiceQuest1_1 === 1 &&
+        progressChoiceQuest1_2 === 0 &&
+        progressChoiceQuest1_3 === 1) {
+        categorySubStars_1.innerHTML = `
+            <li class="fill"></li>
+            <li></li>
             <li class="fill"></li>
         `;
     }
