@@ -10,6 +10,7 @@ function introDev() {
     introDevLoad.introStart();
 
     const clickLoadGame = document.getElementById('clickLoadGame'),
+        clickAboutAuthors = document.getElementById('clickAboutAuthors'),
         wrapperTop = document.querySelector('.wrapper__top'),
         wrapperTitle = document.querySelector('.wrapper__title'),
         wrapperBottom = document.querySelector('.wrapper__bottom'),
@@ -26,6 +27,44 @@ function introDev() {
                 wrapper.removeChild(wrapperBack);
                 wrapper.appendChild(container);
                 categoryDev();
+            }
+        });
+        tl
+            .to(wrapperTop, {
+                duration: 0.7,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to(wrapperTitle, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0,
+                y: '5%'
+            })
+            .to(wrapperBottom, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0,
+                y: '5%'
+            })
+            .to(wrapperBack, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0
+            })
+        ;
+    });
+
+    clickAboutAuthors.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.className = 'wrapper';
+                wrapper.removeChild(wrapperTop);
+                wrapper.removeChild(wrapperTitle);
+                wrapper.removeChild(wrapperBottom);
+                wrapper.removeChild(wrapperBack);
+                wrapper.appendChild(container);
+                authorsStart();
             }
         });
         tl
@@ -419,25 +458,73 @@ function questionBlockDev() {
 }
 
 function aboutStart() {
-    const aboutLoad = new About();
+    const aboutLoad = new About(),
+        arrowBackLoad = new ArrowsAll(),
+        containerCategory = document.querySelector('.container__wrapper')
+    ;
 
-    let clickAboutGame = document.getElementById('clickAboutGame'),
-        clickAboutAuthors = document.getElementById('clickAboutAuthors'),
-        clickAboutLibrary = document.getElementById('clickAboutLibrary'),
+    let clickAboutLibrary = document.getElementById('clickAboutLibrary'),
         containerGame = document.querySelector('.container__wrapper')
     ;
 
-    clickAboutGame.addEventListener('click', (e) => {
-        aboutLoad.aboutGame('Дорогие друзья!', 'Представляем вашему вниманию игру по славянской мифологии. Проверьте, что вы знаете о сказаниях, легендах и поверьях наших предков. Играя, вы прикоснётесь к миру древних славян – узнаете или вспомните о самых значимых для них богах, существах, животных и растениях. В этой игре мы не можем охватить весь объем мифологических представлений древних славян. Наша игра – лишь приглашение к более глубокому их изучению. Быть может, по завершении игры вам захочется продолжить знакомство с миром наших предков, их жизнью, бытом, мировоззрением. А помочь в этом вам могут книги нашей библиотеки.')
-        e.preventDefault();
-    });
-
-    clickAboutAuthors.addEventListener('click', () => {
-        aboutLoad.aboutAuthors('сценарист', 'Инна Ямщикова', 'редактор', 'Андрей Косицин', 'художники', 'Елена Расторгуева<br />Вера Расторгуева', 'Программист', 'Александр Суворов');
-    });
-
     clickAboutLibrary.addEventListener('click', () => {
         aboutLoad.aboutLibrary('О библиотеке', 'МБУК г.о. Самара «Самарская муниципальная информационно-библиотечная система» была создана в декабре 1986 года. На сегодняшний день в ее составе - Центральная городская библиотека имени Н.К. Крупской и 35 библиотек-филиалов, нашими читателями являются жители всех 9 районов города. Библиотеки системы – это информационные, образователь- ные центры, место культурного отдыха и общения. СМИБС находится в центре мировых событий, активно участвует в общероссийских акциях и в жизни города.', 'В библиотеках системы можно получить информацию и литературу по любой теме, доступ к электронным базам данных, воспользоваться услугами Интернет-залов, Центрами общественного доступа, побывать на презентациях выставок и творческих встречах, а также воспользоваться дополнительными сервисными услугами:<ul><li>ксерокопированием;</li><li>сканированием;</li><li>ламинированием документов;</li><li>распечаткой информации на принтере;</li><li>записью на электронные носители.</li></ul>');
+    });
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerCategory);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+    });
+}
+
+function authorsStart() {
+    const aboutLoad = new About(),
+        arrowBackLoad = new ArrowsAll()
+    ;
+
+    aboutLoad.aboutAuthors('сценарист', 'Инна Ямщикова', 'художник', 'Елена Расторгуева', 'Программист', 'Александр Суворов');
+
+    const containerAbout = document.querySelector('.container__wrapper_about'),
+        wrapperAboutBack = document.querySelector('.wrapper__back_about'),
+        introAboutBack = document.querySelector('.wrapper__game')
+    ;
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerAbout);
+                wrapper.removeChild(wrapperAboutBack);
+                wrapper.removeChild(introAboutBack);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+        tl
+            .to(wrapperAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.3'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.3'
+            })
+            .to(containerAbout, {
+                autoAlpha: 0,
+                delay: '-0.3'
+            })
+        ;
     });
 }
 
@@ -449,6 +536,29 @@ function soundEndLoad() {
     soundsLoad.rightAnswer('assets/games/slavicmyths/sounds/rightAnswer.ogg');
 }
 
+function aboutDev() {
+    const aboutLoad = new About(),
+        arrowBackLoad = new ArrowsAll(),
+        containerCategory = document.querySelector('.container__wrapper')
+    ;
+
+    arrowBackLoad.arrowBack();
+    const arrowBackClick = document.getElementById('arrowBack');
+    arrowBackClick.addEventListener('click', () => {
+        gsap.to(containerCategory, {
+            autoAlpha: 0,
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerCategory);
+                wrapper.className = 'wrapper';
+                introDev();
+            }
+        });
+    });
+
+    aboutLoad.aboutAuthors('сценарист', 'Инна Ямщикова', 'художник', 'Елена Расторгуева', 'Программист', 'Александр Суворов');
+}
+
 function init() {
     // introLoad();
     // aboutStart();
@@ -458,6 +568,7 @@ function init() {
     // categoryDev();
     // choiceCategoryDev();
     // questionBlockDev();
+    // aboutDev();
 }
 
 init();

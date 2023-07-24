@@ -99,7 +99,19 @@ function questionChoiceCat_1_1() {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
-                wrapper.removeChild(questionStars);
+                if (progressChoiceQuest_1_1 === 0 &&
+                    progressChoiceQuest_1_2 === 0 &&
+                    progressChoiceQuest_1_3 === 0) {
+                    wrapper.removeChild(questionStars);
+                } else if (progressChoiceQuest_1_1 === 0 &&
+                    progressChoiceQuest_1_2 === 1 &&
+                    progressChoiceQuest_1_3 === 0) {
+                    wrapper.removeChild(questionStars);
+                } else if (progressChoiceQuest_1_1 === 0 &&
+                    progressChoiceQuest_1_2 === 0 &&
+                    progressChoiceQuest_1_3 === 1) {
+                    wrapper.removeChild(questionStars);
+                }
                 container.removeChild(arrowBackClick);
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
@@ -114,6 +126,17 @@ function questionChoiceCat_1_1() {
                 }
             }
         });
+        if (progressChoiceQuest_1_1 === 0 &&
+            progressChoiceQuest_1_2 === 1 &&
+            progressChoiceQuest_1_3 === 1) {
+            gsap.to(questionStars, {
+                autoAlpha: 0,
+                delay: '-0.3',
+                onComplete: () => {
+                    wrapper.removeChild(questionStars);
+                }
+            });
+        }
     });
 
     questArrowBack.arrowBack();
@@ -225,7 +248,19 @@ function questionChoiceCat_1_2() {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
-                wrapper.removeChild(questionStars);
+                if (progressChoiceQuest_1_1 === 0 &&
+                    progressChoiceQuest_1_2 === 0 &&
+                    progressChoiceQuest_1_3 === 0) {
+                    wrapper.removeChild(questionStars);
+                } else if (progressChoiceQuest_1_1 === 1 &&
+                    progressChoiceQuest_1_2 === 0 &&
+                    progressChoiceQuest_1_3 === 0) {
+                    wrapper.removeChild(questionStars);
+                } else if (progressChoiceQuest_1_1 === 0 &&
+                    progressChoiceQuest_1_2 === 0 &&
+                    progressChoiceQuest_1_3 === 1) {
+                    wrapper.removeChild(questionStars);
+                }
                 container.removeChild(arrowBackClick);
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
@@ -238,6 +273,17 @@ function questionChoiceCat_1_2() {
                 }
             }
         });
+        if (progressChoiceQuest_1_1 === 1 &&
+            progressChoiceQuest_1_2 === 0 &&
+            progressChoiceQuest_1_3 === 1) {
+            gsap.to(questionStars, {
+                autoAlpha: 0,
+                delay: '-0.3',
+                onComplete: () => {
+                    wrapper.removeChild(questionStars);
+                }
+            });
+        }
     });
 
     questArrowBack.arrowBack();

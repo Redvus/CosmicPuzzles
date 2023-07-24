@@ -1,186 +1,76 @@
 class About {
 
-    aboutAuthors(peronFirstTitle, peronFirstName, peronSecondTitle, peronSecondName, peronThirdTitle, peronThirdName, peronFourthTitle, peronFourthName) {
-        let introBlock = document.createElement('div');
-        introBlock.className = 'container__about';
-        introBlock.innerHTML = `
-            <div class="container__about_inside">
-                <picture id="aboutAuthorsBack" class="container__about_back">
-                    <img src="assets/games/slavicmyths/images/aboutBack.png" alt="Фон информации об авторах">
-                </picture>
-                <picture id="aboutAuthorsFrame" class="container__about_frame">
-                    <img src="assets/games/slavicmyths/images/frameEmpty.png" alt="Рамка информации об авторах">
-                </picture>
-                <picture id="aboutAuthorsFrameBack" class="container__about_frameback">
-                    <img src="assets/games/slavicmyths/images/frameTextBack.jpg" alt="Фон рамки информации об авторах">
-                </picture>
-                <div class="container__about_text">
-                    <h1 class="container__about_title">Об авторах</h1>
-                    <div class="container__about_person">
-                        <h3>${peronFirstTitle}</h3>
-                        <p>${peronFirstName}</p>
-                        <picture class="container__about_line">
-                            <img src="assets/games/slavicmyths/images/aboutBrake.png" alt="Разделитель авторов">
-                        </picture>
-                    </div>
-                    <div class="container__about_person">
-                        <h3>${peronSecondTitle}</h3>
-                        <p>${peronSecondName}</p>
-                        <picture class="container__about_line">
-                            <img src="assets/games/slavicmyths/images/aboutBrake.png" alt="Разделитель авторов">
-                        </picture>
-                    </div>
-                    <div class="container__about_person">
-                        <h3>${peronThirdTitle}</h3>
-                        <p>${peronThirdName}</p>
-                        <picture class="container__about_line">
-                            <img src="assets/games/slavicmyths/images/aboutBrake.png" alt="Разделитель авторов">
-                        </picture>
-                    </div>
-                    <div class="container__about_person">
-                        <h3>${peronFourthTitle}</h3>
-                        <p>${peronFourthName}</p>
-                        <picture class="container__about_line">
-                            <img src="assets/games/slavicmyths/images/aboutBrake.png" alt="Разделитель авторов">
-                        </picture>
-                    </div>
+    aboutAuthors(peronFirstTitle, peronFirstName, peronSecondTitle, peronSecondName, peronThirdTitle, peronThirdName) {
+        const containerWrapper = document.createElement('div'),
+            containerTitle = document.createElement('div')
+        ;
+        containerWrapper.className = 'container__wrapper container__wrapper_about';
+        containerTitle.className = 'container__title container__title_category';
+
+        containerTitle.innerHTML = `<h1 class="c">Об авторах</h1>`;
+        containerWrapper.innerHTML = `
+            <div class="container__about">
+                <div class="container__wrapper_person">
+                    <h4>${peronFirstTitle}</h4>
+                    <p>${peronFirstName}</p>
+                </div>
+                <div class="container__wrapper_person">
+                    <h4>${peronSecondTitle}</h4>
+                    <p>${peronSecondName}</p>
+                </div>
+                <div class="container__wrapper_person">
+                    <h4>${peronThirdTitle}</h4>
+                    <p>${peronThirdName}</p>
                 </div>
             </div>
-            <picture class="container__about_arrow" id="arrowAboutBack">
-                <img src="assets/games/slavicmyths/images/arrowBack.png" alt="Кнопка возврата в игру">
-            </picture>
-        `
-        document.body.appendChild(introBlock);
+        `;
+        container.appendChild(containerWrapper);
+        containerWrapper.appendChild(containerTitle);
 
-        let aboutAuthorsBack = document.getElementById('aboutAuthorsBack'),
-            aboutAuthorsFrame = document.getElementById('aboutAuthorsFrame'),
-            aboutAuthorsFrameBack = document.getElementById('aboutAuthorsFrameBack'),
-            containerAboutTitle = document.querySelector('.container__about_title'),
-            containerAboutPerson = document.querySelectorAll('.container__about_person'),
-            arrowAboutBack = document.getElementById('arrowAboutBack'),
-            containerAbout = document.querySelector('.container__about')
+        const introBlockBack = document.createElement('div');
+        introBlockBack.className = 'wrapper__game';
+        wrapper.appendChild(introBlockBack);
+
+        const wrapperAboutBack = document.createElement('picture');
+        wrapperAboutBack.className = 'wrapper__back_about';
+        wrapperAboutBack.innerHTML = `
+            <img src="assets/games/cosmicpuzzles/images/cp_aboutBAck.png" alt="Фон об авторах">
+        `;
+        wrapper.appendChild(wrapperAboutBack);
+
+        let containerAboutTitle = document.querySelector('.container__title_category'),
+            containerAboutPerson = document.querySelectorAll('.container__wrapper_person'),
+            aboutBack = document.querySelector('.wrapper__back_about')
         ;
 
         function aboutAuthorsAnim() {
             let tl = new gsap.timeline();
 
             tl
-                .fromTo(aboutAuthorsBack, {
-                    autoAlpha: 0
-                }, {
-                    duration: 0.8,
-                    autoAlpha: 1
-                })
-                .fromTo(aboutAuthorsFrame, {
-                    autoAlpha: 0
-                }, {
+                .from(introBlockBack, {
+                    autoAlpha: 0,
                     duration: 0.6,
-                    delay: '-0.5',
-                    autoAlpha: 1
+                    delay: '-0.3'
                 })
-                .fromTo(aboutAuthorsFrameBack, {
-                    autoAlpha: 0
-                }, {
+                .from(aboutBack, {
+                    autoAlpha: 0,
+                    duration: 0.6
+                })
+                .from(containerAboutTitle, {
+                    autoAlpha: 0,
                     duration: 0.6,
-                    delay: '-0.5',
-                    autoAlpha: 1
+                    delay: '-0.3'
                 })
-                .fromTo(containerAboutTitle, {
-                    autoAlpha: 0
-                }, {
-                    duration: 0.4,
+                .from(containerAboutPerson, {
+                    autoAlpha: 0,
+                    duration: 0.6,
                     delay: '-0.3',
-                    autoAlpha: 1
-                })
-                .fromTo(containerAboutPerson, {
-                    autoAlpha: 0
-                }, {
-                    duration: 0.4,
-                    delay: '-0.3',
-                    autoAlpha: 1,
-                    stagger: 0.07
+                    y: "-0.5rem",
+                    stagger: 0.2
                 })
             ;
         }
         aboutAuthorsAnim();
-
-        arrowAboutBack.addEventListener('click', () => {
-            gsap.to(containerAbout, {
-                duration: 0.3,
-                autoAlpha: 0,
-                onComplete: () => {
-                    document.body.removeChild(containerAbout);
-                }
-            })
-        });
-    }
-
-    aboutGame(aboutGameTitle, aboutGameText) {
-        let introBlock = document.createElement('div');
-        introBlock.className = 'container__info';
-        introBlock.innerHTML = `
-            <div class="container__info_inside">
-                <picture id="aboutGameBack" class="container__info_frame">
-                    <img src="assets/games/slavicmyths/images/aboutMainBack.png" alt="Фон информации об игре">
-                </picture>
-                <picture id="aboutGameFrameBack" class="container__info_back">
-                    <img src="assets/games/slavicmyths/images/aboutMainPaper.png" alt="Фон рамки информации об авторах">
-                </picture>
-                <div id="aboutGameFrameText" class="container__info_text">
-                    <h1>${aboutGameTitle}</h1>
-                    <p>${aboutGameText}</p>
-                </div>
-            </div>
-            <picture class="container__about_arrow" id="arrowInfoBack">
-                <img src="assets/games/slavicmyths/images/arrowBack.png" alt="Кнопка возврата в игру">
-            </picture>
-        `
-        document.body.appendChild(introBlock);
-
-        let aboutGameBack = document.getElementById('aboutGameBack'),
-            aboutGameFrameBack = document.getElementById('aboutGameFrameBack'),
-            aboutGameFrameText = document.getElementById('aboutGameFrameText'),
-            arrowInfoBack = document.getElementById('arrowInfoBack'),
-            containerInfo = document.querySelector('.container__info')
-        ;
-
-        function aboutGameAnim() {
-            let tl = new gsap.timeline();
-
-            tl
-                .fromTo(aboutGameBack, {
-                    autoAlpha: 0
-                }, {
-                    duration: 0.8,
-                    autoAlpha: 1
-                })
-                .fromTo(aboutGameFrameBack, {
-                    autoAlpha: 0
-                }, {
-                    duration: 0.6,
-                    delay: '-0.5',
-                    autoAlpha: 1
-                })
-                .fromTo(aboutGameFrameText, {
-                    autoAlpha: 0
-                }, {
-                    duration: 0.8,
-                    delay: '-0.2',
-                    autoAlpha: 1
-                })
-            ;
-        }
-        aboutGameAnim();
-
-        arrowInfoBack.addEventListener('click', () => {
-            gsap.to(containerInfo, {
-                duration: 0.3,
-                autoAlpha: 0,
-                onComplete: () => {
-                    document.body.removeChild(containerInfo);
-                }
-            })
-        });
     }
 
     aboutLibrary(libraryTitle, libraryLeftText, libraryRightText) {
