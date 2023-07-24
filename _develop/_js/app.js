@@ -10,7 +10,8 @@ function introDev() {
     introDevLoad.introStart();
 
     const clickLoadGame = document.getElementById('clickLoadGame'),
-        clickAboutAuthors = document.getElementById('clickAboutAuthors'),
+        clickAuthors = document.getElementById('clickAboutAuthors'),
+        clickAbout = document.getElementById('clickAboutLibrary'),
         wrapperTop = document.querySelector('.wrapper__top'),
         wrapperTitle = document.querySelector('.wrapper__title'),
         wrapperBottom = document.querySelector('.wrapper__bottom'),
@@ -55,7 +56,7 @@ function introDev() {
         ;
     });
 
-    clickAboutAuthors.addEventListener('click', () => {
+    clickAuthors.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
                 wrapper.className = 'wrapper';
@@ -65,6 +66,44 @@ function introDev() {
                 wrapper.removeChild(wrapperBack);
                 wrapper.appendChild(container);
                 authorsStart();
+            }
+        });
+        tl
+            .to(wrapperTop, {
+                duration: 0.7,
+                autoAlpha: 0,
+                y: '-3%'
+            })
+            .to(wrapperTitle, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0,
+                y: '5%'
+            })
+            .to(wrapperBottom, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0,
+                y: '5%'
+            })
+            .to(wrapperBack, {
+                duration: 0.7,
+                delay: -0.5,
+                autoAlpha: 0
+            })
+        ;
+    });
+
+    clickAbout.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                wrapper.className = 'wrapper';
+                wrapper.removeChild(wrapperTop);
+                wrapper.removeChild(wrapperTitle);
+                wrapper.removeChild(wrapperBottom);
+                wrapper.removeChild(wrapperBack);
+                wrapper.appendChild(container);
+                aboutStart();
             }
         });
         tl
@@ -459,30 +498,37 @@ function questionBlockDev() {
 
 function aboutStart() {
     const aboutLoad = new About(),
-        arrowBackLoad = new ArrowsAll(),
-        containerCategory = document.querySelector('.container__wrapper')
+        arrowBackLoad = new ArrowsAll()
     ;
 
-    let clickAboutLibrary = document.getElementById('clickAboutLibrary'),
-        containerGame = document.querySelector('.container__wrapper')
-    ;
+    aboutLoad.aboutLibrary('О библиотеке', 'МБУК г.о. Самара «Самарская муниципальная информационно-библиотечная система» была создана в декабре 1986 года. На сегодняшний день в ее составе - Центральная городская библиотека имени Н.К. Крупской и 35 библиотек-филиалов, нашими читателями являются жители всех 9 районов города. Библиотеки системы – это информационные, образователь- ные центры, место культурного отдыха и общения. СМИБС находится в центре мировых событий, активно участвует в общероссийских акциях и в жизни города.', 'В библиотеках системы можно получить информацию и литературу по любой теме, доступ к электронным базам данных, воспользоваться услугами Интернет-залов, Центрами общественного доступа, побывать на презентациях выставок и творческих встречах, а также воспользоваться дополнительными сервисными услугами:<ul><li>ксерокопированием;</li><li>сканированием;</li><li>ламинированием документов;</li><li>распечаткой информации на принтере;</li><li>записью на электронные носители.</li></ul>');
 
-    clickAboutLibrary.addEventListener('click', () => {
-        aboutLoad.aboutLibrary('О библиотеке', 'МБУК г.о. Самара «Самарская муниципальная информационно-библиотечная система» была создана в декабре 1986 года. На сегодняшний день в ее составе - Центральная городская библиотека имени Н.К. Крупской и 35 библиотек-филиалов, нашими читателями являются жители всех 9 районов города. Библиотеки системы – это информационные, образователь- ные центры, место культурного отдыха и общения. СМИБС находится в центре мировых событий, активно участвует в общероссийских акциях и в жизни города.', 'В библиотеках системы можно получить информацию и литературу по любой теме, доступ к электронным базам данных, воспользоваться услугами Интернет-залов, Центрами общественного доступа, побывать на презентациях выставок и творческих встречах, а также воспользоваться дополнительными сервисными услугами:<ul><li>ксерокопированием;</li><li>сканированием;</li><li>ламинированием документов;</li><li>распечаткой информации на принтере;</li><li>записью на электронные носители.</li></ul>');
-    });
+    const containerAbout = document.querySelector('.container__wrapper_about'),
+        introAboutBack = document.querySelector('.wrapper__game')
+    ;
 
     arrowBackLoad.arrowBack();
     const arrowBackClick = document.getElementById('arrowBack');
     arrowBackClick.addEventListener('click', () => {
-        gsap.to(containerCategory, {
-            autoAlpha: 0,
+        let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
-                container.removeChild(containerCategory);
+                container.removeChild(containerAbout);
+                wrapper.removeChild(introAboutBack);
                 wrapper.className = 'wrapper';
                 introDev();
             }
         });
+        tl
+            .to(containerAbout, {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                delay: '-0.3'
+            })
+        ;
     });
 }
 
@@ -512,15 +558,15 @@ function authorsStart() {
             }
         });
         tl
+            .to(containerAbout, {
+                autoAlpha: 0,
+                delay: '-0.1'
+            })
             .to(wrapperAboutBack, {
                 autoAlpha: 0,
-                delay: '-0.3'
+                delay: '-0.2'
             })
             .to(introAboutBack, {
-                autoAlpha: 0,
-                delay: '-0.3'
-            })
-            .to(containerAbout, {
                 autoAlpha: 0,
                 delay: '-0.3'
             })
@@ -534,29 +580,6 @@ function soundRightLoad() {
 
 function soundEndLoad() {
     soundsLoad.rightAnswer('assets/games/slavicmyths/sounds/rightAnswer.ogg');
-}
-
-function aboutDev() {
-    const aboutLoad = new About(),
-        arrowBackLoad = new ArrowsAll(),
-        containerCategory = document.querySelector('.container__wrapper')
-    ;
-
-    arrowBackLoad.arrowBack();
-    const arrowBackClick = document.getElementById('arrowBack');
-    arrowBackClick.addEventListener('click', () => {
-        gsap.to(containerCategory, {
-            autoAlpha: 0,
-            onComplete: () => {
-                container.removeChild(arrowBackClick);
-                container.removeChild(containerCategory);
-                wrapper.className = 'wrapper';
-                introDev();
-            }
-        });
-    });
-
-    aboutLoad.aboutAuthors('сценарист', 'Инна Ямщикова', 'художник', 'Елена Расторгуева', 'Программист', 'Александр Суворов');
 }
 
 function init() {
