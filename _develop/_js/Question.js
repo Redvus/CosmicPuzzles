@@ -22,7 +22,7 @@ class Question {
         containerWrapper.innerHTML = `
             <div class="question__block">
                 <div class="question__block_imageblock">
-                    <h3>${questionTitle}</h3>
+                    <h4>${questionTitle}</h4>
                     <div class="question__block_image">
                         <p>${questionQuest}</p>
                         <img src="assets/games/cosmicpuzzles/images/cp_questImageBack_1.png" alt="Изображение по вопросом">
@@ -44,6 +44,7 @@ class Question {
             questButtonLi_3 = document.getElementById('answerVar_3'),
             questButtonList = [questButtonLi_1, questButtonLi_2, questButtonLi_3],
             questButtonLiPosition = ['0', '33%', '66%'],
+            questButtonLi = document.querySelectorAll('.question__block_list li'),
             positionLiTop = questButtonLiPosition.sort(() => Math.floor(Math.random() * questButtonLiPosition.length))
         ;
 

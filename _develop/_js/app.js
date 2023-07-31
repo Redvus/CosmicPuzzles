@@ -252,18 +252,15 @@ function choiceCategoryDev() {
 
     const containerWrapper = document.querySelector('.container__wrapper'),
         introAboutBack = document.querySelector('.wrapper__game'),
-        categorySubChoice_1 = document.getElementById('categorySubChoice_1')
+        categorySubChoice_1 = document.getElementById('categorySubChoice_1'),
+        categorySubChoice_2 = document.getElementById('categorySubChoice_2'),
+        categorySubChoice_3 = document.getElementById('categorySubChoice_3'),
+        categorySubChoice_4 = document.getElementById('categorySubChoice_4'),
+        categorySubChoice_5 = document.getElementById('categorySubChoice_5'),
+        categorySubChoice_6 = document.getElementById('categorySubChoice_6'),
+        categorySubChoice_7 = document.getElementById('categorySubChoice_7'),
+        categorySubChoice_8 = document.getElementById('categorySubChoice_8')
     ;
-
-    if (localStorage.getItem('progressChoiceQuest_1_1') === null ||
-        localStorage.getItem('progressChoiceQuest_1_2') === null ||
-        localStorage.getItem('progressChoiceQuest_1_3') === null) {
-        localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(0));
-        localStorage.setItem('progressChoiceQuest_1_2', JSON.stringify(0));
-        localStorage.setItem('progressChoiceQuest_1_3', JSON.stringify(0));
-    } else if (localStorage.getItem('progressChoiceQuest_1_1') === 1) {
-        localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(1));
-    }
 
     //Local Storage. Progress
     let progressChoiceQuest1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1'));
@@ -277,76 +274,345 @@ function choiceCategoryDev() {
     let progressChoiceQuestAll = progressChoiceQuest1 + progressChoiceQuest2 + progressChoiceQuest3 + progressChoiceQuest4 + progressChoiceQuest5 + progressChoiceQuest6 + progressChoiceQuest7 + progressChoiceQuest8;
     localStorage.setItem('progressChoiceAll', JSON.stringify(progressChoiceQuestAll));
 
-    let progressChoiceQuest1_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_1')),
-        progressChoiceQuest1_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_2')),
-        progressChoiceQuest1_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_3'))
-    ;
+    function choiceQuest_1() {
+        if (localStorage.getItem('progressChoiceQuest_1_1') === null ||
+            localStorage.getItem('progressChoiceQuest_1_2') === null ||
+            localStorage.getItem('progressChoiceQuest_1_3') === null) {
+            localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(0));
+            localStorage.setItem('progressChoiceQuest_1_2', JSON.stringify(0));
+            localStorage.setItem('progressChoiceQuest_1_3', JSON.stringify(0));
+        }
 
-    let categorySubStars_1 = document.querySelector('.category__element_stars'),
-        categorySubQuest_2 = document.getElementById('categorySubChoice_2')
-    ;
+        let progressChoiceQuest1_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_1')),
+            progressChoiceQuest1_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_2')),
+            progressChoiceQuest1_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_3'))
+        ;
 
-    if (progressChoiceQuest1_1 === 1 &&
-        progressChoiceQuest1_2 === 0 &&
-        progressChoiceQuest1_3 === 0) {
-        categorySubStars_1.innerHTML = `
+        const categorySubStars_1 = document.getElementById('categoryElementStars_1'),
+            categorySubQuest_2 = document.getElementById('categorySubChoice_2')
+        ;
+
+        categorySubStars_1.id = 'categoryElementStars_1';
+        const categoryElementStars_1 = document.getElementById('categoryElementStars_1');
+
+        if (progressChoiceQuest1_1 === 1 &&
+            progressChoiceQuest1_2 === 0 &&
+            progressChoiceQuest1_3 === 0) {
+            categorySubStars_1.innerHTML = `
             <li class="fill"></li>
             <li></li>
             <li></li>
         `;
-    } else if (progressChoiceQuest1_1 === 1 &&
-        progressChoiceQuest1_2 === 1 &&
-        progressChoiceQuest1_3 === 0) {
-        categorySubStars_1.innerHTML = `
+        } else if (progressChoiceQuest1_1 === 1 &&
+            progressChoiceQuest1_2 === 1 &&
+            progressChoiceQuest1_3 === 0) {
+            categorySubStars_1.innerHTML = `
             <li class="fill"></li>
             <li class="fill"></li>
             <li></li>
         `;
-    } else if (progressChoiceQuest1_1 === 1 &&
-        progressChoiceQuest1_2 === 1 &&
-        progressChoiceQuest1_3 === 1) {
-        categorySubStars_1.innerHTML = `
+        } else if (progressChoiceQuest1_1 === 1 &&
+            progressChoiceQuest1_2 === 1 &&
+            progressChoiceQuest1_3 === 1) {
+            categorySubStars_1.innerHTML = `
             <li class="fill"></li>
             <li class="fill"></li>
             <li class="fill"></li>
         `;
-    } else if (progressChoiceQuest1_1 === 0 &&
-        progressChoiceQuest1_2 === 1 &&
-        progressChoiceQuest1_3 === 0) {
-        categorySubStars_1.innerHTML = `
+        } else if (progressChoiceQuest1_1 === 0 &&
+            progressChoiceQuest1_2 === 1 &&
+            progressChoiceQuest1_3 === 0) {
+            categorySubStars_1.innerHTML = `
             <li></li>
             <li class="fill"></li>
             <li></li>
         `;
-    } else if (progressChoiceQuest1_1 === 0 &&
-        progressChoiceQuest1_2 === 0 &&
-        progressChoiceQuest1_3 === 1) {
-        categorySubStars_1.innerHTML = `
+        } else if (progressChoiceQuest1_1 === 0 &&
+            progressChoiceQuest1_2 === 0 &&
+            progressChoiceQuest1_3 === 1) {
+            categorySubStars_1.innerHTML = `
             <li></li>
             <li></li>
             <li class="fill"></li>
         `;
-    } else if (progressChoiceQuest1_1 === 0 &&
-        progressChoiceQuest1_2 === 1 &&
-        progressChoiceQuest1_3 === 1) {
-        categorySubStars_1.innerHTML = `
+        } else if (progressChoiceQuest1_1 === 0 &&
+            progressChoiceQuest1_2 === 1 &&
+            progressChoiceQuest1_3 === 1) {
+            categorySubStars_1.innerHTML = `
             <li></li>
             <li class="fill"></li>
             <li class="fill"></li>
         `;
-    } else if (progressChoiceQuest1_1 === 1 &&
-        progressChoiceQuest1_2 === 0 &&
-        progressChoiceQuest1_3 === 1) {
-        categorySubStars_1.innerHTML = `
+        } else if (progressChoiceQuest1_1 === 1 &&
+            progressChoiceQuest1_2 === 0 &&
+            progressChoiceQuest1_3 === 1) {
+            categorySubStars_1.innerHTML = `
             <li class="fill"></li>
             <li></li>
             <li class="fill"></li>
         `;
+        }
+
+        if (progressChoiceQuest1 >= 1) {
+            categorySubQuest_2.className = 'category__element category__element_2';
+        }
     }
+    choiceQuest_1();
 
-    if (progressChoiceQuest1 >= 1) {
-        categorySubQuest_2.className = 'category__element category__element_2';
+    function choiceQuest_2() {
+        if (localStorage.getItem('progressChoiceQuest_2_1') === null ||
+            localStorage.getItem('progressChoiceQuest_2_2') === null ||
+            localStorage.getItem('progressChoiceQuest_2_3') === null) {
+            localStorage.setItem('progressChoiceQuest_2_1', JSON.stringify(0));
+            localStorage.setItem('progressChoiceQuest_2_2', JSON.stringify(0));
+            localStorage.setItem('progressChoiceQuest_2_3', JSON.stringify(0));
+        }
+
+        let progressChoiceQuest2_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_2_1')),
+            progressChoiceQuest2_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_2_2')),
+            progressChoiceQuest2_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_2_3'))
+        ;
+
+        const categorySubStars_2 = document.getElementById('categoryElementStars_2'),
+            categorySubQuest_3 = document.getElementById('categorySubChoice_3')
+        ;
+
+        categorySubStars_2.id = 'categoryElementStars_2';
+        const categoryElementStars_2 = document.getElementById('categoryElementStars_2');
+
+        if (progressChoiceQuest2_1 === 1 &&
+            progressChoiceQuest2_2 === 0 &&
+            progressChoiceQuest2_3 === 0) {
+            categorySubStars_2.innerHTML = `
+            <li class="fill"></li>
+            <li></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest2_1 === 1 &&
+            progressChoiceQuest2_2 === 1 &&
+            progressChoiceQuest2_3 === 0) {
+            categorySubStars_2.innerHTML = `
+            <li class="fill"></li>
+            <li class="fill"></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest2_1 === 1 &&
+            progressChoiceQuest2_2 === 1 &&
+            progressChoiceQuest2_3 === 1) {
+            categorySubStars_2.innerHTML = `
+            <li class="fill"></li>
+            <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest2_1 === 0 &&
+            progressChoiceQuest2_2 === 1 &&
+            progressChoiceQuest2_3 === 0) {
+            categorySubStars_2.innerHTML = `
+            <li></li>
+            <li class="fill"></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest2_1 === 0 &&
+            progressChoiceQuest2_2 === 0 &&
+            progressChoiceQuest2_3 === 1) {
+            categorySubStars_2.innerHTML = `
+            <li></li>
+            <li></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest2_1 === 0 &&
+            progressChoiceQuest2_2 === 1 &&
+            progressChoiceQuest2_3 === 1) {
+            categorySubStars_2.innerHTML = `
+            <li></li>
+            <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest2_1 === 1 &&
+            progressChoiceQuest2_2 === 0 &&
+            progressChoiceQuest2_3 === 1) {
+            categorySubStars_2.innerHTML = `
+            <li class="fill"></li>
+            <li></li>
+            <li class="fill"></li>
+        `;
+        }
+
+        if (progressChoiceQuest2 >= 1) {
+            categorySubQuest_3.className = 'category__element category__element_3';
+        }
     }
+    choiceQuest_2();
+
+    function choiceQuest_3() {
+        if (localStorage.getItem('progressChoiceQuest_3_1') === null ||
+            localStorage.getItem('progressChoiceQuest_3_2') === null ||
+            localStorage.getItem('progressChoiceQuest_3_3') === null) {
+            localStorage.setItem('progressChoiceQuest_3_1', JSON.stringify(0));
+            localStorage.setItem('progressChoiceQuest_3_2', JSON.stringify(0));
+            localStorage.setItem('progressChoiceQuest_3_3', JSON.stringify(0));
+        }
+
+        let progressChoiceQuest3_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_1')),
+            progressChoiceQuest3_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_2')),
+            progressChoiceQuest3_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_3'))
+        ;
+
+        const categorySubStars_3 = document.getElementById('categoryElementStars_3'),
+            categorySubQuest_4 = document.getElementById('categorySubChoice_4')
+        ;
+
+        categorySubStars_3.id = 'categoryElementStars_3';
+        const categoryElementStars_3 = document.getElementById('categoryElementStars_3');
+
+        if (progressChoiceQuest3_1 === 1 &&
+            progressChoiceQuest3_2 === 0 &&
+            progressChoiceQuest3_3 === 0) {
+            categorySubStars_3.innerHTML = `
+            <li class="fill"></li>
+            <li></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest3_1 === 1 &&
+            progressChoiceQuest3_2 === 1 &&
+            progressChoiceQuest3_3 === 0) {
+            categorySubStars_3.innerHTML = `
+            <li class="fill"></li>
+            <li class="fill"></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest3_1 === 1 &&
+            progressChoiceQuest3_2 === 1 &&
+            progressChoiceQuest3_3 === 1) {
+            categorySubStars_3.innerHTML = `
+            <li class="fill"></li>
+            <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest3_1 === 0 &&
+            progressChoiceQuest3_2 === 1 &&
+            progressChoiceQuest3_3 === 0) {
+            categorySubStars_3.innerHTML = `
+            <li></li>
+            <li class="fill"></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest3_1 === 0 &&
+            progressChoiceQuest3_2 === 0 &&
+            progressChoiceQuest3_3 === 1) {
+            categorySubStars_3.innerHTML = `
+            <li></li>
+            <li></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest3_1 === 0 &&
+            progressChoiceQuest3_2 === 1 &&
+            progressChoiceQuest3_3 === 1) {
+            categorySubStars_3.innerHTML = `
+            <li></li>
+            <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest3_1 === 1 &&
+            progressChoiceQuest3_2 === 0 &&
+            progressChoiceQuest3_3 === 1) {
+            categorySubStars_3.innerHTML = `
+            <li class="fill"></li>
+            <li></li>
+            <li class="fill"></li>
+        `;
+        }
+
+        if (progressChoiceQuest3 >= 1) {
+            categorySubQuest_4.className = 'category__element category__element_4';
+        }
+    }
+    choiceQuest_3();
+
+    function choiceQuest_4() {
+        if (localStorage.getItem('progressChoiceQuest_4_1') === null ||
+            localStorage.getItem('progressChoiceQuest_4_2') === null ||
+            localStorage.getItem('progressChoiceQuest_4_3') === null) {
+            localStorage.setItem('progressChoiceQuest_4_1', JSON.stringify(0));
+            localStorage.setItem('progressChoiceQuest_4_2', JSON.stringify(0));
+            localStorage.setItem('progressChoiceQuest_4_3', JSON.stringify(0));
+        }
+
+        let progressChoiceQuest4_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_4_1')),
+            progressChoiceQuest4_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_4_2')),
+            progressChoiceQuest4_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_4_3'))
+        ;
+
+        const categorySubStars_4 = document.getElementById('categoryElementStars_4'),
+            categorySubQuest_5 = document.getElementById('categorySubChoice_5')
+        ;
+
+        categorySubStars_4.id = 'categoryElementStars_3';
+        const categoryElementStars_4 = document.getElementById('categoryElementStars_4');
+
+        if (progressChoiceQuest4_1 === 1 &&
+            progressChoiceQuest4_2 === 0 &&
+            progressChoiceQuest4_3 === 0) {
+            categorySubStars_4.innerHTML = `
+            <li class="fill"></li>
+            <li></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest4_1 === 1 &&
+            progressChoiceQuest4_2 === 1 &&
+            progressChoiceQuest4_3 === 0) {
+            categorySubStars_4.innerHTML = `
+            <li class="fill"></li>
+            <li class="fill"></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest4_1 === 1 &&
+            progressChoiceQuest4_2 === 1 &&
+            progressChoiceQuest4_3 === 1) {
+            categorySubStars_4.innerHTML = `
+            <li class="fill"></li>
+            <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest4_1 === 0 &&
+            progressChoiceQuest4_2 === 1 &&
+            progressChoiceQuest4_3 === 0) {
+            categorySubStars_4.innerHTML = `
+            <li></li>
+            <li class="fill"></li>
+            <li></li>
+        `;
+        } else if (progressChoiceQuest4_1 === 0 &&
+            progressChoiceQuest4_2 === 0 &&
+            progressChoiceQuest4_3 === 1) {
+            categorySubStars_4.innerHTML = `
+            <li></li>
+            <li></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest4_1 === 0 &&
+            progressChoiceQuest4_2 === 1 &&
+            progressChoiceQuest4_3 === 1) {
+            categorySubStars_4.innerHTML = `
+            <li></li>
+            <li class="fill"></li>
+            <li class="fill"></li>
+        `;
+        } else if (progressChoiceQuest4_1 === 1 &&
+            progressChoiceQuest4_2 === 0 &&
+            progressChoiceQuest4_3 === 1) {
+            categorySubStars_4.innerHTML = `
+            <li class="fill"></li>
+            <li></li>
+            <li class="fill"></li>
+        `;
+        }
+
+        if (progressChoiceQuest4 >= 1) {
+            categorySubQuest_5.className = 'category__element category__element_5';
+        }
+    }
+    choiceQuest_4();
 
     arrowBackLoad.arrowBack();
     const arrowBackClick = document.getElementById('arrowBack');
@@ -368,7 +634,7 @@ function choiceCategoryDev() {
             onComplete: () => {
                 container.removeChild(arrowBackClick);
                 container.removeChild(containerWrapper);
-                loadQuestReady();
+                loadQuestReady_1();
             }
         });
 
@@ -378,6 +644,123 @@ function choiceCategoryDev() {
             })
         ;
     });
+
+    categorySubChoice_2.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapper);
+                loadQuestReady_2();
+            }
+        });
+
+        tl
+            .to(containerWrapper, {
+                autoAlpha: 0,
+            })
+        ;
+    });
+
+    categorySubChoice_3.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapper);
+                loadQuestReady_3();
+            }
+        });
+
+        tl
+            .to(containerWrapper, {
+                autoAlpha: 0,
+            })
+        ;
+    });
+
+    categorySubChoice_4.addEventListener('click', () => {
+        let tl = gsap.timeline({
+            onComplete: () => {
+                container.removeChild(arrowBackClick);
+                container.removeChild(containerWrapper);
+                loadQuestReady_4();
+            }
+        });
+
+        tl
+            .to(containerWrapper, {
+                autoAlpha: 0,
+            })
+        ;
+    });
+}
+
+/* Переходим к неотвеченному вопросу */
+function loadQuestReady_1() {
+    let loadQuestReady_1_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_1')),
+        loadQuestReady_1_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_2')),
+        loadQuestReady_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1'))
+    ;
+
+    if (loadQuestReady_1_1 === 0) {
+        questionChoiceCat_1_1();
+    } else if (loadQuestReady_1_1 === 1 && loadQuestReady_1 === 1) {
+        questionChoiceCat_1_2();
+    } else if (loadQuestReady_1_2 === 1 && loadQuestReady_1 === 2) {
+        questionChoiceCat_1_3();
+    } else if (loadQuestReady_1_2 === 0 && loadQuestReady_1 === 2) {
+        questionChoiceCat_1_2();
+    }
+}
+
+function loadQuestReady_2() {
+    let loadQuestReady_2_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_2_1')),
+        loadQuestReady_2_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_2_2')),
+        loadQuestReady_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_2'))
+    ;
+
+    if (loadQuestReady_2_1 === 0) {
+        questionChoiceCat_2_1();
+    } else if (loadQuestReady_2_1 === 1 && loadQuestReady_2 === 1) {
+        questionChoiceCat_2_2();
+    } else if (loadQuestReady_2_2 === 1 && loadQuestReady_2 === 2) {
+        questionChoiceCat_2_3();
+    } else if (loadQuestReady_2_2 === 0 && loadQuestReady_2 === 2) {
+        questionChoiceCat_2_2();
+    }
+}
+
+function loadQuestReady_3() {
+    let loadQuestReady_3_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_1')),
+        loadQuestReady_3_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_2')),
+        loadQuestReady_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3'))
+    ;
+
+    if (loadQuestReady_3_1 === 0) {
+        questionChoiceCat_3_1();
+    } else if (loadQuestReady_3_1 === 1 && loadQuestReady_3 === 1) {
+        questionChoiceCat_3_2();
+    } else if (loadQuestReady_3_2 === 1 && loadQuestReady_3 === 2) {
+        questionChoiceCat_3_3();
+    } else if (loadQuestReady_3_2 === 0 && loadQuestReady_3 === 2) {
+        questionChoiceCat_3_2();
+    }
+}
+
+function loadQuestReady_4() {
+    let loadQuestReady_4_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_4_1')),
+        loadQuestReady_4_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_4_2')),
+        loadQuestReady_4 = JSON.parse(localStorage.getItem('progressChoiceQuest_4'))
+    ;
+
+    if (loadQuestReady_4_1 === 0) {
+        questionChoiceCat_4_1();
+    } else if (loadQuestReady_4_1 === 1 && loadQuestReady_4 === 1) {
+        questionChoiceCat_4_2();
+    } else if (loadQuestReady_4_2 === 1 && loadQuestReady_4 === 2) {
+        questionChoiceCat_4_3();
+    } else if (loadQuestReady_4_2 === 0 && loadQuestReady_4 === 2) {
+        questionChoiceCat_4_2();
+    }
 }
 
 /* Запускаем вопросы в квтегории Подготовка */
@@ -462,33 +845,40 @@ function flightCategoryDev() {
     });
 }
 
-/* Переходим к неотвеченному вопросу */
-function loadQuestReady() {
-    let loadQuestReady_1_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_1')),
-        loadQuestReady_1_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_2')),
-        loadQuestReady_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1')),
-        loadQuestReady_2 = document.getElementById('categorySubChoice_1')
-    ;
-
-    if (loadQuestReady_1_1 === 0) {
-        questionChoiceCat_1_1();
-    } else if (loadQuestReady_1_1 === 1 && loadQuestReady_1 === 1) {
-        questionChoiceCat_1_2();
-    } else if (loadQuestReady_1_2 === 1 && loadQuestReady_1 === 2) {
-        questionChoiceCat_1_3();
-    } else if (loadQuestReady_1_2 === 0 && loadQuestReady_1 === 2) {
-        questionChoiceCat_1_2();
-    }
-}
-
 /* Блокируем подкатегории при всех ответах */
 function lockSubQuestChoice() {
-    let loadQuestReady_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1')),
-        loadQuestReady_2 = document.getElementById('categorySubChoice_1')
+    let progressChoiceQuest_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1')),
+        categorySubChoice_1 = document.getElementById('categorySubChoice_1'),
+        progressChoiceQuest_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_2')),
+        categorySubChoice_2 = document.getElementById('categorySubChoice_2'),
+        progressChoiceQuest_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3')),
+        categorySubChoice_3 = document.getElementById('categorySubChoice_3'),
+        progressChoiceQuest_4 = JSON.parse(localStorage.getItem('progressChoiceQuest_4')),
+        categorySubChoice_4 = document.getElementById('categorySubChoice_4'),
+        progressChoiceQuest_5 = JSON.parse(localStorage.getItem('progressChoiceQuest_5')),
+        categorySubChoice_5 = document.getElementById('categorySubChoice_5'),
+        progressChoiceQuest_6 = JSON.parse(localStorage.getItem('progressChoiceQuest_6')),
+        categorySubChoice_6 = document.getElementById('categorySubChoice_6'),
+        progressChoiceQuest_7 = JSON.parse(localStorage.getItem('progressChoiceQuest_7')),
+        categorySubChoice_7 = document.getElementById('categorySubChoice_7'),
+        progressChoiceQuest_8 = JSON.parse(localStorage.getItem('progressChoiceQuest_8')),
+        categorySubChoice_8 = document.getElementById('categorySubChoice_8')
     ;
 
-    if (loadQuestReady_1 === 3) {
-        loadQuestReady_2.className = 'category__element category__element_1 category__element--lock';
+    if (progressChoiceQuest_1 === 3) {
+        categorySubChoice_1.className = 'category__element category__element_1 category__element--lock';
+    }
+
+    if (progressChoiceQuest_2 === 3) {
+        categorySubChoice_2.className = 'category__element category__element_2 category__element--lock';
+    }
+
+    if (progressChoiceQuest_3 === 3) {
+        categorySubChoice_3.className = 'category__element category__element_3 category__element--lock';
+    }
+
+    if (progressChoiceQuest_4 === 3) {
+        categorySubChoice_4.className = 'category__element category__element_4 category__element--lock';
     }
 }
 
