@@ -76,6 +76,75 @@ class Question {
         questionBlockAnimation();
     }
 
+    questionImageBlock(
+        questionTitleCategory,
+        questionTitle,
+        questionImage,
+        questionVariant1,
+        questionVariant2,
+        questionVariant3) {
+
+        // Development
+        wrapper.className += ' wrapper__game';
+
+        const containerWrapper = document.createElement('div'),
+            questionCategoryTitle = document.createElement('div'),
+            questionCategoryStars = document.createElement('ul')
+        ;
+        containerWrapper.className = 'container__wrapper container__wrapper_category';
+        questionCategoryTitle.className = 'container__title container__title_category';
+        questionCategoryStars.className = 'wrapper__stars';
+        questionCategoryTitle.innerHTML = `<h1>${questionTitleCategory}</h1>`;
+        containerWrapper.innerHTML = `
+            <div class="question__block">
+                <div class="question__block_imageblock">
+                    <h4>${questionTitle}</h4>
+                    <div class="question__block_image-single">
+                        <img src="assets/games/cosmicpuzzles/images/${questionImage}.png" alt="${questionImage}">
+                    </div>
+                </div>
+                <ul class="question__block_list">
+                    <li id="answerVar_1"><a href="javascript:void(0);">${questionVariant1}</a></li>
+                    <li id="answerVar_2"><a href="javascript:void(0);">${questionVariant2}</a></li>
+                    <li id="answerVar_3"><a href="javascript:void(0);">${questionVariant3}</a></li>
+                </ul>
+            </div>
+        `;
+        container.appendChild(containerWrapper);
+        containerWrapper.appendChild(questionCategoryTitle);
+
+        const questButtonLi_1 = document.getElementById('answerVar_1'),
+            questButtonLi_2 = document.getElementById('answerVar_2'),
+            questButtonLi_3 = document.getElementById('answerVar_3'),
+            questButtonList = [questButtonLi_1, questButtonLi_2, questButtonLi_3],
+            questButtonLiPosition = ['0', '33%', '66%'],
+            questButtonLi = document.querySelectorAll('.question__block_list li'),
+            positionLiTop = questButtonLiPosition.sort(() => Math.floor(Math.random() * questButtonLiPosition.length))
+        ;
+
+        questButtonList.forEach((el, idx) => {
+            el.style.top = positionLiTop[idx];
+        });
+
+        function questionBlockImageAnim() {
+            let tl = gsap.timeline();
+            tl
+                .from('.question__block_imageblock', {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    delay: 0.2
+                })
+                .from(questButtonList, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    stagger: 0.1,
+                    delay: '-0.2'
+                })
+            ;
+        }
+        questionBlockImageAnim();
+    }
+
     answerBlock(answerVarNum, answerTextRight) {
         const questionBlock = document.querySelector('.question__block_list'),
             questionBlockText = document.createElement('div'),

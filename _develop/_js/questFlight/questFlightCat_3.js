@@ -1,20 +1,20 @@
-if (localStorage.getItem('progressChoiceQuest_3') === null) {
-    localStorage.setItem('progressChoiceQuest_3', JSON.stringify(0));
+if (localStorage.getItem('progressFlightQuest_3') === null) {
+    localStorage.setItem('progressFlightQuest_3', JSON.stringify(0));
 }
 
-function questionChoiceCat_3_1() {
-    let questChoiceCatLoad = new Question();
+function questionFlightCat_3_1() {
+    let questPrepareCatLoad = new Question();
     let questArrowBack = new ArrowsAll();
     let answerWrightNum = 1;
-    let progressChoiceQuest_3_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_1'));
-    let progressChoiceQuest_3_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_2'));
-    let progressChoiceQuest_3_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_3'));
+    let progressFlightQuest_3_1 = JSON.parse(localStorage.getItem('progressFlightQuest_3_1'));
+    let progressFlightQuest_3_2 = JSON.parse(localStorage.getItem('progressFlightQuest_3_2'));
+    let progressFlightQuest_3_3 = JSON.parse(localStorage.getItem('progressFlightQuest_3_3'));
 
-    if (localStorage.getItem('progressChoiceQuest_3_1') === null) {
-        localStorage.setItem('progressChoiceQuest_3_1', JSON.stringify(progressChoiceQuest_3_1));
+    if (localStorage.getItem('progressFlightQuest_3_1') === null) {
+        localStorage.setItem('progressFlightQuest_3_1', JSON.stringify(progressFlightQuest_3_1));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Женщины космонавты. Позывные.', 'У этой женщины-космонавта позывной названия морской птицы.', 'Светлана Савицкая&nbsp;–</br>«Альбатрос»', 'Валентина Терешкова&nbsp;–<br>«Чайка»', 'Елена Серова&nbsp;–<br>«Буревестник»');
+    questPrepareCatLoad.questionBlock('Полет', 'Пальцем в небо', 'Какое из утверждений правда?', 'Власти Объединённых Арабских Эмиратов запрещают мусульманам осваивать Марс', 'Упаковка хлеба, употребляемого в космосе, рассчитана на один укус', 'Современный космический скафандр в случае повреждения способен сам восстанавливать свою целостность');
 
     let answerVar_3_1_1 = document.getElementById('answerVar_1'),
         answerVar_3_1_2 = document.getElementById('answerVar_2'),
@@ -26,25 +26,25 @@ function questionChoiceCat_3_1() {
     questionStars.className = 'wrapper__stars';
     wrapper.appendChild(questionStars);
 
-    if (progressChoiceQuest_3_1 === 0 &&
-        progressChoiceQuest_3_2 === 1 &&
-        progressChoiceQuest_3_3 === 0) {
+    if (progressFlightQuest_3_1 === 0 &&
+        progressFlightQuest_3_2 === 1 &&
+        progressFlightQuest_3_3 === 0) {
         questionStars.innerHTML = `
             <li id="questionStar_3_1"></li>
             <li id="questionStar_3_2" class="fill"></li>
             <li id="questionStar_3_3"></li>
         `;
-    } else if (progressChoiceQuest_3_1 === 0 &&
-        progressChoiceQuest_3_2 === 0 &&
-        progressChoiceQuest_3_3 === 1) {
+    } else if (progressFlightQuest_3_1 === 0 &&
+        progressFlightQuest_3_2 === 0 &&
+        progressFlightQuest_3_3 === 1) {
         questionStars.innerHTML = `
             <li id="questionStar_3_1"></li>
             <li id="questionStar_3_2"></li>
             <li id="questionStar_3_3" class="fill"></li>
         `;
-    } else if (progressChoiceQuest_3_1 === 0 &&
-        progressChoiceQuest_3_2 === 1 &&
-        progressChoiceQuest_3_3 === 1) {
+    } else if (progressFlightQuest_3_1 === 0 &&
+        progressFlightQuest_3_2 === 1 &&
+        progressFlightQuest_3_3 === 1) {
         questionStars.innerHTML = `
             <li id="questionStar_3_1"></li>
             <li id="questionStar_3_2" class="fill"></li>
@@ -63,41 +63,41 @@ function questionChoiceCat_3_1() {
     for (let i = 0; i < answerVarRight_3_1.length; i++) {
         if (answerVarRight_3_1[i] === answerVarRight_3_1[answerWrightNum]) {
             answerVarRight_3_1[i].addEventListener('click', () => {
-                let progressChoiceQuest_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3'));
-                let progressChoiceQuestSum_3_1 = progressChoiceQuest_3_1 + 1;
-                let progressChoiceQuestSum_3 = progressChoiceQuestSum_3_1 + progressChoiceQuest_3;
+                let progressFlightQuest_3 = JSON.parse(localStorage.getItem('progressFlightQuest_3'));
+                let progressFlightQuestSum_3_1 = progressFlightQuest_3_1 + 1;
+                let progressFlightQuestSum_3 = progressFlightQuestSum_3_1 + progressFlightQuest_3;
 
-                localStorage.setItem('progressChoiceQuest_3_1', JSON.stringify(progressChoiceQuestSum_3_1));
-                localStorage.setItem('progressChoiceQuest_3', JSON.stringify(progressChoiceQuestSum_3));
-                if (progressChoiceQuestSum_3_1 === 1) {
+                localStorage.setItem('progressFlightQuest_3_1', JSON.stringify(progressFlightQuestSum_3_1));
+                localStorage.setItem('progressFlightQuest_3', JSON.stringify(progressFlightQuestSum_3));
+                if (progressFlightQuestSum_3_1 === 1) {
                     questionStar_3_1.className += 'fill';
                 }
             });
         }
     }
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, 'Позывной Терешковой придумал Юрий Гагарин. Валентина Терешкова - единственная женщина в мире, которая имеет звание генерал-майора авиации. Она десятый космонавт в мире и шестой – в СССР.');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Угадал!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),
-        questValue_3_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_2')),
-        questValue_3_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_3'))
+        questValue_3_2 = JSON.parse(localStorage.getItem('progressFlightQuest_3_2')),
+        questValue_3_3 = JSON.parse(localStorage.getItem('progressFlightQuest_3_3'))
     ;
     arrowNextClick.addEventListener('click', () => {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
-                if (progressChoiceQuest_3_1 === 0 &&
-                    progressChoiceQuest_3_2 === 0 &&
-                    progressChoiceQuest_3_3 === 0) {
+                if (progressFlightQuest_3_1 === 0 &&
+                    progressFlightQuest_3_2 === 0 &&
+                    progressFlightQuest_3_3 === 0) {
                     wrapper.removeChild(questionStars);
-                } else if (progressChoiceQuest_3_1 === 0 &&
-                    progressChoiceQuest_3_2 === 1 &&
-                    progressChoiceQuest_3_3 === 0) {
+                } else if (progressFlightQuest_3_1 === 0 &&
+                    progressFlightQuest_3_2 === 1 &&
+                    progressFlightQuest_3_3 === 0) {
                     wrapper.removeChild(questionStars);
-                } else if (progressChoiceQuest_3_1 === 0 &&
-                    progressChoiceQuest_3_2 === 0 &&
-                    progressChoiceQuest_3_3 === 1) {
+                } else if (progressFlightQuest_3_1 === 0 &&
+                    progressFlightQuest_3_2 === 0 &&
+                    progressFlightQuest_3_3 === 1) {
                     wrapper.removeChild(questionStars);
                 }
                 container.removeChild(arrowBackClick);
@@ -105,18 +105,18 @@ function questionChoiceCat_3_1() {
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
                 if (questValue_3_2 === 1 && questValue_3_3 === 1) {
-                    choiceCategoryDev();
-                    lockSubQuestChoice();
+                    flightCategory();
+                    lockSubQuestFlight();
                 } else if (questValue_3_2 === 0) {
-                    questionChoiceCat_3_2();
+                    questionFlightCat_3_2();
                 } else if (questValue_3_2 === 1 && questValue_3_3 === 0) {
-                    questionChoiceCat_3_3();
+                    questionFlightCat_3_3();
                 }
             }
         });
-        if (progressChoiceQuest_3_1 === 0 &&
-            progressChoiceQuest_3_2 === 1 &&
-            progressChoiceQuest_3_3 === 1) {
+        if (progressFlightQuest_3_1 === 0 &&
+            progressFlightQuest_3_2 === 1 &&
+            progressFlightQuest_3_3 === 1) {
             gsap.to(questionStars, {
                 autoAlpha: 0,
                 delay: '-0.3',
@@ -138,8 +138,8 @@ function questionChoiceCat_3_1() {
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
+                flightCategory();
+                lockSubQuestFlight();
             }
         });
         gsap.to(questionStars, {
@@ -152,19 +152,19 @@ function questionChoiceCat_3_1() {
     });
 }
 
-function questionChoiceCat_3_2() {
-    let questChoiceCatLoad = new Question();
+function questionFlightCat_3_2() {
+    let questPrepareCatLoad = new Question();
     let questArrowBack = new ArrowsAll();
     let answerWrightNum = 2;
-    let progressChoiceQuest_3_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_1'));
-    let progressChoiceQuest_3_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_2'));
-    let progressChoiceQuest_3_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_3'));
+    let progressFlightQuest_3_1 = JSON.parse(localStorage.getItem('progressFlightQuest_3_1'));
+    let progressFlightQuest_3_2 = JSON.parse(localStorage.getItem('progressFlightQuest_3_2'));
+    let progressFlightQuest_3_3 = JSON.parse(localStorage.getItem('progressFlightQuest_3_3'));
 
-    if (localStorage.getItem('progressChoiceQuest_3_2') === null) {
-        localStorage.setItem('progressChoiceQuest_3_2', JSON.stringify(progressChoiceQuest_3_2));
+    if (localStorage.getItem('progressFlightQuest_3_2') === null) {
+        localStorage.setItem('progressFlightQuest_3_2', JSON.stringify(progressFlightQuest_3_2));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Женщины космонавты. Позывные.', 'Позывной этой женщины космонавта носит название третьей по длине реки после Волги и Дуная', 'Светлана Савицкая&nbsp;–</br>«Днепр»', 'Светлана Савицкая&nbsp;–</br>«Днестр»', 'Светлана Савицкая&nbsp;–</br>«Днепр – 3»');
+    questPrepareCatLoad.questionBlock('Полет', 'Пальцем в небо', 'Какое из утверждений правда', 'В созвездии Лиры находиться планета, на&nbsp;92% состоящая из рубина', 'Жидкая тушь для ресниц была создана по просьбе женщин&nbsp;– космонавтов', 'Обратный отсчет, сопровождающий запуск космических кораблей, придумали не космонавты, не ученые, а кинематографисты');
 
     let answerVar_3_2_1 = document.getElementById('answerVar_1'),
         answerVar_3_2_2 = document.getElementById('answerVar_2'),
@@ -176,25 +176,25 @@ function questionChoiceCat_3_2() {
     questionStars.className = 'wrapper__stars';
     wrapper.appendChild(questionStars);
 
-    if (progressChoiceQuest_3_1 === 1 &&
-        progressChoiceQuest_3_2 === 0 &&
-        progressChoiceQuest_3_3 === 0) {
+    if (progressFlightQuest_3_1 === 1 &&
+        progressFlightQuest_3_2 === 0 &&
+        progressFlightQuest_3_3 === 0) {
         questionStars.innerHTML = `
             <li id="questionStar_3_1" class="fill"></li>
             <li id="questionStar_3_2"></li>
             <li id="questionStar_3_3"></li>
         `;
-    } else if (progressChoiceQuest_3_1 === 0 &&
-        progressChoiceQuest_3_2 === 0 &&
-        progressChoiceQuest_3_3 === 1) {
+    } else if (progressFlightQuest_3_1 === 0 &&
+        progressFlightQuest_3_2 === 0 &&
+        progressFlightQuest_3_3 === 1) {
         questionStars.innerHTML = `
             <li id="questionStar_3_1"></li>
             <li id="questionStar_3_2"></li>
             <li id="questionStar_3_3" class="fill"></li>
         `;
-    } else if (progressChoiceQuest_3_1 === 1 &&
-        progressChoiceQuest_3_2 === 0 &&
-        progressChoiceQuest_3_3 === 1) {
+    } else if (progressFlightQuest_3_1 === 1 &&
+        progressFlightQuest_3_2 === 0 &&
+        progressFlightQuest_3_3 === 1) {
         questionStars.innerHTML = `
             <li id="questionStar_3_1" class="fill"></li>
             <li id="questionStar_3_2"></li>
@@ -213,40 +213,40 @@ function questionChoiceCat_3_2() {
     for (let i = 0; i < answerVarRight_3_2.length; i++) {
         if (answerVarRight_3_2[i] === answerVarRight_3_2[answerWrightNum]) {
             answerVarRight_3_2[i].addEventListener('click', () => {
-                let progressChoiceQuest_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3'));
-                let progressChoiceQuestSum_3_2 = progressChoiceQuest_3_2 + 1;
-                let progressChoiceQuestSum_3 = progressChoiceQuestSum_3_2 + progressChoiceQuest_3;
+                let progressFlightQuest_3 = JSON.parse(localStorage.getItem('progressFlightQuest_3'));
+                let progressFlightQuestSum_3_2 = progressFlightQuest_3_2 + 1;
+                let progressFlightQuestSum_3 = progressFlightQuestSum_3_2 + progressFlightQuest_3;
 
-                localStorage.setItem('progressChoiceQuest_3_2', JSON.stringify(progressChoiceQuestSum_3_2));
-                localStorage.setItem('progressChoiceQuest_3', JSON.stringify(progressChoiceQuestSum_3));
-                if (progressChoiceQuestSum_3_2 === 1) {
+                localStorage.setItem('progressFlightQuest_3_2', JSON.stringify(progressFlightQuestSum_3_2));
+                localStorage.setItem('progressFlightQuest_3', JSON.stringify(progressFlightQuestSum_3));
+                if (progressFlightQuestSum_3_2 === 1) {
                     questionStar_3_2.className += 'fill';
                 }
             });
         }
     }
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, '59 лет назад космонавт должен был состоять в партии, быть опытным военным летчиком не выше 170 см и не старше 30 лет, обладать безупречным здоровьем и физической подготовкой на уровне мастера спорта.');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Да – верно!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),
-        questValue_3_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_3'))
+        questValue_3_3 = JSON.parse(localStorage.getItem('progressFlightQuest_3_3'))
     ;
     arrowNextClick.addEventListener('click', () => {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
-                if (progressChoiceQuest_3_1 === 0 &&
-                    progressChoiceQuest_3_2 === 0 &&
-                    progressChoiceQuest_3_3 === 0) {
+                if (progressFlightQuest_3_1 === 0 &&
+                    progressFlightQuest_3_2 === 0 &&
+                    progressFlightQuest_3_3 === 0) {
                     wrapper.removeChild(questionStars);
-                } else if (progressChoiceQuest_3_1 === 1 &&
-                    progressChoiceQuest_3_2 === 0 &&
-                    progressChoiceQuest_3_3 === 0) {
+                } else if (progressFlightQuest_3_1 === 1 &&
+                    progressFlightQuest_3_2 === 0 &&
+                    progressFlightQuest_3_3 === 0) {
                     wrapper.removeChild(questionStars);
-                } else if (progressChoiceQuest_3_1 === 0 &&
-                    progressChoiceQuest_3_2 === 0 &&
-                    progressChoiceQuest_3_3 === 1) {
+                } else if (progressFlightQuest_3_1 === 0 &&
+                    progressFlightQuest_3_2 === 0 &&
+                    progressFlightQuest_3_3 === 1) {
                     wrapper.removeChild(questionStars);
                 }
                 container.removeChild(arrowBackClick);
@@ -254,16 +254,16 @@ function questionChoiceCat_3_2() {
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
                 if (questValue_3_3 === 1) {
-                    choiceCategoryDev();
-                    lockSubQuestChoice();
+                    flightCategory();
+                    lockSubQuestFlight();
                 } else if (questValue_3_3 === 0) {
-                    questionChoiceCat_3_3();
+                    questionFlightCat_3_3();
                 }
             }
         });
-        if (progressChoiceQuest_3_1 === 0 &&
-            progressChoiceQuest_3_2 === 1 &&
-            progressChoiceQuest_3_3 === 1) {
+        if (progressFlightQuest_3_1 === 1 &&
+            progressFlightQuest_3_2 === 0 &&
+            progressFlightQuest_3_3 === 1) {
             gsap.to(questionStars, {
                 autoAlpha: 0,
                 delay: '-0.3',
@@ -285,8 +285,8 @@ function questionChoiceCat_3_2() {
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
+                flightCategory();
+                lockSubQuestFlight();
             }
         });
         gsap.to(questionStars, {
@@ -299,19 +299,19 @@ function questionChoiceCat_3_2() {
     });
 }
 
-function questionChoiceCat_3_3() {
-    let questChoiceCatLoad = new Question();
+function questionFlightCat_3_3() {
+    let questPrepareCatLoad = new Question();
     let questArrowBack = new ArrowsAll();
     let answerWrightNum = 1;
-    let progressChoiceQuest_3_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_1'));
-    let progressChoiceQuest_3_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_2'));
-    let progressChoiceQuest_3_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3_3'));
+    let progressFlightQuest_3_1 = JSON.parse(localStorage.getItem('progressFlightQuest_3_1'));
+    let progressFlightQuest_3_2 = JSON.parse(localStorage.getItem('progressFlightQuest_3_2'));
+    let progressFlightQuest_3_3 = JSON.parse(localStorage.getItem('progressFlightQuest_3_3'));
 
-    if (localStorage.getItem('progressChoiceQuest_3_3') === null) {
-        localStorage.setItem('progressChoiceQuest_3_3', JSON.stringify(progressChoiceQuest_3_3));
+    if (localStorage.getItem('progressFlightQuest_3_3') === null) {
+        localStorage.setItem('progressFlightQuest_3_3', JSON.stringify(progressFlightQuest_3_3));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Женщины космонавты. Позывные.', 'Позывной следующего женщины – название мастера кузнечного дела в Бурятии', 'Елена Серова&nbsp;–</br>«Мастер»', 'Елена Серова&nbsp;–</br>«Тархан»', 'Елена Серова&nbsp;–</br>«Тандыр»');
+    questPrepareCatLoad.questionBlock('Полет', 'Пальцем в небо', 'Какое из утверждений правда', 'В созвездии Дракона находится планета на 92 % состоящая из изумруда', 'Первой наградой, полученной Юрием Гагариным после приземления 12 апреля 1961 года, была медаль «За освоение целинных земель»', 'МС, отправленное с борта орбитальной станции, идет до Земли 28 дней?');
 
     let answerVar_3_3_1 = document.getElementById('answerVar_1'),
         answerVar_3_3_2 = document.getElementById('answerVar_2'),
@@ -323,25 +323,25 @@ function questionChoiceCat_3_3() {
     questionStars.className = 'wrapper__stars';
     wrapper.appendChild(questionStars);
 
-    if (progressChoiceQuest_3_1 === 1 &&
-        progressChoiceQuest_3_2 === 1 &&
-        progressChoiceQuest_3_3 === 0) {
+    if (progressFlightQuest_3_1 === 1 &&
+        progressFlightQuest_3_2 === 1 &&
+        progressFlightQuest_3_3 === 0) {
         questionStars.innerHTML = `
             <li id="questionStar_3_1" class="fill"></li>
             <li id="questionStar_3_2" class="fill"></li>
             <li id="questionStar_3_3"></li>
         `;
-    } else if (progressChoiceQuest_3_1 === 0 &&
-        progressChoiceQuest_3_2 === 0 &&
-        progressChoiceQuest_3_3 === 1) {
+    } else if (progressFlightQuest_3_1 === 1 &&
+        progressFlightQuest_3_2 === 0 &&
+        progressFlightQuest_3_3 === 0) {
         questionStars.innerHTML = `
-            <li id="questionStar_3_1"></li>
+            <li id="questionStar_3_1" class="fill"></li>
             <li id="questionStar_3_2"></li>
-            <li id="questionStar_3_3" class="fill"></li>
+            <li id="questionStar_3_3"></li>
         `;
-    } else if (progressChoiceQuest_3_1 === 0 &&
-        progressChoiceQuest_3_2 === 1 &&
-        progressChoiceQuest_3_3 === 0) {
+    } else if (progressFlightQuest_3_1 === 0 &&
+        progressFlightQuest_3_2 === 1 &&
+        progressFlightQuest_3_3 === 0) {
         questionStars.innerHTML = `
             <li id="questionStar_3_1"></li>
             <li id="questionStar_3_2" class="fill"></li>
@@ -360,21 +360,21 @@ function questionChoiceCat_3_3() {
     for (let i = 0; i < answerVarRight_3_3.length; i++) {
         if (answerVarRight_3_3[i] === answerVarRight_3_3[answerWrightNum]) {
             answerVarRight_3_3[i].addEventListener('click', () => {
-                let progressChoiceQuest_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_3'));
-                let progressChoiceQuestSum_3_3 = progressChoiceQuest_3_3 + 1;
-                let progressChoiceQuestSum_3 = progressChoiceQuestSum_3_3 + progressChoiceQuest_3;
+                let progressFlightQuest_3 = JSON.parse(localStorage.getItem('progressFlightQuest_3'));
+                let progressFlightQuestSum_3_3 = progressFlightQuest_3_3 + 1;
+                let progressFlightQuestSum_3 = progressFlightQuestSum_3_3 + progressFlightQuest_3;
 
-                localStorage.setItem('progressChoiceQuest_3_3', JSON.stringify(progressChoiceQuestSum_3_3));
-                localStorage.setItem('progressChoiceQuest_3', JSON.stringify(progressChoiceQuestSum_3));
-                localStorage.setItem('progressChoiceAll', JSON.stringify(progressChoiceQuestSum_3));
-                if (progressChoiceQuestSum_3_3 === 1) {
+                localStorage.setItem('progressFlightQuest_3_3', JSON.stringify(progressFlightQuestSum_3_3));
+                localStorage.setItem('progressFlightQuest_3', JSON.stringify(progressFlightQuestSum_3));
+                localStorage.setItem('progressPrepareAll', JSON.stringify(progressFlightQuestSum_3));
+                if (progressFlightQuestSum_3_3 === 1) {
                     questionStar_3_3.className += 'fill';
                 }
             });
         }
     }
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, '19 августа 1982 года совершила космический полет Светлана Савицкая совместно с Л. Поповым и А. Серебровым. Позывной она получила «Днепр-3». Экспедиция продлилась 7 дней и почти 22 часа.');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Правильно!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext');
@@ -386,8 +386,8 @@ function questionChoiceCat_3_3() {
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
+                flightCategory();
+                lockSubQuestFlight();
             }
         });
         gsap.to(questionStars, {
@@ -410,8 +410,8 @@ function questionChoiceCat_3_3() {
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
+                flightCategory();
+                lockSubQuestFlight();
             }
         });
         gsap.to(questionStars, {

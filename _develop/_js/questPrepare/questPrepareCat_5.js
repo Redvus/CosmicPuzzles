@@ -1,20 +1,20 @@
-if (localStorage.getItem('progressChoiceQuest_5') === null) {
-    localStorage.setItem('progressChoiceQuest_5', JSON.stringify(0));
+if (localStorage.getItem('progressPrepareQuest_5') === null) {
+    localStorage.setItem('progressPrepareQuest_5', JSON.stringify(0));
 }
 
-function questionChoiceCat_5_1() {
-    let questChoiceCatLoad = new Question();
+function questionPrepareCat_5_1() {
+    let questPrepareCatLoad = new Question();
     let questArrowBack = new ArrowsAll();
     let answerWrightNum = 1;
-    let progressChoiceQuest_5_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_1'));
-    let progressChoiceQuest_5_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_2'));
-    let progressChoiceQuest_5_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_3'));
+    let progressPrepareQuest_5_1 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_1'));
+    let progressPrepareQuest_5_2 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_2'));
+    let progressPrepareQuest_5_3 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_3'));
 
-    if (localStorage.getItem('progressChoiceQuest_5_1') === null) {
-        localStorage.setItem('progressChoiceQuest_5_1', JSON.stringify(progressChoiceQuest_5_1));
+    if (localStorage.getItem('progressPrepareQuest_5_1') === null) {
+        localStorage.setItem('progressPrepareQuest_5_1', JSON.stringify(progressPrepareQuest_5_1));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Космос в цифрах', 'Известно, что в невесомости позвоночник человека вытягивается, он становится длиннее на?', '20 см', '8 см', '10 см');
+    questPrepareCatLoad.questionBlock('Подготовка', 'Отгадай планету', 'Самая окольцованная планета', 'Нептун', 'Сатурн', 'Уран');
 
     let answerVar_5_1_1 = document.getElementById('answerVar_1'),
         answerVar_5_1_2 = document.getElementById('answerVar_2'),
@@ -26,25 +26,25 @@ function questionChoiceCat_5_1() {
     questionStars.className = 'wrapper__stars';
     wrapper.appendChild(questionStars);
 
-    if (progressChoiceQuest_5_1 === 0 &&
-        progressChoiceQuest_5_2 === 1 &&
-        progressChoiceQuest_5_3 === 0) {
+    if (progressPrepareQuest_5_1 === 0 &&
+        progressPrepareQuest_5_2 === 1 &&
+        progressPrepareQuest_5_3 === 0) {
         questionStars.innerHTML = `
             <li id="questionStar_5_1"></li>
             <li id="questionStar_5_2" class="fill"></li>
             <li id="questionStar_5_3"></li>
         `;
-    } else if (progressChoiceQuest_5_1 === 0 &&
-        progressChoiceQuest_5_2 === 0 &&
-        progressChoiceQuest_5_3 === 1) {
+    } else if (progressPrepareQuest_5_1 === 0 &&
+        progressPrepareQuest_5_2 === 0 &&
+        progressPrepareQuest_5_3 === 1) {
         questionStars.innerHTML = `
             <li id="questionStar_5_1"></li>
             <li id="questionStar_5_2"></li>
             <li id="questionStar_5_3" class="fill"></li>
         `;
-    } else if (progressChoiceQuest_5_1 === 0 &&
-        progressChoiceQuest_5_2 === 1 &&
-        progressChoiceQuest_5_3 === 1) {
+    } else if (progressPrepareQuest_5_1 === 0 &&
+        progressPrepareQuest_5_2 === 1 &&
+        progressPrepareQuest_5_3 === 1) {
         questionStars.innerHTML = `
             <li id="questionStar_5_1"></li>
             <li id="questionStar_5_2" class="fill"></li>
@@ -63,41 +63,41 @@ function questionChoiceCat_5_1() {
     for (let i = 0; i < answerVarRight_5_1.length; i++) {
         if (answerVarRight_5_1[i] === answerVarRight_5_1[answerWrightNum]) {
             answerVarRight_5_1[i].addEventListener('click', () => {
-                let progressChoiceQuest_5 = JSON.parse(localStorage.getItem('progressChoiceQuest_5'));
-                let progressChoiceQuestSum_5_1 = progressChoiceQuest_5_1 + 1;
-                let progressChoiceQuestSum_5 = progressChoiceQuestSum_5_1 + progressChoiceQuest_5;
+                let progressPrepareQuest_5 = JSON.parse(localStorage.getItem('progressPrepareQuest_5'));
+                let progressPrepareQuestSum_5_1 = progressPrepareQuest_5_1 + 1;
+                let progressPrepareQuestSum_5 = progressPrepareQuestSum_5_1 + progressPrepareQuest_5;
 
-                localStorage.setItem('progressChoiceQuest_5_1', JSON.stringify(progressChoiceQuestSum_5_1));
-                localStorage.setItem('progressChoiceQuest_5', JSON.stringify(progressChoiceQuestSum_5));
-                if (progressChoiceQuestSum_5_1 === 1) {
+                localStorage.setItem('progressPrepareQuest_5_1', JSON.stringify(progressPrepareQuestSum_5_1));
+                localStorage.setItem('progressPrepareQuest_5', JSON.stringify(progressPrepareQuestSum_5));
+                if (progressPrepareQuestSum_5_1 === 1) {
                     questionStar_5_1.className += 'fill';
                 }
             });
         }
     }
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, 'Прибавляют в росте все люди в невесомости из-за удлинения позвоночника. После полёта он опять укорачивается. Оба процесса сопровождаются болями в спине');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Самая окольцованная!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),
-        questValue_5_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_2')),
-        questValue_5_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_3'))
+        questValue_5_2 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_2')),
+        questValue_5_3 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_3'))
     ;
     arrowNextClick.addEventListener('click', () => {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
-                if (progressChoiceQuest_5_1 === 0 &&
-                    progressChoiceQuest_5_2 === 0 &&
-                    progressChoiceQuest_5_3 === 0) {
+                if (progressPrepareQuest_5_1 === 0 &&
+                    progressPrepareQuest_5_2 === 0 &&
+                    progressPrepareQuest_5_3 === 0) {
                     wrapper.removeChild(questionStars);
-                } else if (progressChoiceQuest_5_1 === 0 &&
-                    progressChoiceQuest_5_2 === 1 &&
-                    progressChoiceQuest_5_3 === 0) {
+                } else if (progressPrepareQuest_5_1 === 0 &&
+                    progressPrepareQuest_5_2 === 1 &&
+                    progressPrepareQuest_5_3 === 0) {
                     wrapper.removeChild(questionStars);
-                } else if (progressChoiceQuest_5_1 === 0 &&
-                    progressChoiceQuest_5_2 === 0 &&
-                    progressChoiceQuest_5_3 === 1) {
+                } else if (progressPrepareQuest_5_1 === 0 &&
+                    progressPrepareQuest_5_2 === 0 &&
+                    progressPrepareQuest_5_3 === 1) {
                     wrapper.removeChild(questionStars);
                 }
                 container.removeChild(arrowBackClick);
@@ -105,18 +105,18 @@ function questionChoiceCat_5_1() {
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
                 if (questValue_5_2 === 1 && questValue_5_3 === 1) {
-                    choiceCategoryDev();
-                    lockSubQuestChoice();
+                    prepareCategory();
+                    lockSubQuestPrepare();
                 } else if (questValue_5_2 === 0) {
-                    questionChoiceCat_5_2();
+                    questionPrepareCat_5_2();
                 } else if (questValue_5_2 === 1 && questValue_5_3 === 0) {
-                    questionChoiceCat_5_3();
+                    questionPrepareCat_5_3();
                 }
             }
         });
-        if (progressChoiceQuest_5_1 === 0 &&
-            progressChoiceQuest_5_2 === 1 &&
-            progressChoiceQuest_5_3 === 1) {
+        if (progressPrepareQuest_5_1 === 0 &&
+            progressPrepareQuest_5_2 === 1 &&
+            progressPrepareQuest_5_3 === 1) {
             gsap.to(questionStars, {
                 autoAlpha: 0,
                 delay: '-0.3',
@@ -138,8 +138,8 @@ function questionChoiceCat_5_1() {
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
+                prepareCategory();
+                lockSubQuestPrepare();
             }
         });
         gsap.to(questionStars, {
@@ -152,19 +152,19 @@ function questionChoiceCat_5_1() {
     });
 }
 
-function questionChoiceCat_5_2() {
-    let questChoiceCatLoad = new Question();
+function questionPrepareCat_5_2() {
+    let questPrepareCatLoad = new Question();
     let questArrowBack = new ArrowsAll();
-    let answerWrightNum = 1;
-    let progressChoiceQuest_5_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_1'));
-    let progressChoiceQuest_5_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_2'));
-    let progressChoiceQuest_5_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_3'));
+    let answerWrightNum = 2;
+    let progressPrepareQuest_5_1 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_1'));
+    let progressPrepareQuest_5_2 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_2'));
+    let progressPrepareQuest_5_3 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_3'));
 
-    if (localStorage.getItem('progressChoiceQuest_5_2') === null) {
-        localStorage.setItem('progressChoiceQuest_5_2', JSON.stringify(progressChoiceQuest_5_2));
+    if (localStorage.getItem('progressPrepareQuest_5_2') === null) {
+        localStorage.setItem('progressPrepareQuest_5_2', JSON.stringify(progressPrepareQuest_5_2));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Космос в цифрах', 'Столько раз космонавты на МКС наблюдают восход и заход Солнца?', 'Двадцать три', 'Шестнадцать', 'Тридцать два');
+    questPrepareCatLoad.questionBlock('Подготовка', 'Подбери планете спутник ', 'Планета Юпитер', 'спутник Тритон', 'спутник Харон', 'спутник Ио');
 
     let answerVar_5_2_1 = document.getElementById('answerVar_1'),
         answerVar_5_2_2 = document.getElementById('answerVar_2'),
@@ -176,25 +176,25 @@ function questionChoiceCat_5_2() {
     questionStars.className = 'wrapper__stars';
     wrapper.appendChild(questionStars);
 
-    if (progressChoiceQuest_5_1 === 1 &&
-        progressChoiceQuest_5_2 === 0 &&
-        progressChoiceQuest_5_3 === 0) {
+    if (progressPrepareQuest_5_1 === 1 &&
+        progressPrepareQuest_5_2 === 0 &&
+        progressPrepareQuest_5_3 === 0) {
         questionStars.innerHTML = `
             <li id="questionStar_5_1" class="fill"></li>
             <li id="questionStar_5_2"></li>
             <li id="questionStar_5_3"></li>
         `;
-    } else if (progressChoiceQuest_5_1 === 0 &&
-        progressChoiceQuest_5_2 === 0 &&
-        progressChoiceQuest_5_3 === 1) {
+    } else if (progressPrepareQuest_5_1 === 0 &&
+        progressPrepareQuest_5_2 === 0 &&
+        progressPrepareQuest_5_3 === 1) {
         questionStars.innerHTML = `
             <li id="questionStar_5_1"></li>
             <li id="questionStar_5_2"></li>
             <li id="questionStar_5_3" class="fill"></li>
         `;
-    } else if (progressChoiceQuest_5_1 === 1 &&
-        progressChoiceQuest_5_2 === 0 &&
-        progressChoiceQuest_5_3 === 1) {
+    } else if (progressPrepareQuest_5_1 === 1 &&
+        progressPrepareQuest_5_2 === 0 &&
+        progressPrepareQuest_5_3 === 1) {
         questionStars.innerHTML = `
             <li id="questionStar_5_1" class="fill"></li>
             <li id="questionStar_5_2"></li>
@@ -213,40 +213,40 @@ function questionChoiceCat_5_2() {
     for (let i = 0; i < answerVarRight_5_2.length; i++) {
         if (answerVarRight_5_2[i] === answerVarRight_5_2[answerWrightNum]) {
             answerVarRight_5_2[i].addEventListener('click', () => {
-                let progressChoiceQuest_5 = JSON.parse(localStorage.getItem('progressChoiceQuest_5'));
-                let progressChoiceQuestSum_5_2 = progressChoiceQuest_5_2 + 1;
-                let progressChoiceQuestSum_5 = progressChoiceQuestSum_5_2 + progressChoiceQuest_5;
+                let progressPrepareQuest_5 = JSON.parse(localStorage.getItem('progressPrepareQuest_5'));
+                let progressPrepareQuestSum_5_2 = progressPrepareQuest_5_2 + 1;
+                let progressPrepareQuestSum_5 = progressPrepareQuestSum_5_2 + progressPrepareQuest_5;
 
-                localStorage.setItem('progressChoiceQuest_5_2', JSON.stringify(progressChoiceQuestSum_5_2));
-                localStorage.setItem('progressChoiceQuest_5', JSON.stringify(progressChoiceQuestSum_5));
-                if (progressChoiceQuestSum_5_2 === 1) {
+                localStorage.setItem('progressPrepareQuest_5_2', JSON.stringify(progressPrepareQuestSum_5_2));
+                localStorage.setItem('progressPrepareQuest_5', JSON.stringify(progressPrepareQuestSum_5));
+                if (progressPrepareQuestSum_5_2 === 1) {
                     questionStar_5_2.className += 'fill';
                 }
             });
         }
     }
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, 'Заходов и восходов Солнца видят люди, работающие на международной космической станции');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Именно он!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),
-        questValue_5_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_3'))
+        questValue_5_3 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_3'))
     ;
     arrowNextClick.addEventListener('click', () => {
         gsap.to(containerWrapperCategory, {
             autoAlpha: 0,
             onComplete: () => {
-                if (progressChoiceQuest_5_1 === 0 &&
-                    progressChoiceQuest_5_2 === 0 &&
-                    progressChoiceQuest_5_3 === 0) {
+                if (progressPrepareQuest_5_1 === 0 &&
+                    progressPrepareQuest_5_2 === 0 &&
+                    progressPrepareQuest_5_3 === 0) {
                     wrapper.removeChild(questionStars);
-                } else if (progressChoiceQuest_5_1 === 1 &&
-                    progressChoiceQuest_5_2 === 0 &&
-                    progressChoiceQuest_5_3 === 0) {
+                } else if (progressPrepareQuest_5_1 === 1 &&
+                    progressPrepareQuest_5_2 === 0 &&
+                    progressPrepareQuest_5_3 === 0) {
                     wrapper.removeChild(questionStars);
-                } else if (progressChoiceQuest_5_1 === 0 &&
-                    progressChoiceQuest_5_2 === 0 &&
-                    progressChoiceQuest_5_3 === 1) {
+                } else if (progressPrepareQuest_5_1 === 0 &&
+                    progressPrepareQuest_5_2 === 0 &&
+                    progressPrepareQuest_5_3 === 1) {
                     wrapper.removeChild(questionStars);
                 }
                 container.removeChild(arrowBackClick);
@@ -254,16 +254,16 @@ function questionChoiceCat_5_2() {
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
                 if (questValue_5_3 === 1) {
-                    choiceCategoryDev();
-                    lockSubQuestChoice();
+                    prepareCategory();
+                    lockSubQuestPrepare();
                 } else if (questValue_5_3 === 0) {
-                    questionChoiceCat_5_3();
+                    questionPrepareCat_5_3();
                 }
             }
         });
-        if (progressChoiceQuest_5_1 === 0 &&
-            progressChoiceQuest_5_2 === 1 &&
-            progressChoiceQuest_5_3 === 1) {
+        if (progressPrepareQuest_5_1 === 1 &&
+            progressPrepareQuest_5_2 === 0 &&
+            progressPrepareQuest_5_3 === 1) {
             gsap.to(questionStars, {
                 autoAlpha: 0,
                 delay: '-0.3',
@@ -285,8 +285,8 @@ function questionChoiceCat_5_2() {
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
+                prepareCategory();
+                lockSubQuestPrepare();
             }
         });
         gsap.to(questionStars, {
@@ -299,19 +299,19 @@ function questionChoiceCat_5_2() {
     });
 }
 
-function questionChoiceCat_5_3() {
-    let questChoiceCatLoad = new Question();
+function questionPrepareCat_5_3() {
+    let questPrepareCatLoad = new Question();
     let questArrowBack = new ArrowsAll();
-    let answerWrightNum = 2;
-    let progressChoiceQuest_5_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_1'));
-    let progressChoiceQuest_5_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_2'));
-    let progressChoiceQuest_5_3 = JSON.parse(localStorage.getItem('progressChoiceQuest_5_3'));
+    let answerWrightNum = 1;
+    let progressPrepareQuest_5_1 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_1'));
+    let progressPrepareQuest_5_2 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_2'));
+    let progressPrepareQuest_5_3 = JSON.parse(localStorage.getItem('progressPrepareQuest_5_3'));
 
-    if (localStorage.getItem('progressChoiceQuest_5_3') === null) {
-        localStorage.setItem('progressChoiceQuest_5_3', JSON.stringify(progressChoiceQuest_5_3));
+    if (localStorage.getItem('progressPrepareQuest_5_3') === null) {
+        localStorage.setItem('progressPrepareQuest_5_3', JSON.stringify(progressPrepareQuest_5_3));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Космос в цифрах', 'Столько баскетбольных площадок составляет площадь солнечных батарей на МКС?', 'Двенадцать', 'Три', 'Восемь');
+    questPrepareCatLoad.questionBlock('Подготовка', 'Назови планету', 'На поверхности какой планеты Солнечной системы самая высокая температура?', 'Нептун', 'Венера', 'Марс');
 
     let answerVar_5_3_1 = document.getElementById('answerVar_1'),
         answerVar_5_3_2 = document.getElementById('answerVar_2'),
@@ -323,25 +323,25 @@ function questionChoiceCat_5_3() {
     questionStars.className = 'wrapper__stars';
     wrapper.appendChild(questionStars);
 
-    if (progressChoiceQuest_5_1 === 1 &&
-        progressChoiceQuest_5_2 === 1 &&
-        progressChoiceQuest_5_3 === 0) {
+    if (progressPrepareQuest_5_1 === 1 &&
+        progressPrepareQuest_5_2 === 1 &&
+        progressPrepareQuest_5_3 === 0) {
         questionStars.innerHTML = `
             <li id="questionStar_5_1" class="fill"></li>
             <li id="questionStar_5_2" class="fill"></li>
             <li id="questionStar_5_3"></li>
         `;
-    } else if (progressChoiceQuest_5_1 === 0 &&
-        progressChoiceQuest_5_2 === 0 &&
-        progressChoiceQuest_5_3 === 1) {
+    } else if (progressPrepareQuest_5_1 === 1 &&
+        progressPrepareQuest_5_2 === 0 &&
+        progressPrepareQuest_5_3 === 0) {
         questionStars.innerHTML = `
-            <li id="questionStar_5_1"></li>
+            <li id="questionStar_5_1" class="fill"></li>
             <li id="questionStar_5_2"></li>
-            <li id="questionStar_5_3" class="fill"></li>
+            <li id="questionStar_5_3"></li>
         `;
-    } else if (progressChoiceQuest_5_1 === 0 &&
-        progressChoiceQuest_5_2 === 1 &&
-        progressChoiceQuest_5_3 === 0) {
+    } else if (progressPrepareQuest_5_1 === 0 &&
+        progressPrepareQuest_5_2 === 1 &&
+        progressPrepareQuest_5_3 === 0) {
         questionStars.innerHTML = `
             <li id="questionStar_5_1"></li>
             <li id="questionStar_5_2" class="fill"></li>
@@ -360,21 +360,21 @@ function questionChoiceCat_5_3() {
     for (let i = 0; i < answerVarRight_5_3.length; i++) {
         if (answerVarRight_5_3[i] === answerVarRight_5_3[answerWrightNum]) {
             answerVarRight_5_3[i].addEventListener('click', () => {
-                let progressChoiceQuest_5 = JSON.parse(localStorage.getItem('progressChoiceQuest_5'));
-                let progressChoiceQuestSum_5_3 = progressChoiceQuest_5_3 + 1;
-                let progressChoiceQuestSum_5 = progressChoiceQuestSum_5_3 + progressChoiceQuest_5;
+                let progressPrepareQuest_5 = JSON.parse(localStorage.getItem('progressPrepareQuest_5'));
+                let progressPrepareQuestSum_5_3 = progressPrepareQuest_5_3 + 1;
+                let progressPrepareQuestSum_5 = progressPrepareQuestSum_5_3 + progressPrepareQuest_5;
 
-                localStorage.setItem('progressChoiceQuest_5_3', JSON.stringify(progressChoiceQuestSum_5_3));
-                localStorage.setItem('progressChoiceQuest_5', JSON.stringify(progressChoiceQuestSum_5));
-                localStorage.setItem('progressChoiceAll', JSON.stringify(progressChoiceQuestSum_5));
-                if (progressChoiceQuestSum_5_3 === 1) {
+                localStorage.setItem('progressPrepareQuest_5_3', JSON.stringify(progressPrepareQuestSum_5_3));
+                localStorage.setItem('progressPrepareQuest_5', JSON.stringify(progressPrepareQuestSum_5));
+                localStorage.setItem('progressPrepareAll', JSON.stringify(progressPrepareQuestSum_5));
+                if (progressPrepareQuestSum_5_3 === 1) {
                     questionStar_5_3.className += 'fill';
                 }
             });
         }
     }
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, 'Единственным источником электрической энергии для МКС является Солнце, свет которого солнечные батареи станции преобразуют в электроэнергию.');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Ну конечно же!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext');
@@ -386,8 +386,8 @@ function questionChoiceCat_5_3() {
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
+                prepareCategory();
+                lockSubQuestPrepare();
             }
         });
         gsap.to(questionStars, {
@@ -410,8 +410,8 @@ function questionChoiceCat_5_3() {
                 container.removeChild(arrowNextClick);
                 container.removeChild(containerWrapperCategory);
                 wrapper.className = 'wrapper';
-                choiceCategoryDev();
-                lockSubQuestChoice();
+                prepareCategory();
+                lockSubQuestPrepare();
             }
         });
         gsap.to(questionStars, {
