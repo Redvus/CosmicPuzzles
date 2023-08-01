@@ -136,7 +136,8 @@ function introDev() {
 /* Запускаем категории */
 function categoryDev() {
     const categoryLoad = new Category(),
-        arrowBackLoad = new ArrowsAll();
+        arrowBackLoad = new ArrowsAll(),
+        settingsLoad = new Settings()
     ;
     categoryLoad.categoryMain();
     categoryLoad.categoryProgress('progressChoiceValue', 'progressChoiceAll');
@@ -150,43 +151,84 @@ function categoryDev() {
         categoryFlight = document.getElementById('categoryFlight')
     ;
 
+    //Settings
     arrowBackLoad.clearStorage();
-    const clearButton = document.getElementById('clearStorageClick'),
+    const settingButton = document.getElementById('settingsClick'),
         setProgressChoice = document.getElementById('progressChoiceValue'),
         setProgressPrepare = document.getElementById('progressPrepareValue'),
         setProgressFlight = document.getElementById('progressFlightValue')
     ;
-    clearButton.addEventListener('click', () => {
-        localStorage.clear();
-        localStorage.setItem('progressChoiceAll', JSON.stringify(0));
-        localStorage.setItem('progressPrepareAll', JSON.stringify(0));
-        localStorage.setItem('progressFlightAll', JSON.stringify(0));
-        setProgressChoice.textContent = JSON.parse(localStorage.getItem('progressChoiceAll'));
-        setProgressPrepare.textContent = JSON.parse(localStorage.getItem('progressPrepareAll'));
-        setProgressFlight.textContent = JSON.parse(localStorage.getItem('progressFlightAll'));
+    settingButton.addEventListener('click', () => {
+        settingsLoad.settingsBlock();
+        const settingsClearButton = document.getElementById('clearProgressButton'),
+            settingsBack = document.querySelector('.wrapper__lightbox'),
+            settingsBlock = document.querySelector('.wrapper__lightbox_block'),
+            settingsClose = document.getElementById('settingsCloseButton');
+        settingsClearButton.addEventListener('click', () => {
+            localStorage.clear();
+            localStorage.setItem('progressChoiceAll', JSON.stringify(0));
+            localStorage.setItem('progressPrepareAll', JSON.stringify(0));
+            localStorage.setItem('progressFlightAll', JSON.stringify(0));
+            setProgressChoice.textContent = JSON.parse(localStorage.getItem('progressChoiceAll'));
+            setProgressPrepare.textContent = JSON.parse(localStorage.getItem('progressPrepareAll'));
+            setProgressFlight.textContent = JSON.parse(localStorage.getItem('progressFlightAll'));
+        });
+        settingsClose.addEventListener('click', () => {
+            let tl = gsap.timeline({
+                onComplete: () => {
+                    wrapper.removeChild(settingsBack);
+                }
+            });
+            tl
+                .to(settingsBlock, {
+                    duration: 0.3,
+                    y: '5%',
+                    autoAlpha: 0
+                })
+                .to(settingsBack, {
+                    duration: 0.3,
+                    autoAlpha: 0
+                })
+            ;
+        });
     });
 
     arrowBackLoad.arrowBack();
     const arrowBackClick = document.getElementById('arrowBack');
     arrowBackClick.addEventListener('click', () => {
-        gsap.to(containerCategory, {
-            autoAlpha: 0,
+        let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
-                container.removeChild(clearButton);
+                container.removeChild(settingButton);
                 container.removeChild(containerCategory);
                 wrapper.removeChild(introAboutBack);
                 wrapper.className = 'wrapper';
                 introDev();
             }
         });
+        tl
+            .to(containerCategory, {
+                autoAlpha: 0,
+                duration: 0.6
+            })
+            .to([settingButton, arrowBackClick], {
+                autoAlpha: 0,
+                duration: 0.6,
+                delay: '-0.6'
+            })
+            .to(introAboutBack, {
+                autoAlpha: 0,
+                duration: 0.6,
+                delay: '-0.4'
+            })
+        ;
     });
 
     categoryChoice.addEventListener('click', () => {
         let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
-                container.removeChild(clearButton);
+                container.removeChild(settingButton);
                 container.removeChild(containerCategory);
                 choiceCategoryDev();
                 lockSubQuestChoice();
@@ -207,7 +249,7 @@ function categoryDev() {
         let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
-                container.removeChild(clearButton);
+                container.removeChild(settingButton);
                 container.removeChild(containerCategory);
                 prepareCategory();
             }
@@ -227,7 +269,7 @@ function categoryDev() {
         let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
-                container.removeChild(clearButton);
+                container.removeChild(settingButton);
                 container.removeChild(containerCategory);
                 flightCategory();
             }
@@ -242,6 +284,8 @@ function categoryDev() {
             })
         ;
     });
+
+
 }
 
 function aboutStart() {

@@ -105,22 +105,22 @@ class Intro {
             let tl = gsap.timeline();
             tl
                 .to(wrapperBack, {
-                    duration: 0.7,
-                    delay: -0.5,
+                    duration: 0.6,
+                    delay: '-0.4',
                     autoAlpha: 1
                 })
                 .to(wrapperTop, {
-                    duration: 0.7,
+                    duration: 0.6,
                     autoAlpha: 1
                 })
                 .to(wrapperTitle, {
-                    duration: 0.7,
-                    delay: -0.5,
+                    duration: 0.6,
+                    delay: '-0.4',
                     autoAlpha: 1
                 })
                 .to(wrapperBottom, {
-                    duration: 0.7,
-                    delay: -0.5,
+                    duration: 0.6,
+                    delay: '-0.4',
                     autoAlpha: 1
                 })
             ;

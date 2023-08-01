@@ -73,13 +73,12 @@ class Category {
             tl
                 .from(wrapperGame, {
                     autoAlpha: 0,
-                    duration: 1,
-                    delay: -0.4
+                    duration: 0.6
                 })
                 .from([categoryChoice, categoryPrepare, categoryFlight], {
                     autoAlpha: 0,
                     duration: 0.6,
-                    delay: -0.3,
+                    delay: '-0.3',
                     y: "-0.5rem",
                     stagger: 0.2
                 })

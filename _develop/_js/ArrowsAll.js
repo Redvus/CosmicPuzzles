@@ -13,9 +13,9 @@ class ArrowsAll {
     clearStorage() {
         const containerClear = document.createElement('a');
         containerClear.className = 'wrapper__game_clear';
-        containerClear.id = 'clearStorageClick';
+        containerClear.id = 'settingsClick';
         containerClear.innerHTML = `
-            <img src="assets/games/cosmicpuzzles/images/cp_clearButton.png" alt="Стереть память">
+            <img src="assets/games/cosmicpuzzles/images/cp_clearButton.png" alt="Настройки">
         `;
         container.appendChild(containerClear);
     }
