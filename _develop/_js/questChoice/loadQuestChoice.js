@@ -1,4 +1,3 @@
-/* Переходим к неотвеченному вопросу */
 function loadQuestReady_1() {
     let loadQuestReady_1_1 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_1')),
         loadQuestReady_1_2 = JSON.parse(localStorage.getItem('progressChoiceQuest_1_2')),

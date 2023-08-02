@@ -19,6 +19,7 @@ function introDev() {
         choiceCatLoad = new ChoiceCategory()
     ;
     clickLoadGame.addEventListener('click', () => {
+        soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_progressClear.ogg');
         let tl = gsap.timeline({
             onComplete: () => {
                 wrapper.className = 'wrapper';
@@ -163,7 +164,8 @@ function categoryDev() {
         const settingsClearButton = document.getElementById('clearProgressButton'),
             settingsBack = document.querySelector('.wrapper__lightbox'),
             settingsBlock = document.querySelector('.wrapper__lightbox_block'),
-            settingsClose = document.getElementById('settingsCloseButton');
+            settingsClose = document.getElementById('settingsCloseButton'),
+            settingsText = document.getElementById('settingsText');
         settingsClearButton.addEventListener('click', () => {
             localStorage.clear();
             localStorage.setItem('progressChoiceAll', JSON.stringify(0));
@@ -172,6 +174,15 @@ function categoryDev() {
             setProgressChoice.textContent = JSON.parse(localStorage.getItem('progressChoiceAll'));
             setProgressPrepare.textContent = JSON.parse(localStorage.getItem('progressPrepareAll'));
             setProgressFlight.textContent = JSON.parse(localStorage.getItem('progressFlightAll'));
+            soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_progressClear.ogg');
+        });
+        settingsClearButton.addEventListener('mouseover', () => {
+            settingsText.textContent = 'Вы уверены?';
+            settingsClearButton.textContent = 'Да';
+        });
+        settingsClearButton.addEventListener('mouseleave', () => {
+            settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
+            settingsClearButton.textContent = 'Сбросить прогресс';
         });
         settingsClose.addEventListener('click', () => {
             let tl = gsap.timeline({
@@ -224,7 +235,9 @@ function categoryDev() {
         ;
     });
 
+    //Category load
     categoryChoice.addEventListener('click', () => {
+        soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_categoryLoad.ogg');
         let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
@@ -246,12 +259,14 @@ function categoryDev() {
     });
 
     categoryPrepare.addEventListener('click', () => {
+        soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_categoryLoad.ogg');
         let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
                 container.removeChild(settingButton);
                 container.removeChild(containerCategory);
                 prepareCategory();
+                lockSubQuestPrepare();
             }
         });
         tl
@@ -266,12 +281,14 @@ function categoryDev() {
     });
 
     categoryFlight.addEventListener('click', () => {
+        soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_categoryLoad.ogg');
         let tl = gsap.timeline({
             onComplete: () => {
                 container.removeChild(arrowBackClick);
                 container.removeChild(settingButton);
                 container.removeChild(containerCategory);
                 flightCategory();
+                lockSubQuestFlight();
             }
         });
         tl
@@ -312,7 +329,7 @@ function aboutStart() {
             }
         });
         tl
-            .to(containerAbout, {
+            .to([containerAbout, arrowBackClick], {
                 autoAlpha: 0,
                 delay: '-0.1'
             })
@@ -350,7 +367,7 @@ function authorsStart() {
             }
         });
         tl
-            .to(containerAbout, {
+            .to([containerAbout, arrowBackClick], {
                 autoAlpha: 0,
                 delay: '-0.1'
             })
@@ -375,18 +392,8 @@ function questionBlockDev() {
 
 }
 
-function soundRightLoad() {
-    soundsLoad.rightAnswer('assets/games/slavicmyths/sounds/rightAnswer_2.ogg');
-}
-
-function soundEndLoad() {
-    soundsLoad.rightAnswer('assets/games/slavicmyths/sounds/rightAnswer.ogg');
-}
-
 function init() {
     introDev();
-    // questionBlockDev();
-    // aboutDev();
 }
 
 init();

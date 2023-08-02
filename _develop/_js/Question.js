@@ -45,7 +45,8 @@ class Question {
             questButtonList = [questButtonLi_1, questButtonLi_2, questButtonLi_3],
             questButtonLiPosition = ['0', '33%', '66%'],
             questButtonLi = document.querySelectorAll('.question__block_list li'),
-            positionLiTop = questButtonLiPosition.sort(() => Math.floor(Math.random() * questButtonLiPosition.length))
+            positionLiTop = questButtonLiPosition.sort(() => Math.floor(Math.random() * questButtonLiPosition.length)),
+            questBlockImage = document.querySelector('.question__block_imageblock')
         ;
 
         questButtonList.forEach((el, idx) => {
@@ -60,7 +61,7 @@ class Question {
                 //     duration: 0.2,
                 //     delay: 0.3
                 // })
-                .from('.question__block_imageblock', {
+                .from(questBlockImage, {
                     autoAlpha: 0,
                     duration: 0.4,
                     delay: 0.2
@@ -149,7 +150,7 @@ class Question {
         const questionBlock = document.querySelector('.question__block_list'),
             questionBlockText = document.createElement('div'),
             questionBlockWrongText = document.createElement('div'),
-            answerWrongVar = ['Неправильно', 'В следующий раз повезет', 'Не отчаивайся'],
+            answerWrongVar = ['Неправильно', 'В следующий раз повезет', 'Не отчаивайтесь', 'Не совсем так', 'К сожалению нет'],
             answerWrongVarView = answerWrongVar[Math.floor(Math.random() * answerWrongVar.length)]
         ;
 
@@ -178,11 +179,11 @@ class Question {
                             el.remove();
                             questionBlock.appendChild(questionBlockText);
                             questionBlockText.className = 'question__block_text';
-
                         } else {
                             let tl = gsap.timeline();
                             let answerBlockText = document.getElementById('answerWright');
                             answerLiRight[i].className += 'question__block_list--right';
+                            soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_rightAnswer.ogg');
                             tl
                                 .to(el, {
                                     top: 0,

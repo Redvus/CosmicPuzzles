@@ -69,12 +69,8 @@ function questionChoiceCat_1_1() {
                 let progressChoiceQuestSum_1_1 = progressChoiceQuest_1_1 + 1;
                 let progressChoiceQuestSum_1 = progressChoiceQuestSum_1_1 + progressChoiceQuest_1;
 
-                // let progressChoiceQuestLeft_1_1 =  1;
-                // let progressChoiceQuestLeftWrong_1_1 = progressChoiceQuestLeft_1_1 - 1;
-
                 localStorage.setItem('progressChoiceQuest_1_1', JSON.stringify(progressChoiceQuestSum_1_1));
                 localStorage.setItem('progressChoiceQuest_1', JSON.stringify(progressChoiceQuestSum_1));
-                // localStorage.setItem('progressChoiceQuestLeft_1_1', JSON.stringify(progressChoiceQuestLeftWrong_1_1));
                 if (progressChoiceQuestSum_1_1 === 1) {
                     questionStar_1_1.className += 'fill';
                 }

@@ -13,7 +13,8 @@ function prepareCategory() {
         categorySubPrepare_5 = document.getElementById('categorySubPrepare_5'),
         categorySubPrepare_6 = document.getElementById('categorySubPrepare_6'),
         categorySubPrepare_7 = document.getElementById('categorySubPrepare_7'),
-        categorySubPrepare_8 = document.getElementById('categorySubPrepare_8')
+        categorySubPrepare_8 = document.getElementById('categorySubPrepare_8'),
+        categorySubPrepareAll = [categorySubPrepare_1, categorySubPrepare_2, categorySubPrepare_3, categorySubPrepare_4, categorySubPrepare_5, categorySubPrepare_6, categorySubPrepare_7, categorySubPrepare_8]
     ;
 
     //Local Storage. Progress
@@ -722,6 +723,16 @@ function prepareCategory() {
             }
         });
     });
+
+    for (let i = 0; i < categorySubPrepareAll.length; i++) {
+        if (categorySubPrepareAll[i].className !== 'category__element--hidden') {
+            categorySubPrepareAll[i].addEventListener('click', () => {
+                if (categorySubPrepareAll[i].className !== 'category__element--hidden') {
+                    soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_subCategoryQuest.ogg');
+                }
+            });
+        }
+    }
 
     categorySubPrepare_1.addEventListener('click', () => {
         let tl = gsap.timeline({

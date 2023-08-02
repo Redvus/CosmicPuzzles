@@ -13,7 +13,8 @@ function choiceCategoryDev() {
         categorySubChoice_5 = document.getElementById('categorySubChoice_5'),
         categorySubChoice_6 = document.getElementById('categorySubChoice_6'),
         categorySubChoice_7 = document.getElementById('categorySubChoice_7'),
-        categorySubChoice_8 = document.getElementById('categorySubChoice_8')
+        categorySubChoice_8 = document.getElementById('categorySubChoice_8'),
+        categorySubChoiceAll = [categorySubChoice_1, categorySubChoice_2, categorySubChoice_3, categorySubChoice_4, categorySubChoice_5, categorySubChoice_6, categorySubChoice_7, categorySubChoice_8]
     ;
 
     //Local Storage. Progress
@@ -722,6 +723,16 @@ function choiceCategoryDev() {
             }
         });
     });
+
+    for (let i = 0; i < categorySubChoiceAll.length; i++) {
+        if (categorySubChoiceAll[i].className !== 'category__element--hidden') {
+            categorySubChoiceAll[i].addEventListener('click', () => {
+                if (categorySubChoiceAll[i].className !== 'category__element--hidden') {
+                    soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_subCategoryQuest.ogg');
+                }
+            });
+        }
+    }
 
     categorySubChoice_1.addEventListener('click', () => {
         let tl = gsap.timeline({

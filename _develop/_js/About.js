@@ -16,7 +16,7 @@ class About {
                 </div>
                 <div class="container__about_person">
                     <h4>${peronSecondTitle}</h4>
-                    <p>${peronSecondName}</p>
+                    <p class="container__about_person--gone">${peronSecondName}</p>
                 </div>
                 <div class="container__about_person">
                     <h4>${peronThirdTitle}</h4>
@@ -46,25 +46,24 @@ class About {
             tl
                 .from(introBlockBack, {
                     autoAlpha: 0,
-                    duration: 0.8,
-                    delay: '-0.1'
+                    duration: 0.4
                 })
                 .from(aboutBack, {
                     autoAlpha: 0,
-                    duration: 0.6,
-                    delay: '-0.3'
+                    duration: 0.4,
+                    delay: '-0.4'
                 })
                 .from(containerAboutTitle, {
                     autoAlpha: 0,
-                    duration: 0.6,
-                    delay: '-0.3'
+                    duration: 0.4,
+                    delay: '-0.2'
                 })
                 .from(containerAboutPerson, {
                     autoAlpha: 0,
-                    duration: 0.6,
-                    delay: '-0.3',
+                    duration: 0.4,
+                    delay: '-0.2',
                     y: "-0.5rem",
-                    stagger: 0.2
+                    stagger: 0.07
                 })
             ;
         }
@@ -107,19 +106,18 @@ class About {
             tl
                 .from(introBlockBack, {
                     autoAlpha: 0,
-                    duration: 0.8,
-                    delay: '-0.1'
+                    duration: 0.4
                 })
                 .from(containerAboutTitle, {
                     autoAlpha: 0,
-                    duration: 0.6,
-                    delay: '-0.3'
+                    duration: 0.4,
+                    delay: '-0.2'
                 })
                 .from([containerAboutLeft, containerAboutRight], {
                     autoAlpha: 0,
-                    duration: 0.6,
-                    delay: '-0.3',
-                    stagger: 0.2
+                    duration: 0.4,
+                    delay: '-0.2',
+                    stagger: 0.07
                 })
             ;
         }

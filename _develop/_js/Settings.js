@@ -8,7 +8,8 @@ class Settings {
         settingsBlock.className = 'wrapper__lightbox_block';
         settingsBlock.innerHTML = `
             <a href="javascript:void(0);" class="wrapper__lightbox_close" id="settingsCloseButton"></a>
-            <a href="javascript:void(0);" class="wrapper__lightbox_button" id="turnOfSoundButton">Выключить звук</a>
+<!--            <a href="javascript:void(0);" class="wrapper__lightbox_button" id="turnOfSoundButton">Выключить звук</a>-->
+            <p id="settingsText">Весь игровой процесс будет сброшен и вы начнете игру с начала</p>
             <a href="javascript:void(0);" class="wrapper__lightbox_button" id="clearProgressButton">Сбросить прогресс</a>
         `;
         settingsBack.appendChild(settingsBlock);
@@ -26,6 +27,7 @@ class Settings {
                 })
                 .from(settingsBlock, {
                     duration: 0.3,
+                    delay: '-0.07',
                     y: '-5%',
                     autoAlpha: 0
                 })

@@ -13,7 +13,8 @@ function flightCategory() {
         categorySubFlight_5 = document.getElementById('categorySubFlight_5'),
         categorySubFlight_6 = document.getElementById('categorySubFlight_6'),
         categorySubFlight_7 = document.getElementById('categorySubFlight_7'),
-        categorySubFlight_8 = document.getElementById('categorySubFlight_8')
+        categorySubFlight_8 = document.getElementById('categorySubFlight_8'),
+        categorySubFlightAll = [categorySubFlight_1, categorySubFlight_2, categorySubFlight_3, categorySubFlight_4, categorySubFlight_5, categorySubFlight_6, categorySubFlight_7, categorySubFlight_8]
     ;
 
     //Local Storage. Progress
@@ -722,6 +723,16 @@ function flightCategory() {
             }
         });
     });
+
+    for (let i = 0; i < categorySubFlightAll.length; i++) {
+        if (categorySubFlightAll[i].className !== 'category__element--hidden') {
+            categorySubFlightAll[i].addEventListener('click', () => {
+                if (categorySubFlightAll[i].className !== 'category__element--hidden') {
+                    soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_subCategoryQuest.ogg');
+                }
+            });
+        }
+    }
 
     categorySubFlight_1.addEventListener('click', () => {
         let tl = gsap.timeline({

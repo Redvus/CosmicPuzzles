@@ -95,8 +95,4 @@ class ChoiceCategory {
 
         choiceCategoryAnimation();
     }
-
-    choiceCategoryElement() {
-
-    }
 }

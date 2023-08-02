@@ -76,7 +76,7 @@ function questionFlightCat_1_1() {
         }
     }
 
-    questFlightCatLoad.answerBlock(answerWrightNum, 'Угадал!');
+    questFlightCatLoad.answerBlock(answerWrightNum, 'Угадали!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),
@@ -226,7 +226,7 @@ function questionFlightCat_1_2() {
         }
     }
 
-    questFlightCatLoad.answerBlock(answerWrightNum, 'Снова угадал!');
+    questFlightCatLoad.answerBlock(answerWrightNum, 'Снова угадали!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),

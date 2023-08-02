@@ -366,7 +366,6 @@ function questionFlightCat_2_3() {
 
                 localStorage.setItem('progressFlightQuest_2_3', JSON.stringify(progressFlightQuestSum_2_3));
                 localStorage.setItem('progressFlightQuest_2', JSON.stringify(progressFlightQuestSum_2));
-                localStorage.setItem('progressPrepareAll', JSON.stringify(progressFlightQuestSum_2));
                 if (progressFlightQuestSum_2_3 === 1) {
                     questionStar_2_3.className += 'fill';
                 }
