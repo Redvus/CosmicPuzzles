@@ -861,4 +861,9 @@ function flightCategory() {
             })
         ;
     });
+
+    let progressFlightQuestSum = JSON.parse(localStorage.getItem('progressFlightAll'));
+    if (progressFlightQuestSum === 24) {
+        soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_categoryAllRight.ogg');
+    }
 }

@@ -861,4 +861,9 @@ function choiceCategoryDev() {
             })
         ;
     });
+
+    let progressChoiceQuestSum = JSON.parse(localStorage.getItem('progressChoiceAll'));
+    if (progressChoiceQuestSum === 24) {
+        soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_categoryAllRight.ogg');
+    }
 }

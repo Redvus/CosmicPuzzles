@@ -164,7 +164,7 @@ function questionChoiceCat_8_2() {
         localStorage.setItem('progressChoiceQuest_8_2', JSON.stringify(progressChoiceQuest_8_2));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Космос в кино', 'Лейтмотивом фильма является борьба за право быть первым.', '«Время первых»', '«Гагарин. Первый в космосе»', '«Гагарин. Первый в космосе»');
+    questChoiceCatLoad.questionBlock('Отбор', 'Космос в кино', 'Лейтмотивом фильма является борьба за право быть первым.', '«Время первых»', '«Главный конструктор»', '«Гагарин. Первый в космосе»');
 
     let answerVar_8_2_1 = document.getElementById('answerVar_1'),
         answerVar_8_2_2 = document.getElementById('answerVar_2'),
