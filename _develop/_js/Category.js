@@ -15,9 +15,7 @@ class Category {
                         <span id="progressChoiceValue"></span> / 24
                     </div>
                 </div>
-                <picture class="category__main_image">
-                    <img src="assets/games/cosmicpuzzles/images/cp_catChoice.png" alt="Категория Отбор">
-                </picture>
+                <div class="category__main_image category__main_image--choice"></div>
                 <div class="category__main_title">
                     <h3>Отбор</h3>
                 </div>
@@ -32,9 +30,7 @@ class Category {
                         <span id="progressPrepareValue"></span> / 24
                     </div>
                 </div>
-                <picture class="category__main_image">
-                    <img src="assets/games/cosmicpuzzles/images/cp_catPrepare.png" alt="Категория Подготовка">
-                </picture>
+                <div class="category__main_image category__main_image--prepare"></div>
                 <div class="category__main_title">
                     <h3>Подготовка</h3>
                 </div>
@@ -49,9 +45,7 @@ class Category {
                         <span id="progressFlightValue"></span> / 24
                     </div>
                 </div>
-                <picture class="category__main_image">
-                    <img src="assets/games/cosmicpuzzles/images/cp_catFlight.png" alt="Категория Полет">
-                </picture>
+                <div class="category__main_image category__main_image--flight"></div>
                 <div class="category__main_title">
                     <h3>Полет</h3>
                 </div>

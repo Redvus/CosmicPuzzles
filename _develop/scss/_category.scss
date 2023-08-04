@@ -29,13 +29,62 @@
         }
 
         &_image {
+            width: 100%;
+            height: 30vmin;
+            display: block;
+            position: relative;
             transition: all $base-duration;
+
+            &--choice {
+                background: url("../images/cp_catChoice.png") 50% 0 no-repeat;
+                //background-size: auto 100%;
+                //background-size: cover;
+            }
+
+            &--prepare {
+                background: url("../images/cp_catPrepare.png") 50% 0 no-repeat;
+            }
+
+            &--flight {
+                background: url("../images/cp_catFlight.png") 50% 0 no-repeat;
+            }
         }
 
         &:hover {
 
             .category__main_image {
                 transform: scale(0.95);
+            }
+        }
+
+        &--hidden {
+            cursor: default;
+            user-select: none;
+            pointer-events: none;
+
+            .category__main_image--choice {
+                background: url("../images/cp_catChoiceEmpty.png") 50% 0 no-repeat;
+            }
+
+            .category__main_image--prepare {
+                background: url("../images/cp_catPrepareEmpty.png") 50% 0 no-repeat;
+            }
+
+            .category__main_image--flight {
+                background: url("../images/cp_catFlightEmpty.png") 50% 0 no-repeat;
+            }
+
+            &:after {
+                content: "";
+                width: 15vmin;
+                height: 15vmin;
+                display: block;
+                position: absolute;
+                top: 47%;
+                transform: translateY(-50%);
+                background: url("../images/cp_award_2.png") 50% 0 no-repeat;
+                background-size: auto 100%;
+                z-index: 2;
             }
         }
     }
@@ -130,20 +179,57 @@
                 display: block;
                 object-position: center;
                 object-fit: cover;
+                transition: transform $base-duration;
+            }
+
+            &:hover {
+
+                img {
+                    transform: scale(0.95);
+                }
             }
         }
 
         &--hidden {
-            opacity: 0.35;
             cursor: default;
             user-select: none;
             pointer-events: none;
+
+            &:after {
+                content: "";
+                width: 4vmin;
+                height: 4vmin;
+                display: block;
+                position: absolute;
+                top: 47%;
+                transform: translateY(-50%);
+                background: url("../images/cp_lock.png") 50% 0 no-repeat;
+                background-size: auto 100%;
+                z-index: 2;
+            }
+
+            picture {
+                opacity: 0.35;
+            }
         }
 
         &--lock {
             cursor: default;
             user-select: none;
             pointer-events: none;
+
+            &:after {
+                content: "";
+                width: 4vmin;
+                height: 4vmin;
+                display: block;
+                position: absolute;
+                top: 47%;
+                transform: translateY(-50%);
+                background: url("../images/cp_ok_3.png") 50% 0 no-repeat;
+                background-size: auto 100%;
+                z-index: 2;
+            }
         }
     }
 

@@ -152,6 +152,18 @@ function categoryDev() {
         categoryFlight = document.getElementById('categoryFlight')
     ;
 
+    let progressChoiceQuestSum = JSON.parse(localStorage.getItem('progressChoiceAll')),
+        progressPrepareQuestSum = JSON.parse(localStorage.getItem('progressPrepareAll')),progressFlightQuestSum = JSON.parse(localStorage.getItem('progressFlightAll'))
+    ;
+
+    if (localStorage.getItem('progressChoiceAll') === null ||
+        localStorage.getItem('progressPrepareAll') === null ||
+        localStorage.getItem('progressFlightAll') === null) {
+        localStorage.setItem('progressChoiceAll', JSON.stringify(0));
+        localStorage.setItem('progressPrepareAll', JSON.stringify(0));
+        localStorage.setItem('progressFlightAll', JSON.stringify(0));
+    }
+
     //Settings
     arrowBackLoad.clearStorage();
     const settingButton = document.getElementById('settingsClick'),
@@ -166,6 +178,7 @@ function categoryDev() {
             settingsBlock = document.querySelector('.wrapper__lightbox_block'),
             settingsClose = document.getElementById('settingsCloseButton'),
             settingsText = document.getElementById('settingsText');
+
         settingsClearButton.addEventListener('click', () => {
             localStorage.clear();
             localStorage.setItem('progressChoiceAll', JSON.stringify(0));
@@ -175,15 +188,21 @@ function categoryDev() {
             setProgressPrepare.textContent = JSON.parse(localStorage.getItem('progressPrepareAll'));
             setProgressFlight.textContent = JSON.parse(localStorage.getItem('progressFlightAll'));
             soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_progressClear.ogg');
+            categoryChoice.className = 'category__main';
+            categoryPrepare.className = 'category__main';
+            categoryFlight.className = 'category__main';
         });
+
         settingsClearButton.addEventListener('mouseover', () => {
             settingsText.textContent = 'Вы уверены?';
             settingsClearButton.textContent = 'Да';
         });
+
         settingsClearButton.addEventListener('mouseleave', () => {
             settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
             settingsClearButton.textContent = 'Сбросить прогресс';
         });
+
         settingsClose.addEventListener('click', () => {
             let tl = gsap.timeline({
                 onComplete: () => {
@@ -302,7 +321,17 @@ function categoryDev() {
         ;
     });
 
+    if (progressChoiceQuestSum === 24) {
+        categoryChoice.className += ' category__main--hidden';
+    }
 
+    if (progressPrepareQuestSum === 24) {
+        categoryPrepare.className += ' category__main--hidden';
+    }
+
+    if (progressFlightQuestSum === 24) {
+        categoryFlight.className += ' category__main--hidden';
+    }
 }
 
 function aboutStart() {
