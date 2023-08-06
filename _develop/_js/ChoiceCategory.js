@@ -3,14 +3,16 @@ class ChoiceCategory {
     choiceCategory(choiceCategoryName, choiceCategorySubID) {
         // wrapper.className += ' wrapper__game';
         const containerWrapper = document.createElement('div'),
-              choiceCategoryTitle = document.createElement('div')
+              choiceCategoryTitle = document.createElement('div'),
+              containerWrapperSubcategory = document.createElement('div')
         ;
         containerWrapper.className = 'container__wrapper';
+        containerWrapperSubcategory.className = 'container__wrapper_subcategory';
         choiceCategoryTitle.className = 'container__title';
         choiceCategoryTitle.innerHTML = `
             <h1>${choiceCategoryName}</h1>
         `;
-        containerWrapper.innerHTML = `
+        containerWrapperSubcategory.innerHTML = `
             <a href="javascript:void(0);" class="category__element category__element_1" id="categorySub${choiceCategorySubID}_1">
                 <ul class="category__element_stars" id="categoryElementStars_1"></ul>
                 <picture class="category__element_image">
@@ -62,7 +64,8 @@ class ChoiceCategory {
         `;
 
         container.appendChild(containerWrapper);
-        containerWrapper.appendChild(choiceCategoryTitle);
+        containerWrapper.appendChild(containerWrapperSubcategory);
+        containerWrapperSubcategory.appendChild(choiceCategoryTitle);
 
         function choiceCategoryAnimation() {
             let tl = gsap.timeline();

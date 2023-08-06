@@ -37,8 +37,6 @@
 
             &--choice {
                 background: url("../images/cp_catChoice.png") 50% 0 no-repeat;
-                //background-size: auto 100%;
-                //background-size: cover;
             }
 
             &--prepare {
@@ -251,7 +249,33 @@
 
             &_image {
                 width: 100%;
-                //height: calc(100% - 4rem);
+
+                &--choice {
+                    background-size: 100%;
+                }
+
+                &--prepare {
+                    background-size: 100%;
+                }
+
+                &--flight {
+                    background-size: 100%;
+                }
+
+                &--hidden {
+
+                    .category__main_image--choice {
+                        background-size: 100%;
+                    }
+
+                    .category__main_image--prepare {
+                        background-size: 100%;
+                    }
+
+                    .category__main_image--flight {
+                        background-size: 100%;
+                    }
+                }
 
                 img {
                     width: 100%;

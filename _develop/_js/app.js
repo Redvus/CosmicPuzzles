@@ -16,10 +16,22 @@ function introDev() {
         wrapperTitle = document.querySelector('.wrapper__title'),
         wrapperBottom = document.querySelector('.wrapper__bottom'),
         wrapperBack = document.querySelector('.wrapper__intro'),
+        backgroundMusicID = document.getElementById('backgroundMusicID'),
         choiceCatLoad = new ChoiceCategory()
     ;
+
     clickLoadGame.addEventListener('click', () => {
         soundsLoad.rightAnswer('assets/games/cosmicpuzzles/sounds/cp_progressClear.ogg');
+
+        // Music Background
+        if (backgroundMusicID === null) {
+            soundsLoad.backgroundMusicLoad('assets/games/cosmicpuzzles/sounds/cp_ambientSpace.ogg');
+            localStorage.setItem('backgroundMusic', JSON.stringify(1));
+        } else if (backgroundMusicID.paused || localStorage.getItem('backgroundMusic') === '0') {
+            backgroundMusicID.pause();
+            localStorage.setItem('backgroundMusic', JSON.stringify(0));
+        }
+
         let tl = gsap.timeline({
             onComplete: () => {
                 wrapper.className = 'wrapper';
@@ -177,7 +189,10 @@ function categoryDev() {
             settingsBack = document.querySelector('.wrapper__lightbox'),
             settingsBlock = document.querySelector('.wrapper__lightbox_block'),
             settingsClose = document.getElementById('settingsCloseButton'),
-            settingsText = document.getElementById('settingsText');
+            settingsText = document.getElementById('settingsText'),
+            settingsToggleMusic = document.getElementById('turnOfSoundButton'),
+            settingsToggleMusicID = document.getElementById('backgroundMusicID'),
+            settingsMusicValue = JSON.parse(localStorage.getItem('backgroundMusic'));
 
         settingsClearButton.addEventListener('click', () => {
             localStorage.clear();
@@ -201,6 +216,22 @@ function categoryDev() {
         settingsClearButton.addEventListener('mouseleave', () => {
             settingsText.textContent = 'Весь игровой процесс будет сброшен и вы начнете игру с начала';
             settingsClearButton.textContent = 'Сбросить прогресс';
+        });
+
+        if (localStorage.getItem('backgroundMusic') === '0') {
+            settingsToggleMusic.textContent = 'Включить музыку';
+        }
+
+        settingsToggleMusic.addEventListener('click', () => {
+            if (settingsToggleMusicID.paused || settingsMusicValue === '0') {
+                settingsToggleMusicID.play();
+                settingsToggleMusic.textContent = 'Выключить музыку';
+                localStorage.setItem('backgroundMusic', JSON.stringify(1));
+            } else if (settingsToggleMusicID.play || settingsMusicValue === '1'){
+                settingsToggleMusicID.pause();
+                settingsToggleMusic.textContent = 'Включить музыку';
+                localStorage.setItem('backgroundMusic', JSON.stringify(0));
+            }
         });
 
         settingsClose.addEventListener('click', () => {
@@ -423,6 +454,7 @@ function questionBlockDev() {
 
 function init() {
     introDev();
+    // categoryDev();
 }
 
 init();
