@@ -374,7 +374,7 @@ function questionPrepareCat_5_3() {
         }
     }
 
-    questPrepareCatLoad.answerBlock(answerWrightNum, 'Ну конечно же!');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Температура на Венере достигает 464&nbsp;градусов Цельсия');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext');

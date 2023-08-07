@@ -78,7 +78,7 @@ function questionPrepareCat_1_1() {
         }
     }
 
-    questPrepareCatLoad.answerBlock(answerWrightNum, 'ТЫ совершенно прав!');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Совершенно верно!');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),
@@ -373,7 +373,7 @@ function questionPrepareCat_1_3() {
         }
     }
 
-    questPrepareCatLoad.answerBlock(answerWrightNum, 'Совершенно верно!');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Олимп является высочайшей горой Марса&nbsp;– ее высота с учетом основания составляет 26&nbsp;километров. Это одновременно потухший вулкан. За Олимпом закреплено звание самой высокой горы Солнечной системы.');
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext');
     arrowNextClick.addEventListener('click', () => {

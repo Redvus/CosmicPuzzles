@@ -165,7 +165,8 @@ function categoryDev() {
     ;
 
     let progressChoiceQuestSum = JSON.parse(localStorage.getItem('progressChoiceAll')),
-        progressPrepareQuestSum = JSON.parse(localStorage.getItem('progressPrepareAll')),progressFlightQuestSum = JSON.parse(localStorage.getItem('progressFlightAll'))
+        progressPrepareQuestSum = JSON.parse(localStorage.getItem('progressPrepareAll')),
+        progressFlightQuestSum = JSON.parse(localStorage.getItem('progressFlightAll'))
     ;
 
     if (localStorage.getItem('progressChoiceAll') === null ||

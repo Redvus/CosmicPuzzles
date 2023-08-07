@@ -302,7 +302,7 @@ function questionPrepareCat_3_2() {
 function questionPrepareCat_3_3() {
     let questPrepareCatLoad = new Question();
     let questArrowBack = new ArrowsAll();
-    let answerWrightNum = 1;
+    let answerWrightNum = 2;
     let progressPrepareQuest_3_1 = JSON.parse(localStorage.getItem('progressPrepareQuest_3_1'));
     let progressPrepareQuest_3_2 = JSON.parse(localStorage.getItem('progressPrepareQuest_3_2'));
     let progressPrepareQuest_3_3 = JSON.parse(localStorage.getItem('progressPrepareQuest_3_3'));
@@ -374,7 +374,7 @@ function questionPrepareCat_3_3() {
         }
     }
 
-    questPrepareCatLoad.answerBlock(answerWrightNum, 'Верно, так держать!');
+    questPrepareCatLoad.answerBlock(answerWrightNum, 'Титан — крупнейший спутник Сатурна, второй по величине спутник в Солнечной системе, является единственным, кроме Земли, объектом в Солнечной системе, на котором есть плотная атмосфера с облаками, реки и озёра из сжиженных газов, и имеется даже вода в виде льда. Температура на Титане составляет, в среднем, -179&nbsp;°C.');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext');

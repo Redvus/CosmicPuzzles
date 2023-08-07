@@ -14,7 +14,7 @@ function questionPrepareCat_2_1() {
         localStorage.setItem('progressPrepareQuest_2_1', JSON.stringify(progressPrepareQuest_2_1));
     }
 
-    questPrepareCatLoad.questionBlock('Подготовка', 'Отгадай планету', 'Вечерней звездой» и «Утренней звездой» называли древние греки самое яркое после Солнца и Луны небесное светило, видимое на ночном небе.', 'Сатурн', 'Венера', 'Юпитер');
+    questPrepareCatLoad.questionBlock('Подготовка', 'Отгадай планету', 'Вечерней звездой» и «Утренней звездой» называли древние греки самое яркое после Луны небесное светило, видимое на ночном небе.', 'Сатурн', 'Венера', 'Юпитер');
 
     let answerVar_2_1_1 = document.getElementById('answerVar_1'),
         answerVar_2_1_2 = document.getElementById('answerVar_2'),

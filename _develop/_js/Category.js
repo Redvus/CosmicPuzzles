@@ -89,6 +89,7 @@ class Category {
 
         if (localStorage.getItem(progressNameValue) === null) {
             localStorage.setItem(progressNameValue, JSON.stringify(progressBasic));
+            progressValue.textContent = JSON.parse(localStorage.getItem(progressNameValue));
         } else {
             progressValue.textContent = JSON.parse(localStorage.getItem(progressNameValue));
         }

@@ -14,7 +14,7 @@ function questionPrepareCat_6_1() {
         localStorage.setItem('progressPrepareQuest_6_1', JSON.stringify(progressPrepareQuest_6_1));
     }
 
-    questPrepareCatLoad.questionBlock('Подготовка', 'Отгадай планету', 'Эта планета гигант в 61 раз больше Земли и в 15 раз тяжелее, имеет с десяток спутников, все спутников, все спутники носят имена Шекспировских героев', 'Нептун', 'Земля', 'Уран');
+    questPrepareCatLoad.questionBlock('Подготовка', 'Отгадай планету', 'Эта планета гигант в 61 раз больше Земли и в 15 раз тяжелее, имеет с десяток спутников. Все спутники носят имена Шекспировских героев', 'Нептун', 'Земля', 'Уран');
 
     let answerVar_6_1_1 = document.getElementById('answerVar_1'),
         answerVar_6_1_2 = document.getElementById('answerVar_2'),

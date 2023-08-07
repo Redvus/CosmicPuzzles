@@ -76,7 +76,7 @@ function questionChoiceCat_6_1() {
         }
     }
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, 'АО&nbsp;«РКЦ&nbsp;«Прогресс», ПАО&nbsp;РКК&nbsp;«Энергия», ПАО&nbsp;«Кузнецов»');
+    questChoiceCatLoad.answerBlock(answerWrightNum, 'АО&nbsp;«РКЦ&nbsp;«Прогресс», ПАО&nbsp;РКК&nbsp;«Энергия», ПАО&nbsp;«ОДК-Кузнецов»');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),

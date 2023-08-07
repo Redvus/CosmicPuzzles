@@ -76,7 +76,7 @@ function questionChoiceCat_4_1() {
         }
     }
 
-    questChoiceCatLoad.answerBlock(answerWrightNum, '20 ноября 1998, запущенный в космос первый модуль станции МКС под названием «Заря»');
+    questChoiceCatLoad.answerBlock(answerWrightNum, '20 ноября 1998, запущен в космос первый модуль станции МКС под названием «Заря»');
 
     questArrowBack.arrowNext();
     const arrowNextClick = document.getElementById('answerNext'),

@@ -311,7 +311,7 @@ function questionChoiceCat_3_3() {
         localStorage.setItem('progressChoiceQuest_3_3', JSON.stringify(progressChoiceQuest_3_3));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Женщины космонавты. Позывные.', 'Позывной следующего женщины – название мастера кузнечного дела в Бурятии', 'Елена Серова&nbsp;–</br>«Мастер»', 'Елена Серова&nbsp;–</br>«Тархан»', 'Елена Серова&nbsp;–</br>«Тандыр»');
+    questChoiceCatLoad.questionBlock('Отбор', 'Женщины космонавты. Позывные.', 'Позывной этой женщины – название мастера кузнечного дела в Бурятии', 'Елена Серова&nbsp;–</br>«Мастер»', 'Елена Серова&nbsp;–</br>«Тархан»', 'Елена Серова&nbsp;–</br>«Тандыр»');
 
     let answerVar_3_3_1 = document.getElementById('answerVar_1'),
         answerVar_3_3_2 = document.getElementById('answerVar_2'),
