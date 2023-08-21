@@ -2,13 +2,6 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="9db3ed9b-a895-41dc-92b3-26102b846ddd" name="SMIBS" url="https://smibs.ru/cosmicpuzzles">
-        <fileTransfer rootFolder="/sites/new.smibs.ru/root/assets/games/cosmicpuzzles" accessType="SFTP" host="178.21.10.63" port="22" sshConfigId="5160b10d-3ec4-4bb0-bdcc-5c04de3d358f" sshConfig="root@178.21.10.63:22 password">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
-          </advancedOptions>
-        </fileTransfer>
-      </webServer>
       <webServer id="8cc8c44f-e4bd-443b-a9e6-8b9f8bece417" name="RedvusVoos" url="https://smibs.redvus.ru/games/cosmicpuzzles">
         <fileTransfer rootFolder="/mnt/disk2/site_dev/smibs.redvus.ru/root/assets/games/cosmicpuzzles" accessType="SFTP" host="176.57.215.214" port="22" sshConfigId="7a48a1d2-af8e-46bf-87ba-7e5882b22641" sshConfig="redvus@176.57.215.214:22 password">
           <advancedOptions>

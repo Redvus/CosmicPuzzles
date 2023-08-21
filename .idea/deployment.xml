@@ -11,14 +11,6 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="SMIBS">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/css" local="$PROJECT_DIR$/_build/css" web="/" />
-            <mapping deploy="/js" local="$PROJECT_DIR$/_build/js" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
     </serverData>
   </component>
 </project>

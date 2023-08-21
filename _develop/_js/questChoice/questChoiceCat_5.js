@@ -164,7 +164,7 @@ function questionChoiceCat_5_2() {
         localStorage.setItem('progressChoiceQuest_5_2', JSON.stringify(progressChoiceQuest_5_2));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Космос в цифрах', 'Столько раз космонавты на МКС наблюдают восход и заход Солнца?', 'Двадцать три', 'Шестнадцать', 'Тридцать два');
+    questChoiceCatLoad.questionBlock('Отбор', 'Космос в цифрах', 'Столько раз в сутки космонавты на МКС наблюдают восход и заход Солнца?', 'Двадцать три', 'Шестнадцать', 'Тридцать два');
 
     let answerVar_5_2_1 = document.getElementById('answerVar_1'),
         answerVar_5_2_2 = document.getElementById('answerVar_2'),

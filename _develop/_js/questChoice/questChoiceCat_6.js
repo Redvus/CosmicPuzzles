@@ -311,7 +311,7 @@ function questionChoiceCat_6_3() {
         localStorage.setItem('progressChoiceQuest_6_3', JSON.stringify(progressChoiceQuest_6_3));
     }
 
-    questChoiceCatLoad.questionBlock('Отбор', 'Самара космическая', 'Кого Сергей Павлович Королев назначил курировать производство ракеты&nbsp;– носителя Р-7 в г.&nbsp;Куйбышеве?', 'Баранова Д. А.', 'Баранова Д. А.', 'Козлова Д. И.');
+    questChoiceCatLoad.questionBlock('Отбор', 'Самара космическая', 'Кого Сергей Павлович Королев назначил курировать производство ракеты&nbsp;– носителя Р-7 в г.&nbsp;Куйбышеве?', 'Баранова Д. А.', 'Черток Б. Е.', 'Козлова Д. И.');
 
     let answerVar_6_3_1 = document.getElementById('answerVar_1'),
         answerVar_6_3_2 = document.getElementById('answerVar_2'),
