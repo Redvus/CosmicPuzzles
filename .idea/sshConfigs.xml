@@ -3,7 +3,7 @@
   <component name="SshConfigs">
     <configs>
       <sshConfig authType="PASSWORD" host="176.57.215.214" id="7a48a1d2-af8e-46bf-87ba-7e5882b22641" port="22" nameFormat="DESCRIPTIVE" username="redvus" useOpenSSHConfig="true" />
-      <sshConfig authType="PASSWORD" host="178.21.10.63" id="5160b10d-3ec4-4bb0-bdcc-5c04de3d358f" port="22" nameFormat="DESCRIPTIVE" username="root" useOpenSSHConfig="true" />
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="178.21.10.63" id="5160b10d-3ec4-4bb0-bdcc-5c04de3d358f" port="22" nameFormat="DESCRIPTIVE" username="root" useOpenSSHConfig="true" />
     </configs>
   </component>
 </project>

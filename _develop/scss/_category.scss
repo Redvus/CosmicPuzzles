@@ -262,23 +262,28 @@
                     background-size: 100%;
                 }
 
-                &--hidden {
-
-                    .category__main_image--choice {
-                        background-size: 100%;
-                    }
-
-                    .category__main_image--prepare {
-                        background-size: 100%;
-                    }
-
-                    .category__main_image--flight {
-                        background-size: 100%;
-                    }
-                }
-
                 img {
                     width: 100%;
+                }
+            }
+
+            &--hidden {
+
+                .category__main_image--choice {
+                    background-size: 100%;
+                }
+
+                .category__main_image--prepare {
+                    background-size: 100%;
+                }
+
+                .category__main_image--flight {
+                    background-size: 100%;
+                }
+
+                &:after {
+                    top: 50%;
+                    transform: translateY(0);
                 }
             }
         }
